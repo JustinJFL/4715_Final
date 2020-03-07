@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TestScript : MonoBehaviour
+public class SCR_PlayerMovement : MonoBehaviour
 {
     public float speed;
     private CharacterController character;
