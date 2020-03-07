@@ -23,5 +23,11 @@ public class SCR_PlayerMovement : MonoBehaviour
         Vector3 movement = new Vector3(horizontal, 0.0f, vertical);
 
         character.Move(movement * speed);
+<<<<<<< HEAD
+
+        Debug.Log(horizontal);
+        Debug.Log(vertical);
+=======
+>>>>>>> 4715_final_edward
     }
 }
