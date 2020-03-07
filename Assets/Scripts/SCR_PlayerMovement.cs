@@ -36,7 +36,10 @@ public class SCR_PlayerMovement : MonoBehaviour
             {
                 Move();
             }
-
+        if(Input.GetMouseButton(0))
+        {
+            Debug.Log("ATTACK!!!");
+        }
     }
 
     void Move()
