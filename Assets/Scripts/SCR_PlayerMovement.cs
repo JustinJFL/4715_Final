@@ -8,6 +8,9 @@ public class SCR_PlayerMovement : MonoBehaviour
     [SerializeField]
     float speed = 4f;
     Vector3 forward, right;
+    private Rigidbody rigid;
+
+    public float jumpForce;
     
     // Start is called before the first frame update
     void Start()
@@ -17,6 +20,9 @@ public class SCR_PlayerMovement : MonoBehaviour
         forward.y = 0;
         forward = Vector3.Normalize(forward);
         right = Quaternion.Euler(new Vector3(0,90,0))*forward;
+
+        rigid = GetComponent<Rigidbody>();
+        
     }
 
     // Update is called once per frame
@@ -30,6 +36,7 @@ public class SCR_PlayerMovement : MonoBehaviour
             {
                 Move();
             }
+
     }
 
     void Move()
@@ -44,5 +51,18 @@ public class SCR_PlayerMovement : MonoBehaviour
         transform.forward = heading;
         transform.position += rightMovement;
         transform.position += upMovement;
+    }
+    void Jump()
+    {
+        rigid.AddForce(transform.up * jumpForce);
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if(collision.gameObject.tag == "Ground")
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                Jump();
+            }
     }
 }
