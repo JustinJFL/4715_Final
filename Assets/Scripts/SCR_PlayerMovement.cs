@@ -9,6 +9,7 @@ public class SCR_PlayerMovement : MonoBehaviour
     float speed = 4f;
     Vector3 forward, right;
     private Rigidbody rigid;
+    private bool isAttacking = false;
 
     public float jumpForce;
     
@@ -39,6 +40,7 @@ public class SCR_PlayerMovement : MonoBehaviour
         if(Input.GetMouseButton(0))
         {
             Debug.Log("ATTACK!!!");
+            isAttacking = true;
         }
     }
 
@@ -67,5 +69,16 @@ public class SCR_PlayerMovement : MonoBehaviour
             {
                 Jump();
             }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Enemy")
+        {
+            if(isAttacking == true)
+            {
+                Destroy(other.gameObject);
+            }
+        }
     }
 }
