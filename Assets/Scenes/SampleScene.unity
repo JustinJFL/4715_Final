@@ -464,11 +464,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTrans: {fileID: 277535038}
-<<<<<<< HEAD
-  smooth: 0.5
-=======
   smooth: 0.4
->>>>>>> eff2da18be1d822396656405b9f0b1aa941e8998
 --- !u!1 &2050133908
 GameObject:
   m_ObjectHideFlags: 0
