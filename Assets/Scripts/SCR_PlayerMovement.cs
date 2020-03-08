@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations;
 
 public class SCR_PlayerMovement : MonoBehaviour
 {
@@ -8,6 +9,12 @@ public class SCR_PlayerMovement : MonoBehaviour
     [SerializeField]
     float speed = 4f;
     Vector3 forward, right;
+    private Rigidbody rigid;
+    private bool isAttacking = false;
+    public Animator combatAnimator;
+    private Animation swipe; 
+
+    public float jumpForce;
     
     // Start is called before the first frame update
     void Start()
@@ -17,6 +24,11 @@ public class SCR_PlayerMovement : MonoBehaviour
         forward.y = 0;
         forward = Vector3.Normalize(forward);
         right = Quaternion.Euler(new Vector3(0,90,0))*forward;
+
+        rigid = GetComponent<Rigidbody>();
+        combatAnimator = GetComponent<Animator>();
+        swipe = GetComponent<Animation>();
+        
     }
 
     // Update is called once per frame
@@ -30,6 +42,10 @@ public class SCR_PlayerMovement : MonoBehaviour
             {
                 Move();
             }
+        if(Input.GetMouseButton(0))
+        {
+            Attack();
+        }
     }
 
     void Move()
@@ -44,5 +60,45 @@ public class SCR_PlayerMovement : MonoBehaviour
         transform.forward = heading;
         transform.position += rightMovement;
         transform.position += upMovement;
+    }
+    void Jump()
+    {
+        rigid.AddForce(transform.up * jumpForce);
+    }
+
+    void Attack()
+    {
+        if (combatAnimator.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
+        {
+            Debug.Log("ATTACK!!!");
+            combatAnimator.SetBool("isAttacking", true);
+
+            isAttacking = true;
+        }
+        if (combatAnimator.GetCurrentAnimatorStateInfo(0).IsName("Swipe Attack"))
+        {
+            combatAnimator.SetBool("isAttacking", false);
+            isAttacking = false;
+        }
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if(collision.gameObject.tag == "Ground")
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                Jump();
+            }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if(other.tag == "Enemy")
+        {
+            if(isAttacking == true)
+            {
+                Destroy(other.gameObject);
+            }
+        }
     }
 }
