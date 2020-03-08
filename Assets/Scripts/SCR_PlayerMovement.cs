@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations;
 
 public class SCR_PlayerMovement : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class SCR_PlayerMovement : MonoBehaviour
     Vector3 forward, right;
     private Rigidbody rigid;
     private bool isAttacking = false;
+    public Animator combatAnimator;
+    private Animation swipe; 
 
     public float jumpForce;
     
@@ -23,6 +26,8 @@ public class SCR_PlayerMovement : MonoBehaviour
         right = Quaternion.Euler(new Vector3(0,90,0))*forward;
 
         rigid = GetComponent<Rigidbody>();
+        combatAnimator = GetComponent<Animator>();
+        swipe = GetComponent<Animation>();
         
     }
 
@@ -39,8 +44,7 @@ public class SCR_PlayerMovement : MonoBehaviour
             }
         if(Input.GetMouseButton(0))
         {
-            Debug.Log("ATTACK!!!");
-            isAttacking = true;
+            Attack();
         }
     }
 
@@ -62,6 +66,22 @@ public class SCR_PlayerMovement : MonoBehaviour
         rigid.AddForce(transform.up * jumpForce);
     }
 
+    void Attack()
+    {
+        if (combatAnimator.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
+        {
+            Debug.Log("ATTACK!!!");
+            combatAnimator.SetBool("isAttacking", true);
+
+            isAttacking = true;
+        }
+        if (combatAnimator.GetCurrentAnimatorStateInfo(0).IsName("Swipe Attack"))
+        {
+            combatAnimator.SetBool("isAttacking", false);
+            isAttacking = false;
+        }
+    }
+
     private void OnCollisionStay(Collision collision)
     {
         if(collision.gameObject.tag == "Ground")
@@ -71,7 +91,7 @@ public class SCR_PlayerMovement : MonoBehaviour
             }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if(other.tag == "Enemy")
         {
