@@ -7,6 +7,8 @@ public class SCR_EnemyController : MonoBehaviour
     
     public float moveSpeed = 4;
     public float knockbackForce;
+    public GameObject pickup;
+    public float dropAmount;
 
     private Rigidbody enemyRigidBody;
     private SCR_PlayerCombat playerReferance;
@@ -45,7 +47,12 @@ public class SCR_EnemyController : MonoBehaviour
                enemyRigidBody.AddForce(knockbackDirection.normalized * knockbackForce);
             }
             Debug.Log("I GOT HIT"); 
-
+            for(int i = 0; i < dropAmount; i++)
+            {
+                Instantiate(pickup, transform.position, Quaternion.identity);
+            }
+            Destroy(this.gameObject);
         }
+
     }
 }
