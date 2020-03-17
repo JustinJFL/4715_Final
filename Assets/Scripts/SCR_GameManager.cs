@@ -23,6 +23,7 @@ public class SCR_GameManager : MonoBehaviour
     public void UpdateTotalPoints(float points)
     {
         totalPoints += points;
+        Debug.Log("Score " + totalPoints);
     }
     //Call this went subtracting from store points. enter a negative number to subtract.
     public void UpdateStorePoints(float points)
