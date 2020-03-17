@@ -43,16 +43,21 @@ public class SCR_EnemyController : MonoBehaviour
         {
             if(playerReferance.isAttacking == true)
             {
-               knockbackDirection = enemyRigidBody.transform.position - other.transform.position;
-               enemyRigidBody.AddForce(knockbackDirection.normalized * knockbackForce);
+                knockbackDirection = enemyRigidBody.transform.position - other.transform.position;
+                enemyRigidBody.AddForce(knockbackDirection.normalized * knockbackForce);
+                //this.gameObject.GetComponent<BoxCollider>().enabled = false;
+                for(int i = 0; i < dropAmount; i++)
+                {
+                    float posX = transform.position.x + Random.Range(-2, 2);
+                    float posZ = transform.position.z + Random.Range(-2,2);
+                    Instantiate(pickup, new Vector3(posX, transform.position.y, posZ), Quaternion.identity);
+                }
+                Destroy(this.gameObject);
             }
             Debug.Log("I GOT HIT"); 
-            for(int i = 0; i < dropAmount; i++)
-            {
-                Instantiate(pickup, transform.position, Quaternion.identity);
-            }
-            Destroy(this.gameObject);
-        }
 
+;
+        }
+        // transform.position + new Vector3(posX, transform.position.y,posX)
     }
 }
