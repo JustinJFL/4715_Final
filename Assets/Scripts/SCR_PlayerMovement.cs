@@ -11,6 +11,7 @@ public class SCR_PlayerMovement : MonoBehaviour
     Vector3 forward, right;
 
     private Rigidbody playerRigidBody;
+    private SCR_GameManager gameManager;
 
     public bool isAttacking = false;
     private Vector3 knockbackDirection;
@@ -24,7 +25,16 @@ public class SCR_PlayerMovement : MonoBehaviour
         forward.y = 0;
         forward = Vector3.Normalize(forward);
         right = Quaternion.Euler(new Vector3(0,90,0))*forward;
+
         playerRigidBody = GetComponent<Rigidbody>();
+
+        GameObject game = GameObject.FindWithTag("GameController");
+        if (game != null)
+        {
+            gameManager = game.GetComponent<SCR_GameManager>();
+        }
+        else
+            Debug.Log("Could not find object with Game Manager");
     }
 
     // Update is called once per frame
@@ -70,6 +80,15 @@ public class SCR_PlayerMovement : MonoBehaviour
             {
                 Jump();
             }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Pickups")
+        {
+            Destroy(other.gameObject);
+            gameManager.UpdateStorePoints(gameManager.pickupPoints);
+            gameManager.UpdateTotalPoints(100);
+        }
     }
 
 }
