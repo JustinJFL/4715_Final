@@ -7,8 +7,7 @@ public class SCR_EnemyController : MonoBehaviour
     
     public float moveSpeed = 4;
     public float knockbackForce;
-    public GameObject pickup;
-    public float dropAmount;
+
 
     private Rigidbody enemyRigidBody;
     private SCR_PlayerCombat playerReferance;
@@ -45,19 +44,10 @@ public class SCR_EnemyController : MonoBehaviour
             {
                 knockbackDirection = enemyRigidBody.transform.position - other.transform.position;
                 enemyRigidBody.AddForce(knockbackDirection.normalized * knockbackForce);
-                //this.gameObject.GetComponent<BoxCollider>().enabled = false;
-                for(int i = 0; i < dropAmount; i++)
-                {
-                    float posX = transform.position.x + Random.Range(-2, 2);
-                    float posZ = transform.position.z + Random.Range(-2,2);
-                    Instantiate(pickup, new Vector3(posX, transform.position.y, posZ), Quaternion.identity);
-                }
-                Destroy(this.gameObject);
             }
             Debug.Log("I GOT HIT"); 
 
 ;
         }
-        // transform.position + new Vector3(posX, transform.position.y,posX)
     }
 }
