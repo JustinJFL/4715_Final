@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class SCR_EnemyHealth : MonoBehaviour
 {
@@ -9,6 +11,8 @@ public class SCR_EnemyHealth : MonoBehaviour
     public GameObject pickup;
     public float dropAmount;
 
+    public Scrollbar enemyHealthBar;
+
     private int curHealth;
     private SCR_PlayerCombat playerReferance;
 
@@ -16,6 +20,7 @@ public class SCR_EnemyHealth : MonoBehaviour
     void Start()
     {
         curHealth = totalHealth;
+        enemyHealthBar.size = 1;
         GameObject movement = GameObject.FindWithTag("Player");
         if (movement == null)
         {
@@ -40,23 +45,23 @@ public class SCR_EnemyHealth : MonoBehaviour
         if (other.gameObject.tag == "Attack") //If the enemy is hit with the theoretical "weapon," they take damage.
         {
             curHealth -= takenDamage;
+            enemyHealthBar.size -= (takenDamage * .01f);
         }
     }
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.tag == "Attack")
+        if (curHealth == 0)
         {
-            if (playerReferance.isAttacking == true)
+            for (int i = 0; i < dropAmount; i++)
             {
-                for (int i = 0; i < dropAmount; i++)
-                {
-                    float posX = transform.position.x + Random.Range(-2, 2);
-                    float posZ = transform.position.z + Random.Range(-2, 2);
-                    Instantiate(pickup, new Vector3(posX, transform.position.y, posZ), Quaternion.identity);
-                }
+                float posX = transform.position.x + Random.Range(-2, 2);
+                float posZ = transform.position.z + Random.Range(-2, 2);
+                Instantiate(pickup, new Vector3(posX, transform.position.y, posZ), Quaternion.identity);
             }
+            Destroy(this.gameObject);
             Debug.Log("I GOT HIT");
         }
+
 
     }
 }
