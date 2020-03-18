@@ -8,17 +8,20 @@ using TMPro;
 public class SCR_GameManager : MonoBehaviour
 {
     private float storePoints;
-    private float totalPoints;
+    private float totalPoints = 0;
     [SerializeField]
     public float pickupPoints;
 
-    public TextMeshPro scoreText;
+    //public TextMeshProUGUI scoreText;
 
 
     // Start is called before the first frame update
     void Start()
     {
-       // scoreText = GameObject.Find("Score").GetComponent<TextMeshPro>();
+        Debug.Log("ass");
+        //scoreText = GetComponent<TextMeshProUGUI>();
+        //scoreText.SetText("Score: " + 0.ToString());
+        //scoreText.ForceMeshUpdate(true);
     }
 
     // Update is called once per frame
@@ -31,7 +34,7 @@ public class SCR_GameManager : MonoBehaviour
     {
         totalPoints += points;
         Debug.Log("Score " + totalPoints);
-        //scoreText.text = "Score: " + totalPoints;
+        //scoreText.text = "Score: " + totalPoints.ToString();
     }
     //Call this went subtracting from store points. enter a negative number to subtract.
     public void UpdateStorePoints(float points)
