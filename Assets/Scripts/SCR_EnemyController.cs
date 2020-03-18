@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class SCR_EnemyController : MonoBehaviour
 {
@@ -13,6 +15,9 @@ public class SCR_EnemyController : MonoBehaviour
     private SCR_PlayerCombat playerReferance;
     private Vector3 knockbackDirection;
 
+    public Scrollbar enemyHealthBar;
+    public GameObject enemyHealthBarTarget; //Target attached to the camera for the health bar to orient itself toward the camera.
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +29,9 @@ public class SCR_EnemyController : MonoBehaviour
         }
         else
             playerReferance = movement.GetComponent<SCR_PlayerCombat>();
+
+        //Object must be tagged with HealthTarget and attached to the camera gameobject so the enemy health bar can properly be oriented toward the camera.
+        enemyHealthBarTarget = GameObject.FindWithTag("HealthTarget");
     }
 
     // Update is called once per frame
@@ -33,6 +41,9 @@ public class SCR_EnemyController : MonoBehaviour
         transform.LookAt(GameObject.FindGameObjectWithTag("Player").transform);
         transform.position += transform.forward * moveSpeed * Time.deltaTime;
         //Destroy(gameObject,Random.Range(7.0f,12.0f));
+
+        //Updating transformation of health bar object to face the target attached to player camera.
+        enemyHealthBar.transform.LookAt(enemyHealthBarTarget.transform.position);
     }
 
     private void OnTriggerStay(Collider other)
@@ -44,6 +55,14 @@ public class SCR_EnemyController : MonoBehaviour
             {
                 knockbackDirection = enemyRigidBody.transform.position - other.transform.position;
                 enemyRigidBody.AddForce(knockbackDirection.normalized * knockbackForce);
+                //this.gameObject.GetComponent<BoxCollider>().enabled = false;
+                for(int i = 0; i < dropAmount; i++)
+                {
+                    float posX = transform.position.x + Random.Range(-2, 2);
+                    float posZ = transform.position.z + Random.Range(-2,2);
+                    Instantiate(pickup, new Vector3(posX, transform.position.y, posZ), Quaternion.identity);
+                }
+                Destroy(this.gameObject);
             }
             Debug.Log("I GOT HIT"); 
 
