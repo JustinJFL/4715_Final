@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Animations;
 
-public class SCR_PlayerMovement : MonoBehaviour
+public class SCR_PlayerController : MonoBehaviour
 {
 
     [SerializeField]
