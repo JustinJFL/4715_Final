@@ -9,6 +9,7 @@ TagManager:
   - Attack
   - Pickups
   - HealthTarget
+  - PlayerCollider
   layers:
   - Default
   - TransparentFX
