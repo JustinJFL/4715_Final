@@ -32,14 +32,17 @@ public class SCR_PlayerHealth : MonoBehaviour
         }
     }
 
-        private void OnCollisionEnter(Collision other)
+    private void OnCollisionEnter(Collision collision)
     {
-        if(other.gameObject.tag == "Enemy")
+        Debug.Log("I'm Hit");
+        if (collision.gameObject.tag == "Enemy")
         {
-            curHealth -= takenDamage;
-        
+
+            curHealth -=  takenDamage;
+
             //setting the size of the health bar to reflect players current health.
-            playerHealthBar.size -= (takenDamage *.01f);
+            playerHealthBar.size -= (takenDamage * .01f);
         }
     }
+
 }
