@@ -9,8 +9,7 @@ public class SCR_PlayerHealth : MonoBehaviour
 {
     public int startHealth;
     public int takenDamage; // Damage player takes from touching enemy hurtbox.
-
-    private int curHealth;
+    public int curHealth;
 
     public Scrollbar playerHealthBar;
     

@@ -12,7 +12,7 @@ public class SCR_GameManager : MonoBehaviour
     [SerializeField]
     public float pickupPoints;
 
-    //public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI scoreText;
 
 
     // Start is called before the first frame update
@@ -20,8 +20,8 @@ public class SCR_GameManager : MonoBehaviour
     {
         Debug.Log("ass");
         //scoreText = GetComponent<TextMeshProUGUI>();
-        //scoreText.SetText("Score: " + 0.ToString());
-        //scoreText.ForceMeshUpdate(true);
+        scoreText.SetText("Score: 0");
+        scoreText.ForceMeshUpdate(true);
     }
 
     // Update is called once per frame
@@ -34,7 +34,7 @@ public class SCR_GameManager : MonoBehaviour
     {
         totalPoints += points;
         Debug.Log("Score " + totalPoints);
-        //scoreText.text = "Score: " + totalPoints.ToString();
+        scoreText.SetText("Score: " + totalPoints.ToString());
     }
     //Call this went subtracting from store points. enter a negative number to subtract.
     public void UpdateStorePoints(float points)
