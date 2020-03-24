@@ -385,10 +385,12 @@ GameObject:
   - component: {fileID: 121836762}
   - component: {fileID: 121836761}
   - component: {fileID: 121836759}
-  - component: {fileID: 121836758}
   - component: {fileID: 121836757}
   - component: {fileID: 121836756}
   - component: {fileID: 121836755}
+  - component: {fileID: 121836758}
+  - component: {fileID: 121836764}
+  - component: {fileID: 121836760}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -494,6 +496,20 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!136 &121836760
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 121836753}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &121836761
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -540,6 +556,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 121836753}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &121836764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 121836753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18e4b145a9b0d6249a191050d18a9b23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startHealth: 100
+  takenDamage: 10
+  curHealth: 0
+  playerHealthBar: {fileID: 1459844185}
 --- !u!1 &164789914
 GameObject:
   m_ObjectHideFlags: 0
@@ -1167,8 +1199,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1374392134}
-  - component: {fileID: 1374392135}
-  - component: {fileID: 1374392136}
   m_Layer: 0
   m_Name: Player Collider
   m_TagString: PlayerCollider
@@ -1190,36 +1220,6 @@ Transform:
   m_Father: {fileID: 121836754}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &1374392135
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1374392133}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1374392136
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1374392133}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18e4b145a9b0d6249a191050d18a9b23, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startHealth: 100
-  takenDamage: 10
-  curHealth: 0
-  playerHealthBar: {fileID: 1459844185}
 --- !u!1 &1459844183
 GameObject:
   m_ObjectHideFlags: 0
@@ -1661,7 +1661,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be1d2fd6f02c8754597804e219b13afd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerHealth: {fileID: 1374392136}
+  playerHealth: {fileID: 121836764}
   enemy: {fileID: 3614872143284071286, guid: 8886a270b42f13143bd1253cb1ca981f, type: 3}
   spawnTime: 3
   spawnPoints:
