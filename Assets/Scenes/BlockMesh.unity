@@ -16108,8 +16108,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 849068269}
-  - component: {fileID: 849068271}
-  - component: {fileID: 849068270}
   m_Layer: 0
   m_Name: Player Collider
   m_TagString: PlayerCollider
@@ -16131,36 +16129,6 @@ Transform:
   m_Father: {fileID: 1090991720}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &849068270
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 849068268}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18e4b145a9b0d6249a191050d18a9b23, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startHealth: 100
-  takenDamage: 10
-  curHealth: 0
-  playerHealthBar: {fileID: 1339157833}
---- !u!136 &849068271
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 849068268}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &854551895
 GameObject:
   m_ObjectHideFlags: 0
@@ -20297,7 +20265,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be1d2fd6f02c8754597804e219b13afd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerHealth: {fileID: 849068270}
+  playerHealth: {fileID: 1090991721}
   enemy: {fileID: 3614872143284071286, guid: 8886a270b42f13143bd1253cb1ca981f, type: 3}
   spawnTime: 3
   spawnPoints:
@@ -20690,6 +20658,8 @@ GameObject:
   - component: {fileID: 1090991715}
   - component: {fileID: 1090991714}
   - component: {fileID: 1090991713}
+  - component: {fileID: 1090991722}
+  - component: {fileID: 1090991721}
   m_Layer: 0
   m_Name: Player (1)
   m_TagString: Player
@@ -20841,6 +20811,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1090991721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1090991712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18e4b145a9b0d6249a191050d18a9b23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startHealth: 100
+  takenDamage: 10
+  curHealth: 0
+  playerHealthBar: {fileID: 1339157833}
+--- !u!136 &1090991722
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1090991712}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1096308864
 GameObject:
   m_ObjectHideFlags: 0
@@ -33083,7 +33083,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77b93c41091d9dc4c8072dbc464e03be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerReference: {fileID: 0}
+  attack: {fileID: 0}
   totalHealth: 100
   takenDamage: 50
   pickup: {fileID: 3114822982699482712, guid: ce0e3598b7edbee4fa8dd6f67982099a, type: 3}

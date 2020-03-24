@@ -20,7 +20,7 @@ public class SCR_Victory : MonoBehaviour
     void OnTriggerEnter(Collider other) 
     {
         Debug.Log("testing trigger for victory");
-        if(other.gameObject.tag == "PlayerCollider")
+        if(other.gameObject.tag == "Player")
         {
         SceneManager.LoadScene("ShopMenu", LoadSceneMode.Single);
         }
