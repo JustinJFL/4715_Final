@@ -6,12 +6,17 @@ using UnityEngine.UIElements;
 
 public class SCR_EnemyHealth : MonoBehaviour
 {
+    public SCR_PlayerController attack;
     public int totalHealth;
     public int takenDamage; // Damage taken from touching player's weapon.
     public GameObject pickup;
     public float dropAmount;
+    public SCR_Spawner spawner;
 
     public Scrollbar enemyHealthBar;
+
+    private int curHealth;
+    private SCR_PlayerCombat playerReferance;
 
     private int curHealth;
     private SCR_PlayerCombat playerReferance;
@@ -28,6 +33,9 @@ public class SCR_EnemyHealth : MonoBehaviour
         }
         else
             playerReferance = movement.GetComponent<SCR_PlayerCombat>();
+
+        attack = FindObjectOfType<SCR_PlayerController>();
+        spawner = FindObjectOfType<SCR_Spawner>();
     }
 
     // Update is called once per frame
@@ -36,6 +44,7 @@ public class SCR_EnemyHealth : MonoBehaviour
         if (curHealth <= 0)
         {
             Destroy(gameObject);
+            spawner.enemyCount -= 1;
             //Spawn an item on enemy's death?
         }
     }
