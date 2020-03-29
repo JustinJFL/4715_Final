@@ -59,7 +59,7 @@ public class SCR_EnemyHealth : MonoBehaviour
     }
     private void OnTriggerStay(Collider other)
     {
-        if (curHealth == 0)
+        if (curHealth <= 0)
         {
             for (int i = 0; i < dropAmount; i++)
             {

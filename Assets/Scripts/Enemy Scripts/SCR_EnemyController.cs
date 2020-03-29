@@ -46,7 +46,7 @@ public class SCR_EnemyController : MonoBehaviour
         enemyHealthBar.transform.LookAt(enemyHealthBarTarget.transform.position);
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         //Apply knockback when hit by attack range 
         if(other.gameObject.tag == "Attack")

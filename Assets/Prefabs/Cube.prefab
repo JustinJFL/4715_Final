@@ -321,7 +321,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 4
-  knockbackForce: 250
+  knockbackForce: 800
   enemyHealthBar: {fileID: 3614872143065097036}
   enemyHealthBarTarget: {fileID: 0}
 --- !u!114 &3614872143284071281
