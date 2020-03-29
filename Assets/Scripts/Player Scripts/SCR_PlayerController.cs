@@ -81,9 +81,9 @@ public class SCR_PlayerMovement : MonoBehaviour
                 Jump();
             }
     }
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision other)
     {
-        if(other.tag == "Pickups")
+        if(other.gameObject.tag == "Pickups")
         {
             Destroy(other.gameObject);
             gameManager.UpdateStorePoints(gameManager.pickupPoints);

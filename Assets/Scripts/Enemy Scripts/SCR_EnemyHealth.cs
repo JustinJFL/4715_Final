@@ -6,17 +6,17 @@ using UnityEngine.UIElements;
 
 public class SCR_EnemyHealth : MonoBehaviour
 {
-    public SCR_PlayerController attack;
+    public SCR_PlayerController playerReferance;
     public int totalHealth;
-    public int takenDamage; // Damage taken from touching player's weapon.
+    //public int takenDamage; // Damage taken from touching player's weapon.
     public GameObject pickup;
     public float dropAmount;
     public SCR_Spawner spawner;
 
     public Scrollbar enemyHealthBar;
 
-    private int curHealth;
-    private SCR_PlayerCombat playerReferance;
+    private float curHealth;
+    private SCR_PlayerCombat attack;
 
     //private int curHealth;
     //private SCR_PlayerCombat playerReferance;
@@ -32,9 +32,9 @@ public class SCR_EnemyHealth : MonoBehaviour
             Debug.Log("Player Reference could not be found");
         }
         else
-            playerReferance = movement.GetComponent<SCR_PlayerCombat>();
+            playerReferance = movement.GetComponent<SCR_PlayerController>();
 
-        attack = FindObjectOfType<SCR_PlayerController>();
+        attack = FindObjectOfType<SCR_PlayerCombat>();
         spawner = FindObjectOfType<SCR_Spawner>();
     }
 
@@ -53,8 +53,8 @@ public class SCR_EnemyHealth : MonoBehaviour
     {
         if (other.gameObject.tag == "Attack") //If the enemy is hit with the theoretical "weapon," they take damage.
         {
-            curHealth -= takenDamage;
-            enemyHealthBar.size -= (takenDamage * .01f);
+            curHealth -= attack.damageOnHit;
+            enemyHealthBar.size -= (attack.damageOnHit * .01f);
         }
     }
     private void OnTriggerStay(Collider other)

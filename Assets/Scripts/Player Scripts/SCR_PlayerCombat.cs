@@ -9,12 +9,20 @@ public class SCR_PlayerCombat : MonoBehaviour
 
     public float knockbackForce;
     public bool isAttacking = false;
+    //Since Attacks do different amount of damage, this variable will be called by the enemy health script to 
+    //apply damage to it 
+    public float damageOnHit = 0f;
+    public GameObject arm;
+
+    [SerializeField]
+    private float SwipeAttackDamage = 30f;
     private Vector3 knockbackDirection;
     // Start is called before the first frame update
     void Start()
     {
         playerRigidBody = GetComponent<Rigidbody>();
         combatAnimator = GetComponent<Animator>();
+        arm.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -25,12 +33,7 @@ public class SCR_PlayerCombat : MonoBehaviour
             Attack();
 
         }
-            //Checks if current animation state is on Swipe Attack
-        if (combatAnimator.GetCurrentAnimatorStateInfo(0).IsName("Swipe Attack"))
-        {
-            combatAnimator.SetBool("isAttacking", false);
-            isAttacking = false;
-        }
+        SetToIdle();
     }
 
     void Attack()
@@ -40,8 +43,28 @@ public class SCR_PlayerCombat : MonoBehaviour
         {
             Debug.Log("ATTACK!!!");
             combatAnimator.SetBool("isAttacking", true);
-
+            arm.gameObject.SetActive(true);
             isAttacking = true;
+            damageOnHit = SwipeAttackDamage;
+        }
+    }
+
+    void SetToIdle()
+    {
+        //Checks if current animation state is on Swipe Attack
+        if (combatAnimator.GetCurrentAnimatorStateInfo(0).IsName("ANIM_Swipe_Attack_1"))
+        {
+            combatAnimator.SetBool("isAttacking", false);
+            isAttacking = false;
+            arm.gameObject.SetActive(false);
+            combatAnimator.SetBool("didRightWingAttack", true);
+        }
+        if (combatAnimator.GetCurrentAnimatorStateInfo(0).IsName("ANIM_Swipe_Attack_2"))
+        {
+            combatAnimator.SetBool("isAttacking", false);
+            isAttacking = false;
+            arm.gameObject.SetActive(false);
+            combatAnimator.SetBool("didRightWingAttack", false);
         }
     }
 
