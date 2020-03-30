@@ -18,6 +18,9 @@ public class SCR_EnemyHealth : MonoBehaviour
     private int curHealth;
     private SCR_PlayerCombat playerReferance;
 
+    //private int curHealth;
+    //private SCR_PlayerCombat playerReferance;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -65,7 +68,7 @@ public class SCR_EnemyHealth : MonoBehaviour
                 Instantiate(pickup, new Vector3(posX, transform.position.y, posZ), Quaternion.identity);
             }
             Destroy(this.gameObject);
-            Debug.Log("I GOT HIT");
+            //Debug.Log("I GOT HIT");
         }
 
 

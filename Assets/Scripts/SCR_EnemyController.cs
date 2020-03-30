@@ -57,7 +57,7 @@ public class SCR_EnemyController : MonoBehaviour
                 enemyRigidBody.AddForce(knockbackDirection.normalized * knockbackForce);
                 //this.gameObject.GetComponent<BoxCollider>().enabled = false;
             }
-            Debug.Log("I GOT HIT"); 
+            //Debug.Log("I GOT HIT"); 
         }
     }
 }

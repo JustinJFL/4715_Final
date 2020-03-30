@@ -24,7 +24,6 @@ public class SCR_Spawner : MonoBehaviour
             return;
         }
 
-       
         int spawnPointIndex = Random.Range(0, spawnPoints.Length);
         Instantiate(enemy, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
         enemyCount += 1;
