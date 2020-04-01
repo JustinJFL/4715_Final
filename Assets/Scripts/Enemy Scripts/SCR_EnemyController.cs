@@ -12,7 +12,7 @@ public class SCR_EnemyController : MonoBehaviour
 
 
     private Rigidbody enemyRigidBody;
-    private SCR_PlayerCombat playerReferance;
+    private SCR_PlayerCombat playerAttack;
     private Vector3 knockbackDirection;
 
     public Scrollbar enemyHealthBar;
@@ -28,7 +28,7 @@ public class SCR_EnemyController : MonoBehaviour
             Debug.Log("Player Reference could not be found");
         }
         else
-            playerReferance = movement.GetComponent<SCR_PlayerCombat>();
+            playerAttack = movement.GetComponent<SCR_PlayerCombat>();
 
         //Object must be tagged with HealthTarget and attached to the camera gameobject so the enemy health bar can properly be oriented toward the camera.
         enemyHealthBarTarget = GameObject.FindWithTag("HealthTarget");
@@ -51,10 +51,10 @@ public class SCR_EnemyController : MonoBehaviour
         //Apply knockback when hit by attack range 
         if(other.gameObject.tag == "Attack")
         {
-            if (playerReferance.isAttacking == true)
+            if (playerAttack.isAttacking == true)
             {
-                knockbackDirection = enemyRigidBody.transform.position - other.transform.position;
-                enemyRigidBody.AddForce(knockbackDirection.normalized * knockbackForce);
+                knockbackDirection = enemyRigidBody.transform.position - playerAttack.transform.position;
+                enemyRigidBody.AddForce(knockbackDirection.normalized * playerAttack.playerAttackKnockback.knockbackOnHit);
                 //this.gameObject.GetComponent<BoxCollider>().enabled = false;
             }
             //Debug.Log("I GOT HIT"); 

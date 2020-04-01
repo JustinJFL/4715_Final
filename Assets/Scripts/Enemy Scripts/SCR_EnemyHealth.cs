@@ -18,7 +18,6 @@ public class SCR_EnemyHealth : MonoBehaviour
     private float curHealth;
     private SCR_PlayerCombat attack;
 
-    //private int curHealth;
     //private SCR_PlayerCombat playerReferance;
 
     // Start is called before the first frame update
@@ -53,8 +52,8 @@ public class SCR_EnemyHealth : MonoBehaviour
     {
         if (other.gameObject.tag == "Attack") //If the enemy is hit with the theoretical "weapon," they take damage.
         {
-            curHealth -= attack.damageOnHit;
-            enemyHealthBar.size -= (attack.damageOnHit * .01f);
+            curHealth -= attack.playerAttack.damageOnHit;
+            enemyHealthBar.size -= (attack.playerAttack.damageOnHit * .01f);
         }
     }
     private void OnTriggerStay(Collider other)
