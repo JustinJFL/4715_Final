@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Animations;
 
+
 public class SCR_PlayerMovement : MonoBehaviour
 {
 
@@ -17,6 +18,7 @@ public class SCR_PlayerMovement : MonoBehaviour
     private Vector3 knockbackDirection;
 
     public float jumpForce;
+    private Vector3 lookTarget;
     // Start is called before the first frame update
     void Start()
     {
@@ -48,10 +50,7 @@ public class SCR_PlayerMovement : MonoBehaviour
             {
                 Move();
             }
-        //Attacking with Left Mouse Button
-
     }
-
     void Move()
     {
         //Getting different vector3 values for both the horizontal movement and vertical movement to set transform of player
