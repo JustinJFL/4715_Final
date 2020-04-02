@@ -50,7 +50,7 @@ public class SCR_PlayerCombat : MonoBehaviour
         //Apply knockback when hit by enemy, knockback power will change based on enemy
         if (collision.gameObject.tag == "Enemy")
         {
-            Debug.Log("I GOT HIT");
+            //Debug.Log("I GOT HIT");
             knockbackDirection = playerRigidBody.transform.position - collision.transform.position;
             playerRigidBody.AddForce(knockbackDirection.normalized * knockbackForce);
 
