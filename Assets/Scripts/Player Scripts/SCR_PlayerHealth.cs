@@ -26,7 +26,7 @@ public class SCR_PlayerHealth : MonoBehaviour
         //defining health and energy variables
         curHealth = startHealth;
         healthRingImage.sprite = healthSprites[10];
-        curEnergy = 100;
+        curEnergy = startHealth;
 
         //playerHealthBar.size = 1;
 
