@@ -342,6 +342,8 @@ MonoBehaviour:
   dropAmount: 1
   spawner: {fileID: 0}
   enemyHealthBar: {fileID: 3614872143065097036}
+  enemyDeathEffects: {fileID: 3756080770694171730, guid: b8bed9156ce292c4585a1eda901505a8,
+    type: 3}
 --- !u!1 &3614872143397500445
 GameObject:
   m_ObjectHideFlags: 0

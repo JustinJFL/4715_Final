@@ -18,6 +18,7 @@ public class SCR_EnemyHealth : MonoBehaviour
     private float curHealth;
     private SCR_PlayerCombat attack;
 
+    public GameObject enemyDeathEffects;
     //private SCR_PlayerCombat playerReferance;
 
     // Start is called before the first frame update
@@ -66,6 +67,7 @@ public class SCR_EnemyHealth : MonoBehaviour
                 float posZ = transform.position.z + Random.Range(-2, 2);
                 Instantiate(pickup, new Vector3(posX, transform.position.y, posZ), Quaternion.identity);
             }
+            Instantiate(enemyDeathEffects,transform.position,transform.rotation);
             Destroy(this.gameObject);
             //Debug.Log("I GOT HIT");
         }
