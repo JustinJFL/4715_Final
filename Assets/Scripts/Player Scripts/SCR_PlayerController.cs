@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Animations;
 
+
 public class SCR_PlayerMovement : MonoBehaviour
 {
 
@@ -17,6 +18,7 @@ public class SCR_PlayerMovement : MonoBehaviour
     private Vector3 knockbackDirection;
 
     public float jumpForce;
+    private Vector3 lookTarget;
     // Start is called before the first frame update
     void Start()
     {
@@ -48,8 +50,6 @@ public class SCR_PlayerMovement : MonoBehaviour
             {
                 Move();
             }
-        //Attacking with Left Mouse Button
-
     }
 
     void Move()
@@ -81,9 +81,9 @@ public class SCR_PlayerMovement : MonoBehaviour
                 Jump();
             }
     }
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision other)
     {
-        if(other.tag == "Pickups")
+        if(other.gameObject.tag == "Pickups")
         {
             Destroy(other.gameObject);
             gameManager.UpdateStorePoints(gameManager.pickupPoints);

@@ -321,7 +321,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 4
-  knockbackForce: 500
+  knockbackForce: 800
   enemyHealthBar: {fileID: 3614872143065097036}
   enemyHealthBarTarget: {fileID: 0}
 --- !u!114 &3614872143284071281
@@ -336,9 +336,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77b93c41091d9dc4c8072dbc464e03be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack: {fileID: 0}
+  playerReferance: {fileID: 0}
   totalHealth: 100
-  takenDamage: 50
   pickup: {fileID: 3114822982699482712, guid: ce0e3598b7edbee4fa8dd6f67982099a, type: 3}
   dropAmount: 1
   spawner: {fileID: 0}
