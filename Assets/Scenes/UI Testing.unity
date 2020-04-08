@@ -228,7 +228,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 5108146294284567459}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1063837021}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 18e4b145a9b0d6249a191050d18a9b23, type: 3}
@@ -723,6 +723,24 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1063837021 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5108146294305347442, guid: da55de1e871ae59498c2bd34ea7924eb,
+    type: 3}
+  m_PrefabInstance: {fileID: 5108146294284567459}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1063837030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1063837021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47496f3e662d4084a92e6ba45b38d3ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1101840069
 GameObject:
   m_ObjectHideFlags: 0
@@ -6062,5 +6080,10 @@ PrefabInstance:
       propertyPath: energyRingImage
       value: 
       objectReference: {fileID: 1735947761}
+    - target: {fileID: 5108146294305347445, guid: da55de1e871ae59498c2bd34ea7924eb,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da55de1e871ae59498c2bd34ea7924eb, type: 3}

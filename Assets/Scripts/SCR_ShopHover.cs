@@ -11,7 +11,7 @@ public class SCR_ShopHover : MonoBehaviour
 
     void moveCamera()
 {
-
+        
 }
 
 }

@@ -19,6 +19,10 @@ public class SCR_EnemyHealth : MonoBehaviour
     private SCR_PlayerCombat attack;
 
     public GameObject enemyDeathEffects;
+
+    public AudioSource playerAttackSFX;
+
+
     //private SCR_PlayerCombat playerReferance;
 
     // Start is called before the first frame update
@@ -55,6 +59,7 @@ public class SCR_EnemyHealth : MonoBehaviour
         {
             curHealth -= attack.playerAttack.damageOnHit;
             enemyHealthBar.size -= (attack.playerAttack.damageOnHit * .01f);
+            playerAttackSFX.Play();
         }
     }
     private void OnTriggerStay(Collider other)
