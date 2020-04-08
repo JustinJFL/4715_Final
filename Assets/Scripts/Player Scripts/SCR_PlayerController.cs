@@ -51,6 +51,7 @@ public class SCR_PlayerMovement : MonoBehaviour
                 Move();
             }
     }
+
     void Move()
     {
         //Getting different vector3 values for both the horizontal movement and vertical movement to set transform of player
