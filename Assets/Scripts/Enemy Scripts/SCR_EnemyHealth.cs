@@ -18,6 +18,11 @@ public class SCR_EnemyHealth : MonoBehaviour
     private float curHealth;
     private SCR_PlayerCombat attack;
 
+    public GameObject enemyDeathEffects;
+
+    public AudioSource playerAttackSFX;
+
+
     //private SCR_PlayerCombat playerReferance;
 
     // Start is called before the first frame update
@@ -54,6 +59,7 @@ public class SCR_EnemyHealth : MonoBehaviour
         {
             curHealth -= attack.playerAttack.damageOnHit;
             enemyHealthBar.size -= (attack.playerAttack.damageOnHit * .01f);
+            playerAttackSFX.Play();
         }
     }
     private void OnTriggerStay(Collider other)
@@ -66,6 +72,7 @@ public class SCR_EnemyHealth : MonoBehaviour
                 float posZ = transform.position.z + Random.Range(-2, 2);
                 Instantiate(pickup, new Vector3(posX, transform.position.y, posZ), Quaternion.identity);
             }
+            Instantiate(enemyDeathEffects,transform.position,transform.rotation);
             Destroy(this.gameObject);
             //Debug.Log("I GOT HIT");
         }
