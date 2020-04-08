@@ -7,10 +7,13 @@ public class SCR_CameraController : MonoBehaviour
     public Transform playerTrans;
     public float smooth = .5f;
     private Vector3 playerCameraOffset;
+    public Transform Obstruction;
+    float zoomSpeed = 2f;
 
     // Start is called before the first frame update
     void Start()
     {
+        Obstruction = playerTrans;
         playerCameraOffset = transform.position - playerTrans.position;
     }
 
@@ -18,7 +21,7 @@ public class SCR_CameraController : MonoBehaviour
     void LateUpdate()
     {
         Vector3 newPos = playerTrans.position + playerCameraOffset;
-
         transform.position = Vector3.Slerp(transform.position,newPos,smooth);
     }
+
 }
