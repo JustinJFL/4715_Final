@@ -21,6 +21,7 @@ public class SCR_EnemyController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         enemyRigidBody = GetComponent<Rigidbody>();
         GameObject movement = GameObject.FindWithTag("Player");
         if (movement == null)
@@ -37,6 +38,7 @@ public class SCR_EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         //makes enemy walk directly towards player current position
         transform.LookAt(GameObject.FindGameObjectWithTag("Player").transform);
         transform.position += transform.forward * moveSpeed * Time.deltaTime;
