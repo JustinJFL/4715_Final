@@ -54,9 +54,10 @@ public class SCR_EnemyHealth : MonoBehaviour
         {
             curHealth -= attack.playerAttack.damageOnHit;
             enemyHealthBar.size -= (attack.playerAttack.damageOnHit * .01f);
+            DeathCheck();
         }
     }
-    private void OnTriggerStay(Collider other)
+    void DeathCheck()
     {
         if (curHealth <= 0)
         {
@@ -69,7 +70,5 @@ public class SCR_EnemyHealth : MonoBehaviour
             Destroy(this.gameObject);
             //Debug.Log("I GOT HIT");
         }
-
-
     }
 }
