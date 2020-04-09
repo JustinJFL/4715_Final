@@ -59,11 +59,11 @@ public class SCR_EnemyHealth : MonoBehaviour
         {
             curHealth -= attack.playerAttack.damageOnHit;
             enemyHealthBar.size -= (attack.playerAttack.damageOnHit * .01f);
-            playerAttackSFX.Play();
+            DeathCheck();
         }
     }
-    private void OnTriggerStay(Collider other)
-    {
+    void DeathCheck()
+    {
         if (curHealth <= 0)
         {
             for (int i = 0; i < dropAmount; i++)
@@ -75,8 +75,6 @@ public class SCR_EnemyHealth : MonoBehaviour
             Instantiate(enemyDeathEffects,transform.position,transform.rotation);
             Destroy(this.gameObject);
             //Debug.Log("I GOT HIT");
-        }
-
-
+        }
     }
 }
