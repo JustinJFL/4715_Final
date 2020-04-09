@@ -19,6 +19,9 @@ public class SCR_PlayerMovement : MonoBehaviour
 
     public float jumpForce;
     private Vector3 lookTarget;
+
+    
+
     // Start is called before the first frame update
     void Start()
     {

@@ -14,6 +14,10 @@ public class SCR_GameManager : MonoBehaviour
 
     public TextMeshProUGUI scoreText;
 
+    public AudioSource playerDeathSFX;
+
+    public GameObject playerObject;
+    private bool playerDeath = false;
 
     // Start is called before the first frame update
     void Start()
@@ -22,12 +26,17 @@ public class SCR_GameManager : MonoBehaviour
         //scoreText = GetComponent<TextMeshProUGUI>();
         scoreText.SetText("Score: 0");
         scoreText.ForceMeshUpdate(true);
+        playerObject = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(playerObject.GetComponent<SCR_PlayerHealth>().curHealth <=0 & playerDeath == false)
+        {
+            playerDeathSFX.Play();
+            playerDeath = true;
+        }
     }
 
     public void UpdateTotalPoints(float points)
