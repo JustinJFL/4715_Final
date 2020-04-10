@@ -43,20 +43,20 @@ public class SCR_PowerSap : MonoBehaviour
     IEnumerator Drain()
     {
         isCharging = true;
-        player.GetComponent<SCR_PlayerMovement>().enabled = false;
+        player.GetComponent<SCR_PlayerController>().enabled = false;
         Debug.Log("Charging...");
         
         tmp = player.GetComponent<SCR_PlayerHealth>().curEnergy;
         player.GetComponent<SCR_PlayerHealth>().energyDecreaseRate = -30;
 
         yield return new WaitForSeconds(5);
-        player.GetComponent<SCR_PlayerMovement>().enabled = true;
+        player.GetComponent<SCR_PlayerController>().enabled = true;
     }
 
     void Stop()
     {
         isCharging = false;
-        player.GetComponent<SCR_PlayerMovement>().enabled = true;
+        player.GetComponent<SCR_PlayerController>().enabled = true;
         Debug.Log("Charge stopped.");
         player.GetComponent<SCR_PlayerHealth>().curEnergy = tmp;
         player.GetComponent<SCR_PlayerHealth>().energyDecreaseRate = 20;
