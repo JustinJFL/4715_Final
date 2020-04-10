@@ -60,7 +60,7 @@ MonoBehaviour:
     zMax: 25
   FieldOfViewAngle: 110
   player: {fileID: 5108146294305347442, guid: da55de1e871ae59498c2bd34ea7924eb, type: 3}
-  maxSightDistance: 2
+  maxSightDistance: 0.4
   wanderTime: 1
   MaxWanderTime: 3
 --- !u!1102 &-2565716876163599440
@@ -130,13 +130,13 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: isHealthZero
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer

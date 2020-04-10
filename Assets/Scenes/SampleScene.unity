@@ -1097,6 +1097,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cube (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3614872143284071287, guid: 8886a270b42f13143bd1253cb1ca981f,
+        type: 3}
+      propertyPath: enemyHealthBarTarget
+      value: 
+      objectReference: {fileID: 672119671}
     - target: {fileID: 3614872143284071280, guid: 8886a270b42f13143bd1253cb1ca981f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1152,11 +1157,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3614872143284071287, guid: 8886a270b42f13143bd1253cb1ca981f,
-        type: 3}
-      propertyPath: enemyHealthBarTarget
-      value: 
-      objectReference: {fileID: 672119671}
     - target: {fileID: 3614872143284071281, guid: 8886a270b42f13143bd1253cb1ca981f,
         type: 3}
       propertyPath: playerReferance
@@ -1172,15 +1172,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3614872143284071284, guid: 8886a270b42f13143bd1253cb1ca981f,
-        type: 3}
-      propertyPath: m_UseGravity
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 216641101, guid: 8886a270b42f13143bd1253cb1ca981f, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 3fa0fc9ddb95fac46aef75bb25590a8a, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8886a270b42f13143bd1253cb1ca981f, type: 3}
 --- !u!1 &1266817164
@@ -1351,6 +1342,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cube (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3614872143284071287, guid: 8886a270b42f13143bd1253cb1ca981f,
+        type: 3}
+      propertyPath: enemyHealthBarTarget
+      value: 
+      objectReference: {fileID: 672119671}
     - target: {fileID: 3614872143284071280, guid: 8886a270b42f13143bd1253cb1ca981f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1406,11 +1402,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3614872143284071287, guid: 8886a270b42f13143bd1253cb1ca981f,
-        type: 3}
-      propertyPath: enemyHealthBarTarget
-      value: 
-      objectReference: {fileID: 672119671}
     - target: {fileID: 3614872143284071281, guid: 8886a270b42f13143bd1253cb1ca981f,
         type: 3}
       propertyPath: playerReferance
