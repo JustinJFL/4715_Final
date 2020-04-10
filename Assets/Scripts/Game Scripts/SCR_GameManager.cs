@@ -11,7 +11,7 @@ public class SCR_GameManager : MonoBehaviour
     private float totalPoints = 0;
     [SerializeField]
     public float pickupPoints;
-
+    public bool groupAlert;
     public TextMeshProUGUI scoreText;
 
 

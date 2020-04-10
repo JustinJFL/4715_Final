@@ -15,7 +15,7 @@ public class SCR_EnemyHealth : MonoBehaviour
 
     public Scrollbar enemyHealthBar;
 
-    private float curHealth;
+    public float curHealth;
     private SCR_PlayerCombat attack;
 
     //private SCR_PlayerCombat playerReferance;
@@ -42,7 +42,7 @@ public class SCR_EnemyHealth : MonoBehaviour
     {
         if (curHealth <= 0)
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
             spawner.enemyCount -= 1;
             //Spawn an item on enemy's death?
         }
@@ -67,7 +67,7 @@ public class SCR_EnemyHealth : MonoBehaviour
                 float posZ = transform.position.z + Random.Range(-2, 2);
                 Instantiate(pickup, new Vector3(posX, transform.position.y, posZ), Quaternion.identity);
             }
-            Destroy(this.gameObject);
+            //Destroy(this.gameObject);
             //Debug.Log("I GOT HIT");
         }
     }
