@@ -39,7 +39,8 @@ public class SCR_PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         Debug.Log("Resumed. Game is Paused: " + GameIsPaused);
     }
-    void Pause()
+
+    public void Pause()
     {
         GameIsPaused = true;
         pauseMenuUI.SetActive(true);

@@ -9,7 +9,7 @@ public class SCR_PlayerHealth : MonoBehaviour
     public int startHealth;
     public int takenDamage; // Damage player takes from touching enemy hurtbox.
     public int curHealth;
-    private float curEnergy;
+    public float curEnergy;
 
     public float energyDecreaseRate = 20;
 
@@ -19,7 +19,10 @@ public class SCR_PlayerHealth : MonoBehaviour
     public Image healthRingImage;
     public Image energyRingImage;
     public float curHealthSprite;
-    
+
+    public AudioSource enemyAttackSFX;
+    public AudioSource playerDeathSFX;
+
 
     void Start()
     {
@@ -54,7 +57,7 @@ public class SCR_PlayerHealth : MonoBehaviour
         {
 
             curHealth -=  takenDamage;
-
+            enemyAttackSFX.Play();
             //setting the size of the health bar to reflect players current health.
             curHealthSprite = (curHealth * 0.1f);
             healthRingImage.sprite = healthSprites[Mathf.RoundToInt(curHealthSprite)];
@@ -64,6 +67,6 @@ public class SCR_PlayerHealth : MonoBehaviour
 //function that slowly degrades energy over time at a rate called in InvokeRepeating in Start function.
     void EnergyOverTime()
     {
-        curEnergy = curEnergy - (energyDecreaseRate * .001f);
+        curEnergy = curEnergy - (energyDecreaseRate * .01f);
     }
 }
