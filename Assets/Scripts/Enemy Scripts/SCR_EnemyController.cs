@@ -15,7 +15,7 @@ public class SCR_EnemyController : MonoBehaviour
 
     public Scrollbar enemyHealthBar;
     //Target attached to the camera for the health bar to orient itself toward the camera.
-    public SCR_EnemySight enemySight;
+    public SCR_EnemyBehavior enemySight;
     public GameObject enemyHealthBarTarget;
 
     // Start is called before the first frame update
