@@ -15,7 +15,7 @@ public class SCR_EnemyHealth : MonoBehaviour
 
     public Scrollbar enemyHealthBar;
 
-    private float curHealth;
+    public float curHealth;
     private SCR_PlayerCombat attack;
 
     public GameObject enemyDeathEffects;
@@ -47,7 +47,7 @@ public class SCR_EnemyHealth : MonoBehaviour
     {
         if (curHealth <= 0)
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
             spawner.enemyCount -= 1;
             //Spawn an item on enemy's death?
         }
@@ -62,8 +62,10 @@ public class SCR_EnemyHealth : MonoBehaviour
             DeathCheck();
         }
     }
-    void DeathCheck()
-    {
+    void DeathCheck()
+
+    {
+
         if (curHealth <= 0)
         {
             for (int i = 0; i < dropAmount; i++)
@@ -72,9 +74,10 @@ public class SCR_EnemyHealth : MonoBehaviour
                 float posZ = transform.position.z + Random.Range(-2, 2);
                 Instantiate(pickup, new Vector3(posX, transform.position.y, posZ), Quaternion.identity);
             }
-            Instantiate(enemyDeathEffects,transform.position,transform.rotation);
-            Destroy(this.gameObject);
+            //Instantiate(enemyDeathEffects,transform.position,transform.rotation);
+            //Destroy(this.gameObject);
             //Debug.Log("I GOT HIT");
-        }
+        }
+
     }
 }

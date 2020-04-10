@@ -9,13 +9,15 @@ public class SCR_EnemyController : MonoBehaviour
     public float moveSpeed = 4;
     public float knockbackForce;
 
+    public bool isPlayerSpotted;
+
     private Rigidbody enemyRigidBody;
     private SCR_PlayerCombat playerAttack;
     private Vector3 knockbackDirection;
 
     public Scrollbar enemyHealthBar;
     //Target attached to the camera for the health bar to orient itself toward the camera.
-    public SCR_EnemySight enemySight;
+    public SCR_EnemyBehavior enemySight;
     public GameObject enemyHealthBarTarget;
 
     // Start is called before the first frame update
@@ -33,6 +35,8 @@ public class SCR_EnemyController : MonoBehaviour
 
         //Object must be tagged with HealthTarget and attached to the camera gameobject so the enemy health bar can properly be oriented toward the camera.
         enemyHealthBarTarget = GameObject.FindWithTag("HealthTarget");
+
+        enemySight = GetComponent<SCR_EnemyBehavior>();
     }
 
     // Update is called once per frame
@@ -40,11 +44,14 @@ public class SCR_EnemyController : MonoBehaviour
     {
 
         //makes enemy walk directly towards player current position
-        if(enemySight.isPlayerSpotted == true)
+        /*if(enemySight.isPlayerSpotted == true)
+
         {
+
             transform.LookAt(GameObject.FindGameObjectWithTag("Player").transform);
             transform.position += transform.forward * moveSpeed * Time.deltaTime;
-        }
+
+        }*/
 
         //Destroy(gameObject,Random.Range(7.0f,12.0f));
 
@@ -65,6 +72,19 @@ public class SCR_EnemyController : MonoBehaviour
             }
             //Debug.Log("I GOT HIT"); 
         }
+    }
+    private void OnCollisionEnter(Collision collision)
+
+    {
+
+        if(collision.gameObject.tag == "Wall")
+
+        {
+
+            transform.eulerAngles = new Vector3(0, Random.Range(-360, 360), 0);
+
+        }
+
     }
 
 }
