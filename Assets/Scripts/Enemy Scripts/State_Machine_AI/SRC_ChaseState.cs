@@ -28,8 +28,12 @@ public class SCR_ChaseState : State<SCR_EnemyBehavior>
     }
     public override void EnterState(SCR_EnemyBehavior owner)
     {
-        //owner.transform.LookAt(GameObject.FindGameObjectWithTag("Player").transform);
-        //owner.transform.position += owner.transform.forward * owner.moveSpeed * Time.deltaTime;
+        Debug.Log("Now Chasing...");
+        //while(owner.isPlayerSpotted)
+        //{
+
+        //}
+
     }
 
     public override void ExitState(SCR_EnemyBehavior owner)
@@ -38,5 +42,7 @@ public class SCR_ChaseState : State<SCR_EnemyBehavior>
 
     public override void UpdateState(SCR_EnemyBehavior owner)
     {
+        owner.transform.LookAt(GameObject.FindGameObjectWithTag("Player").transform);
+        owner.transform.position += owner.transform.forward * owner.moveSpeed * Time.deltaTime;
     }
 }
