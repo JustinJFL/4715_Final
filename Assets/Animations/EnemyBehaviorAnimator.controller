@@ -54,10 +54,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wanderLimit:
-    xMin: -25
-    xMax: 25
-    zMin: -25
-    zMax: 25
+    xMin: -4
+    xMax: 94
+    zMin: -74
+    zMax: 43
   FieldOfViewAngle: 110
   player: {fileID: 5108146294305347442, guid: da55de1e871ae59498c2bd34ea7924eb, type: 3}
   maxSightDistance: 0.3
