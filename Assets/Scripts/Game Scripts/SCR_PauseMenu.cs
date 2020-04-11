@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class SCR_PauseMenu : MonoBehaviour
 {
@@ -56,5 +57,6 @@ public class SCR_PauseMenu : MonoBehaviour
     public void QuitGame()
     {
         Debug.Log("Quitting game...");
+        SceneManager.LoadScene("MainMenu",LoadSceneMode.Single);
     }
 }
