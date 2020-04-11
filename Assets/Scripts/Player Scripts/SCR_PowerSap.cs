@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class SCR_PowerSap : MonoBehaviour
 {
+    public static bool onEnemy = false;
     public static bool isCharging = false;
     public GameObject player;
 
@@ -20,23 +21,26 @@ public class SCR_PowerSap : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-       if(other.tag == "Downed" && Input.GetKeyDown(KeyCode.C)) // Set defeated enemy model to have the tag Downed
+        if (Input.GetKeyDown(KeyCode.C) && onEnemy == true)
         {
             if (isCharging == false)
             {
                 StartCoroutine(Drain());
-                GameObject.Destroy(other);
+                //GameObject.Destroy(other);
             }
 
             else
             {
                 Stop();
             }
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+       if(other.tag == "Downed") // Set defeated enemy model to have the tag Downed
+        {
+            onEnemy = true;
         }
     }
 
