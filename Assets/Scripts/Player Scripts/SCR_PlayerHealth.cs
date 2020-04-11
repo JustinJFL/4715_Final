@@ -48,6 +48,21 @@ public class SCR_PlayerHealth : MonoBehaviour
             gameObject.SetActive(false); // Player Dies, made inactive for now. Scene Manager is set for future use.
             healthRingImage.sprite = healthSprites[0];
         }
+
+        if(curHealth > startHealth)
+        {
+            curHealth = startHealth;
+        }
+
+        if(curEnergy > startHealth)
+        {
+            curEnergy = startHealth;
+        }
+
+        if(curEnergy < 0)
+        {
+            curEnergy = 0;
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
