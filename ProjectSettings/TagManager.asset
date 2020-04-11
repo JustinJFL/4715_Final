@@ -5,6 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
+  - Enemy
+  - Attack
+  - Pickups
+  - HealthTarget
+  - PlayerCollider
+  - Wall
   layers:
   - Default
   - TransparentFX
@@ -14,7 +20,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Building
   - 
   - 
   - 
@@ -39,6 +45,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: UI
+    uniqueID: 4031915387
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
