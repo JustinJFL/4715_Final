@@ -18,10 +18,12 @@ public class SCR_GameManager : MonoBehaviour
 
     public GameObject playerObject;
     private bool playerDeath = false;
+    public GameObject playerDeathFX;
 
     // Start is called before the first frame update
     void Start()
     {
+        Screen.SetResolution(1920, 1080, true);
         Debug.Log("ass");
         //scoreText = GetComponent<TextMeshProUGUI>();
         scoreText.SetText("Score: 0");
@@ -36,6 +38,7 @@ public class SCR_GameManager : MonoBehaviour
         {
             playerDeathSFX.Play();
             playerDeath = true;
+            playerDeathFX.SetActive(true);
         }
     }
 

@@ -5,9 +5,6 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/BlockMesh.unity
-    guid: d41762e6bd0a12f49b28c79228fc151f
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: fed1aba32a321f64baa6806e80871f5b
