@@ -8,6 +8,7 @@ public class SCR_EnemyController : MonoBehaviour
 {   
     public float moveSpeed = 4;
     public float knockbackForce;
+    public WanderBoundry wanderLimit;
 
     public bool isPlayerSpotted;
 
@@ -17,7 +18,7 @@ public class SCR_EnemyController : MonoBehaviour
 
     public Scrollbar enemyHealthBar;
     //Target attached to the camera for the health bar to orient itself toward the camera.
-    public SCR_EnemyBehavior enemySight;
+    //public SCR_EnemySight enemySight;
     public GameObject enemyHealthBarTarget;
 
     // Start is called before the first frame update
@@ -42,25 +43,11 @@ public class SCR_EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        //makes enemy walk directly towards player current position
-        /*if(enemySight.isPlayerSpotted == true)
-
-        {
-
-            transform.LookAt(GameObject.FindGameObjectWithTag("Player").transform);
-            transform.position += transform.forward * moveSpeed * Time.deltaTime;
-
-        }*/
-
-        //Destroy(gameObject,Random.Range(7.0f,12.0f));
-
-        //Updating transformation of health bar object to face the target attached to player camera.
         enemyHealthBar.transform.LookAt(enemyHealthBarTarget.transform.position);
 
         transform.position = new Vector3(
         Mathf.Clamp(transform.position.x, wanderLimit.xMin, wanderLimit.xMax),
-        1.2f,
+        2.2f,
         Mathf.Clamp(transform.position.z, wanderLimit.zMin, wanderLimit.zMax));
     }
 

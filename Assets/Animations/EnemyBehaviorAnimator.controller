@@ -53,14 +53,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fef67bfc25db804498b9a6efca54876, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wanderLimit:
-    xMin: -4
-    xMax: 94
-    zMin: -74
-    zMax: 43
   FieldOfViewAngle: 110
   player: {fileID: 5108146294305347442, guid: da55de1e871ae59498c2bd34ea7924eb, type: 3}
-  maxSightDistance: 0.3
+  maxSightDistance: 10
   wanderTime: 1
   MaxWanderTime: 3
 --- !u!1102 &-2565716876163599440

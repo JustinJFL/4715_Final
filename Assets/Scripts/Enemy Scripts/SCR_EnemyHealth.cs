@@ -57,9 +57,11 @@ public class SCR_EnemyHealth : MonoBehaviour
     {
         if (other.gameObject.tag == "Attack") //If the enemy is hit with the theoretical "weapon," they take damage.
         {
+            playerAttackSFX.Play();
             curHealth -= attack.playerAttack.damageOnHit;
             enemyHealthBar.size -= (attack.playerAttack.damageOnHit * .01f);
             DeathCheck();
+            
         }
     }
     void DeathCheck()
