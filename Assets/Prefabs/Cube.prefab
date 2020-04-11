@@ -325,6 +325,7 @@ Transform:
   m_Children:
   - {fileID: 3614872143397500442}
   - {fileID: 8568868352200675552}
+  - {fileID: 6489847431872499561}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -417,6 +418,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 0.1
   knockbackForce: 800
+  wanderLimit:
+    xMin: -25
+    xMax: 25
+    zMin: -25
+    zMax: 25
   isPlayerSpotted: 0
   enemyHealthBar: {fileID: 3614872143065097036}
   enemyHealthBarTarget: {fileID: 0}
@@ -439,6 +445,9 @@ MonoBehaviour:
   spawner: {fileID: 0}
   enemyHealthBar: {fileID: 3614872143065097036}
   curHealth: 0
+  enemyDeathEffects: {fileID: 1000011797152326, guid: acf39d9f4addf294d93fa56fa373961b,
+    type: 3}
+  playerAttackSFX: {fileID: 3126015212494707212}
 --- !u!95 &216641101
 Animator:
   serializedVersion: 3
@@ -644,7 +653,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3614872143284071280}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &3126015212494707212
 AudioSource:

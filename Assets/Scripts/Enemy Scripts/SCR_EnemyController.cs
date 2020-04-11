@@ -36,7 +36,7 @@ public class SCR_EnemyController : MonoBehaviour
         //Object must be tagged with HealthTarget and attached to the camera gameobject so the enemy health bar can properly be oriented toward the camera.
         enemyHealthBarTarget = GameObject.FindWithTag("HealthTarget");
 
-        enemySight = GetComponent<SCR_EnemyBehavior>();
+        //enemySight = GetComponent<SCR_EnemyBehavior>();
     }
 
     // Update is called once per frame
@@ -57,6 +57,11 @@ public class SCR_EnemyController : MonoBehaviour
 
         //Updating transformation of health bar object to face the target attached to player camera.
         enemyHealthBar.transform.LookAt(enemyHealthBarTarget.transform.position);
+
+        transform.position = new Vector3(
+        Mathf.Clamp(transform.position.x, wanderLimit.xMin, wanderLimit.xMax),
+        1.2f,
+        Mathf.Clamp(transform.position.z, wanderLimit.zMin, wanderLimit.zMax));
     }
 
     private void OnTriggerEnter(Collider other)

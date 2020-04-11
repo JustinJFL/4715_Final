@@ -60,7 +60,7 @@ MonoBehaviour:
     zMax: 25
   FieldOfViewAngle: 110
   player: {fileID: 5108146294305347442, guid: da55de1e871ae59498c2bd34ea7924eb, type: 3}
-  maxSightDistance: 0.4
+  maxSightDistance: 0.3
   wanderTime: 1
   MaxWanderTime: 3
 --- !u!1102 &-2565716876163599440
