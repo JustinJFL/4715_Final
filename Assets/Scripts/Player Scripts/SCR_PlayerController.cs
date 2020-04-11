@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Animations;
 
 
-public class SCR_PlayerMovement : MonoBehaviour
+public class SCR_PlayerController : MonoBehaviour
 {
 
     [SerializeField]
@@ -19,8 +19,8 @@ public class SCR_PlayerMovement : MonoBehaviour
 
     public float jumpForce;
     private Vector3 lookTarget;
-
     
+    public Animator flamingoAnimator;
 
     // Start is called before the first frame update
     void Start()
@@ -53,6 +53,10 @@ public class SCR_PlayerMovement : MonoBehaviour
             {
                 Move();
             }
+        else 
+        {
+            flamingoAnimator.SetBool("isRunning",false);
+        }
     }
 
     void Move()
@@ -67,6 +71,8 @@ public class SCR_PlayerMovement : MonoBehaviour
         transform.forward = heading;
         transform.position += rightMovement;
         transform.position += upMovement;
+        
+        flamingoAnimator.SetBool("isRunning",true);
     }
     void Jump()
     {   

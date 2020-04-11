@@ -5,22 +5,26 @@ using UnityEngine.UI;
 using UnityEngine.UIElements;
 
 public class SCR_EnemyController : MonoBehaviour
-{
-    
+{   
     public float moveSpeed = 4;
     public float knockbackForce;
+    public WanderBoundry wanderLimit;
 
+    public bool isPlayerSpotted;
 
     private Rigidbody enemyRigidBody;
     private SCR_PlayerCombat playerAttack;
     private Vector3 knockbackDirection;
 
     public Scrollbar enemyHealthBar;
-    public GameObject enemyHealthBarTarget; //Target attached to the camera for the health bar to orient itself toward the camera.
+    //Target attached to the camera for the health bar to orient itself toward the camera.
+    //public SCR_EnemySight enemySight;
+    public GameObject enemyHealthBarTarget;
 
     // Start is called before the first frame update
     void Start()
     {
+        
         enemyRigidBody = GetComponent<Rigidbody>();
         GameObject movement = GameObject.FindWithTag("Player");
         if (movement == null)
@@ -32,18 +36,19 @@ public class SCR_EnemyController : MonoBehaviour
 
         //Object must be tagged with HealthTarget and attached to the camera gameobject so the enemy health bar can properly be oriented toward the camera.
         enemyHealthBarTarget = GameObject.FindWithTag("HealthTarget");
+
+        //enemySight = GetComponent<SCR_EnemyBehavior>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        //makes enemy walk directly towards player current position
-        transform.LookAt(GameObject.FindGameObjectWithTag("Player").transform);
-        transform.position += transform.forward * moveSpeed * Time.deltaTime;
-        //Destroy(gameObject,Random.Range(7.0f,12.0f));
-
-        //Updating transformation of health bar object to face the target attached to player camera.
         enemyHealthBar.transform.LookAt(enemyHealthBarTarget.transform.position);
+
+        transform.position = new Vector3(
+        Mathf.Clamp(transform.position.x, wanderLimit.xMin, wanderLimit.xMax),
+        2.2f,
+        Mathf.Clamp(transform.position.z, wanderLimit.zMin, wanderLimit.zMax));
     }
 
     private void OnTriggerEnter(Collider other)
@@ -60,4 +65,18 @@ public class SCR_EnemyController : MonoBehaviour
             //Debug.Log("I GOT HIT"); 
         }
     }
+    private void OnCollisionEnter(Collision collision)
+
+    {
+
+        if(collision.gameObject.tag == "Wall")
+
+        {
+
+            transform.eulerAngles = new Vector3(0, Random.Range(-360, 360), 0);
+
+        }
+
+    }
+
 }
