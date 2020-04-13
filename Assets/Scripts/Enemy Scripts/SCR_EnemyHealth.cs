@@ -77,7 +77,7 @@ public class SCR_EnemyHealth : MonoBehaviour
                 Instantiate(pickup, new Vector3(posX, transform.position.y, posZ), Quaternion.identity);
             }
             Instantiate(enemyDeathEffects,transform.position,transform.rotation);
-            Destroy(this.gameObject);
+            //Destroy(this.gameObject);
             //Debug.Log("I GOT HIT");
         }
 
