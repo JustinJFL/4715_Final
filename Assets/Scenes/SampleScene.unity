@@ -522,7 +522,7 @@ PrefabInstance:
     - target: {fileID: 5108146294305347441, guid: da55de1e871ae59498c2bd34ea7924eb,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 14.059999
+      value: 6.1
       objectReference: {fileID: 0}
     - target: {fileID: 5108146294305347441, guid: da55de1e871ae59498c2bd34ea7924eb,
         type: 3}
@@ -532,7 +532,7 @@ PrefabInstance:
     - target: {fileID: 5108146294305347441, guid: da55de1e871ae59498c2bd34ea7924eb,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 47.7
+      value: 6.4
       objectReference: {fileID: 0}
     - target: {fileID: 5108146294305347441, guid: da55de1e871ae59498c2bd34ea7924eb,
         type: 3}
@@ -584,6 +584,21 @@ PrefabInstance:
       propertyPath: energyRingImage
       value: 
       objectReference: {fileID: 630595477}
+    - target: {fileID: 5108146294305347445, guid: da55de1e871ae59498c2bd34ea7924eb,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 5108146294305347440, guid: da55de1e871ae59498c2bd34ea7924eb,
+        type: 3}
+      propertyPath: playerAttack.damageOnHit
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5108146294305347440, guid: da55de1e871ae59498c2bd34ea7924eb,
+        type: 3}
+      propertyPath: playerAttack.HeavyAttackDamage
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da55de1e871ae59498c2bd34ea7924eb, type: 3}
 --- !u!114 &630595477 stripped
