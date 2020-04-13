@@ -379,6 +379,7 @@ MonoBehaviour:
   scoreText: {fileID: 196131646}
   playerDeathSFX: {fileID: 0}
   playerObject: {fileID: 0}
+  playerDeathFX: {fileID: 0}
 --- !u!4 &196401912
 Transform:
   m_ObjectHideFlags: 0
@@ -5725,6 +5726,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.7834409
+      objectReference: {fileID: 0}
+    - target: {fileID: 8886332602529671412, guid: 26e6434ade791f841871be56bbfb8c27,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8886332602529671412, guid: 26e6434ade791f841871be56bbfb8c27,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26e6434ade791f841871be56bbfb8c27, type: 3}
