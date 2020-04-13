@@ -63,10 +63,12 @@ public class SCR_PlayerCombat : MonoBehaviour
             LightAttack();
 
         }
-        else if(Input.GetMouseButton(1))
+        /*else if(Input.GetMouseButton(1))
         {
             HeavyAttack();
         }
+        */
+
         SetToIdle();
     }
 
@@ -100,7 +102,7 @@ public class SCR_PlayerCombat : MonoBehaviour
     void SetToIdle()
     {
         //Checks if current animation state is on Swipe Attack
-        if (combatAnimator.GetCurrentAnimatorStateInfo(0).IsName("ANIM_Swipe_Attack_1"))
+        if (combatAnimator.GetCurrentAnimatorStateInfo(1).IsName("Attack_Spin") || combatAnimator.GetCurrentAnimatorStateInfo(0).IsName("Character_Spin"))
         {
             combatAnimator.SetBool("isAttacking", false);
             isAttacking = false;

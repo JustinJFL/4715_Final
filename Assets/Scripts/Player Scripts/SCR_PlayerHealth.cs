@@ -47,6 +47,7 @@ public class SCR_PlayerHealth : MonoBehaviour
         {
             gameObject.SetActive(false); // Player Dies, made inactive for now. Scene Manager is set for future use.
             healthRingImage.sprite = healthSprites[0];
+            SceneManager.LoadScene("GameOver",LoadSceneMode.Single);
         }
     }
 

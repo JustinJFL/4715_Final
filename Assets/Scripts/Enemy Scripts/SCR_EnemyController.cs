@@ -8,7 +8,8 @@ public class SCR_EnemyController : MonoBehaviour
 {   
     public float moveSpeed = 4;
     public float knockbackForce;
-    public WanderBoundry wanderLimit;
+    public WanderBoundry wanderLimit;
+
     public bool isPlayerSpotted;
 
     private Rigidbody enemyRigidBody;
@@ -46,7 +47,7 @@ public class SCR_EnemyController : MonoBehaviour
 
         transform.position = new Vector3(
         Mathf.Clamp(transform.position.x, wanderLimit.xMin, wanderLimit.xMax),
-        1.2f,
+        2.2f,
         Mathf.Clamp(transform.position.z, wanderLimit.zMin, wanderLimit.zMax));
     }
 
@@ -64,12 +65,18 @@ public class SCR_EnemyController : MonoBehaviour
             //Debug.Log("I GOT HIT"); 
         }
     }
-    private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.tag == "Wall")
-        {
-            transform.eulerAngles = new Vector3(0, Random.Range(-360, 360), 0);
-        }
+    private void OnCollisionEnter(Collision collision)
+
+    {
+
+        if(collision.gameObject.tag == "Wall")
+
+        {
+
+            transform.eulerAngles = new Vector3(0, Random.Range(-360, 360), 0);
+
+        }
+
     }
 
 }
