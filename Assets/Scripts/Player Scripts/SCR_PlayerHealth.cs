@@ -10,6 +10,7 @@ public class SCR_PlayerHealth : MonoBehaviour
     public int takenDamage; // Damage player takes from touching enemy hurtbox.
     public int curHealth;
     public float curEnergy;
+    public float regenRate;
 
     public float energyDecreaseRate = 20;
 
@@ -22,7 +23,7 @@ public class SCR_PlayerHealth : MonoBehaviour
 
     public AudioSource enemyAttackSFX;
     public AudioSource playerDeathSFX;
-
+    private float timeOfNoKeyPress;
 
     void Start()
     {
@@ -49,6 +50,19 @@ public class SCR_PlayerHealth : MonoBehaviour
             healthRingImage.sprite = healthSprites[0];
             SceneManager.LoadScene("GameOver",LoadSceneMode.Single);
         }
+        if(!Input.anyKey && curHealth < 100)
+        {
+
+            timeOfNoKeyPress += Time.deltaTime;
+            if (timeOfNoKeyPress >= RegenTime)
+            {
+                Debug.Log("Regenning...");
+                curHealth += 10;
+                timeOfNoKeyPress = 0;
+                UpdateHealthSprite();
+            }
+
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -60,8 +74,7 @@ public class SCR_PlayerHealth : MonoBehaviour
             curHealth -=  takenDamage;
             enemyAttackSFX.Play();
             //setting the size of the health bar to reflect players current health.
-            curHealthSprite = (curHealth * 0.1f);
-            healthRingImage.sprite = healthSprites[Mathf.RoundToInt(curHealthSprite)];
+            UpdateHealthSprite();
         }
     }
 
@@ -69,5 +82,10 @@ public class SCR_PlayerHealth : MonoBehaviour
     void EnergyOverTime()
     {
         curEnergy = curEnergy - (energyDecreaseRate * .01f);
+    }
+    void UpdateHealthSprite()
+    {
+        curHealthSprite = (curHealth * 0.1f);
+        healthRingImage.sprite = healthSprites[Mathf.RoundToInt(curHealthSprite)];
     }
 }
