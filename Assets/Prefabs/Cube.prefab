@@ -860,11 +860,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: MDL_Character_ShrimpUVComplete
       objectReference: {fileID: 0}
-    - target: {fileID: -9001106837909552229, guid: f76a42d04bb7d194ab8a359ff8212aa6,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 55a21129d5040964c96fd963ed6da385, type: 2}
     - target: {fileID: -4216859302048453862, guid: f76a42d04bb7d194ab8a359ff8212aa6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -920,6 +915,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -9001106837909552229, guid: f76a42d04bb7d194ab8a359ff8212aa6,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 55a21129d5040964c96fd963ed6da385, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f76a42d04bb7d194ab8a359ff8212aa6, type: 3}
 --- !u!4 &3141383113936341175 stripped
