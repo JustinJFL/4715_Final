@@ -37,6 +37,7 @@ public class SCR_PlayerCombat : MonoBehaviour
 
     private Rigidbody playerRigidBody;
     private Animator combatAnimator;
+    private SCR_PlayerHealth playerHealth;
 
     public float knockbackForce;
     public bool isAttacking = false;
@@ -44,14 +45,13 @@ public class SCR_PlayerCombat : MonoBehaviour
     public Knockback playerAttackKnockback = new Knockback(0f, 500f, 700f);
     public GameObject arm;
 
-
-
     private Vector3 knockbackDirection;
     // Start is called before the first frame update
     void Start()
     {
         playerRigidBody = GetComponent<Rigidbody>();
         combatAnimator = GetComponent<Animator>();
+        playerHealth = GetComponent<SCR_PlayerHealth>();
         arm.gameObject.SetActive(false);
     }
 
@@ -83,6 +83,7 @@ public class SCR_PlayerCombat : MonoBehaviour
             isAttacking = true;
             playerAttack.damageOnHit = playerAttack.SwipeAttackDamage;
             playerAttackKnockback.knockbackOnHit = playerAttackKnockback.lightKnockback;
+            playerHealth.timeSinceCombat = 0;
         }
     }
     void HeavyAttack()
@@ -96,6 +97,7 @@ public class SCR_PlayerCombat : MonoBehaviour
             isAttacking = true;
             playerAttack.damageOnHit = playerAttack.HeavyAttackDamage;
             playerAttackKnockback.knockbackOnHit = playerAttackKnockback.heavyKnockback;
+            playerHealth.timeSinceCombat = 0;
         }
     }
 

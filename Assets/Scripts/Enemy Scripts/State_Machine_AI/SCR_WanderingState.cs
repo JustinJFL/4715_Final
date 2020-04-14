@@ -59,8 +59,6 @@ public class SCR_WanderingState : StateMachineBehaviour
                 enemy.isPlayerSpotted = true;
                 gameManager.groupAlert = true;
                 //Debug.Log("SPOOOOOOTTED");
-
-
             }
         }
         Debug.DrawRay(animator.transform.position, player.transform.position,Color.red);

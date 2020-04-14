@@ -23,7 +23,7 @@ public class SCR_PlayerHealth : MonoBehaviour
 
     public AudioSource enemyAttackSFX;
     public AudioSource playerDeathSFX;
-    private float timeOfNoKeyPress;
+    public float timeSinceCombat;
 
     void Start()
     {
@@ -53,12 +53,12 @@ public class SCR_PlayerHealth : MonoBehaviour
         if(!Input.anyKey && curHealth < 100)
         {
 
-            timeOfNoKeyPress += Time.deltaTime;
-            if (timeOfNoKeyPress >= RegenTime)
+            timeSinceCombat += Time.deltaTime;
+            if (timeSinceCombat >= regenRate)
             {
                 Debug.Log("Regenning...");
                 curHealth += 10;
-                timeOfNoKeyPress = 0;
+                timeSinceCombat = 0;
                 UpdateHealthSprite();
             }
 
@@ -75,6 +75,7 @@ public class SCR_PlayerHealth : MonoBehaviour
             enemyAttackSFX.Play();
             //setting the size of the health bar to reflect players current health.
             UpdateHealthSprite();
+            timeSinceCombat = 0;
         }
     }
 
