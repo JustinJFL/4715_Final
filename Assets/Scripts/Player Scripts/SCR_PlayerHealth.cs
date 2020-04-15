@@ -11,7 +11,7 @@ public class SCR_PlayerHealth : MonoBehaviour
     public int curHealth;
     public float curEnergy;
 
-    public float energyDecreaseRate = 20;
+    public float energyDecreaseRate = 2;
 
     public Sprite[] healthSprites;//Array holding the sprites for health ring
 
