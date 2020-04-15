@@ -46,10 +46,10 @@ public class SCR_PlayerController : MonoBehaviour
     void Update()
     {
         //Calling move function anytime the movement keys are pressed.
-        if(Input.GetAxis("Horizontal") > 0 
-        || Input.GetAxis("Vertical") > 0 
-        || Input.GetAxis("Horizontal") < 0 
-        || Input.GetAxis("Vertical") < 0)
+        if(Input.GetAxis("Horizontal") > .2 
+        || Input.GetAxis("Vertical") > .2 
+        || Input.GetAxis("Horizontal") < -.2 
+        || Input.GetAxis("Vertical") < -.2)
             {
                 Move();
             }

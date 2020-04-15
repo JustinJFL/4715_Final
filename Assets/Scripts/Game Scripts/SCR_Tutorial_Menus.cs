@@ -51,10 +51,10 @@ public class SCR_Tutorial_Menus : MonoBehaviour
         
         if (popUpIndex == 0)
         {
-            if (Input.GetAxis("Horizontal") > .5 
-            || Input.GetAxis("Horizontal") <= -.5 
-            || Input.GetAxis("Vertical") > 11 
-            || Input.GetAxis("Vertical") <= -1)
+            if (Input.GetAxis("Horizontal") > .8 
+            || Input.GetAxis("Horizontal") <= -.8 
+            || Input.GetAxis("Vertical") > .8 
+            || Input.GetAxis("Vertical") <= -.8)
             {
 
                 popUpIndex++;
@@ -64,21 +64,17 @@ public class SCR_Tutorial_Menus : MonoBehaviour
 
         if (popUpIndex == 1)
         {
-            Debug.Log("You have hit 1 on popup index");
 
             if(Input.GetButton("Attack"))
             {
-                Debug.Log("this worked somehow");
 
                 popUpIndex++;
             }
         }
 
 
-        if (popUpIndex >= 2)
-        {
-           // Cursor.visible = true;
-        }
+
+
     }
 
     public void PopUpCounter()
