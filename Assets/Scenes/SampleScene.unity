@@ -582,6 +582,10 @@ PrefabInstance:
       propertyPath: energyRingImage
       value: 
       objectReference: {fileID: 795498700}
+    - target: {fileID: 375058214, guid: 99a06990e5d2b9644a7e105ce60e8710, type: 3}
+      propertyPath: RegenTime
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2553847993882560582, guid: 99a06990e5d2b9644a7e105ce60e8710,
         type: 3}
       propertyPath: m_TagString
