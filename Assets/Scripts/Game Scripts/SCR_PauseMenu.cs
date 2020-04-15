@@ -19,7 +19,7 @@ public class SCR_PauseMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if(Input.GetButtonDown("Pause"))
         {
             if(GameIsPaused == false)
             {

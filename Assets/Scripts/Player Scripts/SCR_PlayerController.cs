@@ -46,10 +46,10 @@ public class SCR_PlayerController : MonoBehaviour
     void Update()
     {
         //Calling move function anytime the movement keys are pressed.
-        if(Input.GetAxis("HorizontalKey") > 0 
-        || Input.GetAxis("VerticalKey") > 0 
-        || Input.GetAxis("HorizontalKey") < 0 
-        || Input.GetAxis("VerticalKey") < 0)
+        if(Input.GetAxis("Horizontal") > 0 
+        || Input.GetAxis("Vertical") > 0 
+        || Input.GetAxis("Horizontal") < 0 
+        || Input.GetAxis("Vertical") < 0)
             {
                 Move();
             }
@@ -57,14 +57,23 @@ public class SCR_PlayerController : MonoBehaviour
         {
             flamingoAnimator.SetBool("isRunning",false);
         }
+
+        if(flamingoAnimator.GetBool("isRunning") == true)
+        {
+            this.GetComponent<SCR_PlayerLookControls>().enabled = false;
+        }
+        else if (flamingoAnimator.GetBool("isRunning") == false)
+        {
+            this.GetComponent<SCR_PlayerLookControls>().enabled = true;
+        }
     }
 
     void Move()
     {
         //Getting different vector3 values for both the horizontal movement and vertical movement to set transform of player
-        Vector3 direction = new Vector3(Input.GetAxis("HorizontalKey"),0,Input.GetAxis("VerticalKey"));
-        Vector3 rightMovement = right * speed * Time.deltaTime * Input.GetAxis("HorizontalKey");
-        Vector3 upMovement = forward * speed * Time.deltaTime * Input.GetAxis("VerticalKey");
+        Vector3 direction = new Vector3(Input.GetAxis("Horizontal"),0,Input.GetAxis("Vertical"));
+        Vector3 rightMovement = right * speed * Time.deltaTime * Input.GetAxis("Horizontal");
+        Vector3 upMovement = forward * speed * Time.deltaTime * Input.GetAxis("Vertical");
         Vector3 heading = Vector3.Normalize(rightMovement + upMovement);
 
         //Using previously declared values to update players transform and movement based off camera position.

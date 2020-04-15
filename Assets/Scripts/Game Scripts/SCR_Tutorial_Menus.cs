@@ -33,39 +33,62 @@ public class SCR_Tutorial_Menus : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-       for (int i = 0; i < popUps.Length; i++)
-       {
+        Debug.Log("Pop up index is: " + popUpIndex);
+        for (int i = 0; i < popUps.Length; i++)
+        {
 
 
             if(i == popUpIndex)
             {
                 popUps[i].SetActive(true);
             }
-           else
+
+            else
             {
                 popUps[i].SetActive(false);
             }
-       }
+        }
         
         if (popUpIndex == 0)
         {
-            if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.A)))
+            if (Input.GetAxis("Horizontal") > .5 
+            || Input.GetAxis("Horizontal") <= -.5 
+            || Input.GetAxis("Vertical") > 11 
+            || Input.GetAxis("Vertical") <= -1)
             {
-                 popUpIndex++;
-               
-            }
 
+                popUpIndex++;
+
+            }
         }
-        if (popUpIndex >= 1)
+
+        if (popUpIndex == 1)
         {
-            if ((Input.GetKeyDown(KeyCode.Mouse0)))
+            Debug.Log("You have hit 1 on popup index");
+
+            if(Input.GetButton("Attack"))
             {
+                Debug.Log("this worked somehow");
+
                 popUpIndex++;
             }
-           
         }
+
+
+        if (popUpIndex >= 2)
+        {
+           // Cursor.visible = true;
+        }
+    }
+
+    public void PopUpCounter()
+    {
+        popUpIndex++;
+    }
 
 
     }
-}
+    
+
+
+
