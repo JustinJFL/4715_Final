@@ -814,10 +814,10 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: 8ad28e0d2bc56504ca0c6de1e814dec1,
+    m_HighlightedSprite: {fileID: 21300000, guid: fe487f0c240758b49943e38ca7f36c5d,
       type: 3}
     m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 21300000, guid: 8ad28e0d2bc56504ca0c6de1e814dec1, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: fe487f0c240758b49943e38ca7f36c5d, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -870,7 +870,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: fe487f0c240758b49943e38ca7f36c5d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8ad28e0d2bc56504ca0c6de1e814dec1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1116,7 +1116,7 @@ GameObject:
   - component: {fileID: 1197840064}
   - component: {fileID: 1197840067}
   m_Layer: 5
-  m_Name: ContinueButton
+  m_Name: Menu Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1169,10 +1169,10 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: 0bb3d9bbc77c5364fb39ebd261ca4a06,
+    m_HighlightedSprite: {fileID: 21300000, guid: e305e0363b6d14140a4c2f8490280d89,
       type: 3}
     m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 21300000, guid: 0bb3d9bbc77c5364fb39ebd261ca4a06, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: e305e0363b6d14140a4c2f8490280d89, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -1225,7 +1225,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a5718c3e55257374e88a6bb7674451b3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 02edad9caa4882341a891c83c3baa571, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1315,7 +1315,7 @@ GameObject:
   - component: {fileID: 1657187509}
   - component: {fileID: 1657187508}
   m_Layer: 5
-  m_Name: ContinueButton (1)
+  m_Name: ExitX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1426,10 +1426,10 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: 13eab77a9a65be64688fd5f6b1abbf80,
+    m_HighlightedSprite: {fileID: 21300000, guid: 4a9976c364501564aa59d1d24867491a,
       type: 3}
     m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 21300000, guid: 13eab77a9a65be64688fd5f6b1abbf80, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: 4a9976c364501564aa59d1d24867491a, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -1443,7 +1443,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 835292653}
-        m_MethodName: LoadMenu
+        m_MethodName: Quit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1482,7 +1482,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 715f8282ffd9515488ecf0aa663f7cff, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 13eab77a9a65be64688fd5f6b1abbf80, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
