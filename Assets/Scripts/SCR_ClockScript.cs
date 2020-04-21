@@ -31,6 +31,10 @@ public class SCR_ClockScript : MonoBehaviour
             {
                 hour = time.Hour + 12;
             }
+        else
+        {
+            hour = time.Hour;
+        }
         minute = time.Minute;
         clockText.text = hour + ":" + minute + " AM";
         }
