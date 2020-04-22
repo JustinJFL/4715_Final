@@ -13,6 +13,7 @@ public class SCR_PlayerLookControls : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
         Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
         float rayLength;

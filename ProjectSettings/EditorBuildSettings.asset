@@ -5,9 +5,6 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/BlockMesh.unity
-    guid: d41762e6bd0a12f49b28c79228fc151f
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: fed1aba32a321f64baa6806e80871f5b
@@ -17,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ShopMenu.unity
     guid: 354ce3d59710bf54a80df670b1e33aa2
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: a7ac166d404b3eb44a919d85d5297239
+  - enabled: 0
+    path: Assets/Scenes/SampleScene.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
   m_configObjects: {}

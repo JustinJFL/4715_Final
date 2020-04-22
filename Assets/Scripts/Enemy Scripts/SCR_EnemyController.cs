@@ -46,7 +46,7 @@ public class SCR_EnemyController : MonoBehaviour
 
         transform.position = new Vector3(
         Mathf.Clamp(transform.position.x, wanderLimit.xMin, wanderLimit.xMax),
-        1.2f,
+        2.2f,
         Mathf.Clamp(transform.position.z, wanderLimit.zMin, wanderLimit.zMax));
     }
 

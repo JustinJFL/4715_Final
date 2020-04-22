@@ -13,12 +13,14 @@ public class SCR_WanderingState : StateMachineBehaviour
 
     private RaycastHit hit;
     private SCR_EnemyController enemy;
+    private SCR_EnemyHealth enemyHealth;
     private SCR_GameManager gameManager;
     private NavMeshAgent agent;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         enemy = animator.GetComponent<SCR_EnemyController>();
+        enemyHealth = animator.GetComponent<SCR_EnemyHealth>();
         agent = animator.GetComponent<NavMeshAgent>();
         GameObject game = GameObject.FindWithTag("GameController");
         if (game == null)
@@ -57,11 +59,13 @@ public class SCR_WanderingState : StateMachineBehaviour
                 enemy.isPlayerSpotted = true;
                 gameManager.groupAlert = true;
                 //Debug.Log("SPOOOOOOTTED");
-
-
             }
         }
         Debug.DrawRay(animator.transform.position, player.transform.position,Color.red);
+        if(enemyHealth.curHealth <=0)
+        {
+            animator.SetBool("isHealthZero", true);
+        }
     }
 
     public IEnumerator MovementPause(float pauseTime,Animator animator)
