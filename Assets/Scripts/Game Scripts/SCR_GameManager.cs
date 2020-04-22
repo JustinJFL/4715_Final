@@ -9,12 +9,14 @@ using TMPro;
 public class SCR_GameManager : MonoBehaviour
 {
     public static SCR_GameManager Instance;
-    private float storePoints;
-    private float totalPoints = 0;
+    public float storePoints;
+    public float totalPoints = 0;
     [SerializeField]
     public float pickupPoints;
     public bool groupAlert;
     public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI upgradeScoreText;
+    //public Canvas gameHUD;
 
     public AudioSource playerDeathSFX;
 
@@ -40,30 +42,37 @@ public class SCR_GameManager : MonoBehaviour
         Debug.LogWarning("PRESSING Q WILL OPEN A TEST SCENE THIS IS A FOR DEBUGGING PURPOSES AND MUST BE CHANGED IN THE FINAL BUILD");
         Screen.SetResolution(1920, 1080, true);
         Debug.Log("ass");
+
         //scoreText = GetComponent<TextMeshProUGUI>();
         scoreText.SetText("Score: 0");
         scoreText.ForceMeshUpdate(true);
+        upgradeScoreText.gameObject.SetActive(false);
         GameObject player = GameObject.FindWithTag("Player");
-        if(player != null)
+        if (player != null)
         {
             playerObject = player.GetComponent<SCR_PlayerHealth>();
         }
+        else
+            Debug.Log("player object not found");
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(playerObject.curHealth <=0 & playerDeath == false)
+        if(Input.GetKeyDown(KeyCode.Q))
+        {
+            Debug.Log("Open New Scene");
+            SceneManager.LoadScene("UpgradeShop");
+        }
+
+        if(playerObject.curHealth <=0 && playerDeath == false)
         {
             playerDeathSFX.Play();
             playerDeath = true;
             playerDeathFX.SetActive(true);
         }
-        if(Input.GetKeyDown(KeyCode.Q))
-        {
-            SceneManager.LoadScene("SampleScene");
-        }
+
     }
 
     public void UpdateTotalPoints(float points)
