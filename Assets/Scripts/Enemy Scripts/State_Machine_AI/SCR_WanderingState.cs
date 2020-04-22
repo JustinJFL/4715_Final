@@ -5,7 +5,6 @@ using UnityEngine.AI;
 
 public class SCR_WanderingState : StateMachineBehaviour
 {
-    public WanderBoundry wanderLimit;
     public float FieldOfViewAngle = 110f;
     public GameObject player;
     public float maxSightDistance;
@@ -14,12 +13,14 @@ public class SCR_WanderingState : StateMachineBehaviour
 
     private RaycastHit hit;
     private SCR_EnemyController enemy;
+    private SCR_EnemyHealth enemyHealth;
     private SCR_GameManager gameManager;
     private NavMeshAgent agent;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         enemy = animator.GetComponent<SCR_EnemyController>();
+        enemyHealth = animator.GetComponent<SCR_EnemyHealth>();
         agent = animator.GetComponent<NavMeshAgent>();
         GameObject game = GameObject.FindWithTag("GameController");
         if (game == null)
@@ -41,12 +42,9 @@ public class SCR_WanderingState : StateMachineBehaviour
         else
         {
             wanderTime = Random.Range(1, MaxWanderTime);
+            enemy.StartCoroutine(MovementPause(10f, animator));
             animator.transform.eulerAngles = new Vector3(0, Random.Range(-360, 360), 0);
         }
-        animator.transform.position = new Vector3(
-                Mathf.Clamp(animator.transform.position.x, wanderLimit.xMin, wanderLimit.xMax),
-                1.2f,
-                Mathf.Clamp(animator.transform.position.z, wanderLimit.zMin, wanderLimit.zMax));
 
         Vector3 direction = player.transform.position - animator.transform.position;
         float angle = Vector3.Angle(direction, animator.transform.forward);
@@ -54,20 +52,30 @@ public class SCR_WanderingState : StateMachineBehaviour
         if (Physics.Raycast(animator.transform.position, animator.transform.forward, out hit, maxSightDistance) || enemy.isPlayerSpotted)
         {
             Debug.Log("Angle test");
+            enemy.StartCoroutine(MovementPause(10f, animator));
             if(angle < FieldOfViewAngle * .5f)
             {
-
                 animator.SetBool("isPlayerSpotted", true);
                 enemy.isPlayerSpotted = true;
                 gameManager.groupAlert = true;
                 //Debug.Log("SPOOOOOOTTED");
-
-
             }
-
         }
         Debug.DrawRay(animator.transform.position, player.transform.position,Color.red);
+        if(enemyHealth.curHealth <=0)
+        {
+            animator.SetBool("isHealthZero", true);
+        }
     }
+
+    public IEnumerator MovementPause(float pauseTime,Animator animator)
+    {
+        Debug.Log("Enumerator Entered");
+        animator.transform.Translate(Vector3.zero);
+        yield return new WaitForSeconds(pauseTime);
+        Debug.Log("Enumerator Exiting");
+    }
+
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     //override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

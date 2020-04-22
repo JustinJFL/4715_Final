@@ -48,7 +48,7 @@ public class SCR_EnemyHealth : MonoBehaviour
         if (curHealth <= 0)
         {
             //Destroy(gameObject);
-            spawner.enemyCount -= 1;
+            //spawner.enemyCount -= 1;
             //Spawn an item on enemy's death?
         }
     }
@@ -57,9 +57,11 @@ public class SCR_EnemyHealth : MonoBehaviour
     {
         if (other.gameObject.tag == "Attack") //If the enemy is hit with the theoretical "weapon," they take damage.
         {
+            playerAttackSFX.Play();
             curHealth -= attack.playerAttack.damageOnHit;
             enemyHealthBar.size -= (attack.playerAttack.damageOnHit * .01f);
             DeathCheck();
+            
         }
     }
     void DeathCheck()
@@ -74,7 +76,7 @@ public class SCR_EnemyHealth : MonoBehaviour
                 float posZ = transform.position.z + Random.Range(-2, 2);
                 Instantiate(pickup, new Vector3(posX, transform.position.y, posZ), Quaternion.identity);
             }
-            //Instantiate(enemyDeathEffects,transform.position,transform.rotation);
+            Instantiate(enemyDeathEffects,transform.position,transform.rotation);
             //Destroy(this.gameObject);
             //Debug.Log("I GOT HIT");
         }

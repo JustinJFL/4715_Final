@@ -53,14 +53,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fef67bfc25db804498b9a6efca54876, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wanderLimit:
-    xMin: -25
-    xMax: 25
-    zMin: -25
-    zMax: 25
   FieldOfViewAngle: 110
   player: {fileID: 5108146294305347442, guid: da55de1e871ae59498c2bd34ea7924eb, type: 3}
-  maxSightDistance: 0.4
+  maxSightDistance: 10
   wanderTime: 1
   MaxWanderTime: 3
 --- !u!1102 &-2565716876163599440
@@ -100,7 +95,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: isPlayerSpotted
+    m_ConditionEvent: isHealthZero
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1337343109705303087}

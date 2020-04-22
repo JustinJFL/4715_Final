@@ -11,6 +11,7 @@ TagManager:
   - HealthTarget
   - PlayerCollider
   - Wall
+  - Downed
   layers:
   - Default
   - TransparentFX
