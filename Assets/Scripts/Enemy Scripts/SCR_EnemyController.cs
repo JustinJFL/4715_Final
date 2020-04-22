@@ -8,8 +8,7 @@ public class SCR_EnemyController : MonoBehaviour
 {   
     public float moveSpeed = 4;
     public float knockbackForce;
-    public WanderBoundry wanderLimit;
-
+    public WanderBoundry wanderLimit;
     public bool isPlayerSpotted;
 
     private Rigidbody enemyRigidBody;
