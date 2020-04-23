@@ -22,6 +22,20 @@ public class SCR_PlayerController : MonoBehaviour
     
     public Animator flamingoAnimator;
 
+    public GameObject instance;
+
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            Destroy(GameObject.FindWithTag("Player"));
+            return;
+        }
+
+        instance = GameObject.FindWithTag("Player");
+        DontDestroyOnLoad(instance);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
