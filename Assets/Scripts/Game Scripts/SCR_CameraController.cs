@@ -10,9 +10,12 @@ public class SCR_CameraController : MonoBehaviour
     public Transform Obstruction;
     float zoomSpeed = 2f;
 
+    public bool screenshakeBool;
+
     // Start is called before the first frame update
     void Start()
     {
+        screenshakeBool = this.gameObject.GetComponent<Animator>().GetBool("Screenshake");
         Obstruction = playerTrans;
         playerCameraOffset = transform.position - playerTrans.position;
     }
@@ -22,6 +25,11 @@ public class SCR_CameraController : MonoBehaviour
     {
         Vector3 newPos = playerTrans.position + playerCameraOffset;
         transform.position = Vector3.Slerp(transform.position,newPos,smooth);
+    }
+
+    void Update()
+    {
+        this.gameObject.GetComponent<Animator>().SetBool("Screenshake",screenshakeBool);
     }
 
 }

@@ -76,6 +76,7 @@ public class SCR_EnemyHealth : MonoBehaviour
                 float posZ = transform.position.z + Random.Range(-2, 2);
                 Instantiate(pickup, new Vector3(posX, transform.position.y, posZ), Quaternion.identity);
             }
+            enemyDeathEffects.SetActive(true);
             Instantiate(enemyDeathEffects,transform.position,transform.rotation);
             //Destroy(this.gameObject);
             //Debug.Log("I GOT HIT");

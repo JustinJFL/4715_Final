@@ -41,7 +41,7 @@ public class SCR_GameManager : MonoBehaviour
         Screen.SetResolution(1920, 1080, true);
         Debug.Log("ass");
         //scoreText = GetComponent<TextMeshProUGUI>();
-        scoreText.SetText("Score: 0");
+        scoreText.SetText("Scrap: 0");
         scoreText.ForceMeshUpdate(true);
         GameObject player = GameObject.FindWithTag("Player");
         if(player != null)
@@ -70,7 +70,7 @@ public class SCR_GameManager : MonoBehaviour
     {
         totalPoints += points;
         Debug.Log("Score " + totalPoints);
-        scoreText.SetText("Score: " + totalPoints.ToString());
+        scoreText.SetText("Scrap: " + totalPoints.ToString());
     }
     //Call this went subtracting from store points. enter a negative number to subtract.
     public void UpdateStorePoints(float points)
