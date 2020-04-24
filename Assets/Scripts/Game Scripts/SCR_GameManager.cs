@@ -50,6 +50,7 @@ public class SCR_GameManager : MonoBehaviour
         Debug.Log("ass");
 
         //scoreText = GetComponent<TextMeshProUGUI>();
+        scoreText = GameObject.FindWithTag("ScoreText").GetComponent<TextMeshProUGUI>();
         scoreText.SetText("Scrap: 0");
         highScore = PlayerPrefs.GetFloat("HighScore", 0);
         highScoreText.SetText("High Score: " + highScore);
