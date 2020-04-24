@@ -43,7 +43,8 @@ public class SCR_PlayerCombat : MonoBehaviour
     public bool isAttacking = false;
     public Attack playerAttack = new Attack(0,30,50);
     public Knockback playerAttackKnockback = new Knockback(0f, 500f, 700f);
-    public GameObject arm;
+    public GameObject LightAttackHitbox;
+    public GameObject HeavyAttackHitbox;
 
     private Vector3 knockbackDirection;
     // Start is called before the first frame update
@@ -52,22 +53,30 @@ public class SCR_PlayerCombat : MonoBehaviour
         playerRigidBody = GetComponent<Rigidbody>();
         combatAnimator = GetComponent<Animator>();
         playerHealth = GetComponent<SCR_PlayerHealth>();
-        arm.gameObject.SetActive(false);
+        LightAttackHitbox.gameObject.SetActive(false);
+        HeavyAttackHitbox.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButton("Attack"))
+        if (Input.GetButton("LightAttack"))
         {
             LightAttack();
 
         }
-        /*else if(Input.GetMouseButton(1))
+        else if(Input.GetButton("HeavyAttack"))
         {
             HeavyAttack();
         }
-        */
+        
+        //Ensures the hitboxes for attacking are disabled while the player is running or idle
+        if(combatAnimator.GetCurrentAnimatorStateInfo(0).IsName("Run") 
+        && combatAnimator.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
+        {
+            LightAttackHitbox.gameObject.SetActive(false);
+            HeavyAttackHitbox.gameObject.SetActive(false);
+        }
 
         SetToIdle();
     }
@@ -77,9 +86,9 @@ public class SCR_PlayerCombat : MonoBehaviour
         //Checks if current animation state is on Idle
         if (combatAnimator.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
         {
-
-            combatAnimator.SetBool("isAttacking", true);
-            arm.gameObject.SetActive(true);
+            combatAnimator.SetBool("LightAttack", true);
+            LightAttackHitbox.gameObject.SetActive(true);
+            SetToIdle();
             isAttacking = true;
             playerAttack.damageOnHit = playerAttack.SwipeAttackDamage;
             playerAttackKnockback.knockbackOnHit = playerAttackKnockback.lightKnockback;
@@ -91,10 +100,10 @@ public class SCR_PlayerCombat : MonoBehaviour
         Debug.Log("HEAVY ATTACK!!!");
         if(combatAnimator.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
         {
-            combatAnimator.SetBool("isAttacking", true);
-            combatAnimator.SetBool("didHeavyAttack", true);
-            arm.gameObject.SetActive(true);
-            isAttacking = true;
+            combatAnimator.SetBool("HeavyAttack", true);
+            HeavyAttackHitbox.gameObject.SetActive(true);
+            SetToIdle();
+            //isAttacking = true;
             playerAttack.damageOnHit = playerAttack.HeavyAttackDamage;
             playerAttackKnockback.knockbackOnHit = playerAttackKnockback.heavyKnockback;
             playerHealth.timeSinceCombat = 0;
@@ -104,31 +113,31 @@ public class SCR_PlayerCombat : MonoBehaviour
     void SetToIdle()
     {
         //Checks if current animation state is on Swipe Attack
-        if (combatAnimator.GetCurrentAnimatorStateInfo(1).IsName("Attack_Spin") || combatAnimator.GetCurrentAnimatorStateInfo(0).IsName("Character_Spin"))
+        if (combatAnimator.GetCurrentAnimatorStateInfo(0).IsName("SpinAttack"))
         {
-            combatAnimator.SetBool("isAttacking", false);
-            isAttacking = false;
-            arm.gameObject.SetActive(false);
-            combatAnimator.SetBool("didRightWingAttack", true);
+            combatAnimator.SetBool("LightAttack", false);
+            //isAttacking = false;
+            LightAttackHitbox.gameObject.SetActive(false);
+            //combatAnimator.SetBool("didRightWingAttack", true);
         }
-        else if (combatAnimator.GetCurrentAnimatorStateInfo(0).IsName("ANIM_Swipe_Attack_2"))
+        else if (combatAnimator.GetCurrentAnimatorStateInfo(0).IsName("PeckAttack"))
         {
-            combatAnimator.SetBool("isAttacking", false);
-            isAttacking = false;
-            arm.gameObject.SetActive(false);
-            combatAnimator.SetBool("didRightWingAttack", false);
+            combatAnimator.SetBool("HeavyAttack", false);
+            //isAttacking = false;
+            HeavyAttackHitbox.gameObject.SetActive(false);
+            //combatAnimator.SetBool("didRightWingAttack", false);
         }
-        else if (combatAnimator.GetCurrentAnimatorStateInfo(0).IsName("ANIM_Heavy_Attack"))
+        /*else if (combatAnimator.GetCurrentAnimatorStateInfo(0).IsName("ANIM_Heavy_Attack"))
         {
             if(combatAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1)
             {
-            combatAnimator.SetBool("isAttacking", false);
+            combatAnimator.SetBool("LightAttack", false);
             isAttacking = false;
-            arm.gameObject.SetActive(false);
+            LightAttackHitbox.gameObject.SetActive(false);
             combatAnimator.SetBool("didHeavyAttack", false);
             }
 
-        }
+        }*/
     }
 
     private void OnCollisionEnter(Collision collision)
