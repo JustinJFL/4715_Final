@@ -19,8 +19,10 @@ public class SCR_EnemyHealth : MonoBehaviour
     private SCR_PlayerCombat attack;
 
     public GameObject enemyDeathEffects;
+    public GameObject enemyDownedObject;
 
     public AudioSource playerAttackSFX;
+
 
 
     //private SCR_PlayerCombat playerReferance;
@@ -77,6 +79,7 @@ public class SCR_EnemyHealth : MonoBehaviour
                 Instantiate(pickup, new Vector3(posX, transform.position.y, posZ), Quaternion.identity);
             }
             enemyDeathEffects.SetActive(true);
+            enemyDownedObject.SetActive(true);
             Instantiate(enemyDeathEffects,transform.position,transform.rotation);
             //Destroy(this.gameObject);
             //Debug.Log("I GOT HIT");

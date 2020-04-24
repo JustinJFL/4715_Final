@@ -15,13 +15,13 @@ public class SCR_PowerSap : MonoBehaviour
 
     void Start()
     {
-       
+        player = GameObject.FindWithTag("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.C) && onEnemy == true)
+        if (Input.GetButtonDown("Charge") && onEnemy == true)
         {
             if (isCharging == false)
             {

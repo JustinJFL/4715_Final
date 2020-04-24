@@ -18,9 +18,13 @@ public class SCR_GameManager : MonoBehaviour
 
     public AudioSource playerDeathSFX;
 
-    private SCR_PlayerHealth playerObject;
+    private SCR_PlayerHealth playerHealthScript;
     private bool playerDeath = false;
     public GameObject playerDeathFX;
+
+    private GameObject player;
+
+    private TextMeshProUGUI downedText;
 
     private void Awake()
     {
@@ -32,6 +36,7 @@ public class SCR_GameManager : MonoBehaviour
         else
             Destroy(gameObject);
 
+        
     }
 
     // Start is called before the first frame update
@@ -46,15 +51,19 @@ public class SCR_GameManager : MonoBehaviour
         GameObject player = GameObject.FindWithTag("Player");
         if(player != null)
         {
-            playerObject = player.GetComponent<SCR_PlayerHealth>();
+            playerHealthScript = player.GetComponent<SCR_PlayerHealth>();
         }
         
+        player = GameObject.FindWithTag("Player");
+
+        downedText = GameObject.FindWithTag("DownedText").GetComponent<TextMeshProUGUI>();
+        downedText.enabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(playerObject.curHealth <=0 & playerDeath == false)
+        if(playerHealthScript.curHealth <=0 & playerDeath == false)
         {
             playerDeathSFX.Play();
             playerDeath = true;
@@ -64,6 +73,7 @@ public class SCR_GameManager : MonoBehaviour
         {
             SceneManager.LoadScene("SampleScene");
         }
+
     }
 
     public void UpdateTotalPoints(float points)

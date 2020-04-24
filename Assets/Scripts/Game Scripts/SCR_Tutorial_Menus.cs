@@ -7,13 +7,14 @@ public class SCR_Tutorial_Menus : MonoBehaviour
 {
 
     public GameObject[] popUps;
-    private int popUpIndex;
+    public int popUpIndex;
 
     public GameObject movementTutorial;
     public GameObject attackTutorial;
     public GameObject currencyTutorial;
     public GameObject objectiveTutorial;
     public GameObject healthTutorial;
+
 
 
     // Start is called before the first frame update
@@ -25,8 +26,6 @@ public class SCR_Tutorial_Menus : MonoBehaviour
         //currencyTutorial.SetActive(false);
         //objectiveTutorial.SetActive(false);
         //healthTutorial.SetActive(false);
-
-
 
     }
 
@@ -65,13 +64,12 @@ public class SCR_Tutorial_Menus : MonoBehaviour
         if (popUpIndex == 1)
         {
 
-            if(Input.GetButton("Attack"))
+            if(Input.GetButton("LightAttack"))
             {
 
                 popUpIndex++;
             }
         }
-
 
 
 
