@@ -107,11 +107,11 @@ public class SCR_PlayerController : MonoBehaviour
     private void OnCollisionStay(Collision collision)
     {
         //ground check  to prevent infinite jumping
-        if(collision.gameObject.tag == "Ground")
+        /*if(collision.gameObject.tag == "Ground")
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 Jump();
-            }
+            }*/
     }
     private void OnCollisionEnter(Collision other)
     {
@@ -119,7 +119,7 @@ public class SCR_PlayerController : MonoBehaviour
         {
             Destroy(other.gameObject);
             gameManager.UpdateStorePoints(gameManager.pickupPoints);
-            gameManager.UpdateTotalPoints(100);
+            gameManager.UpdateTotalPoints(1);
         }
     }
 }

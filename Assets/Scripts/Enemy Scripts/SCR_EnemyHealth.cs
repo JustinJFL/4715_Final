@@ -63,7 +63,6 @@ public class SCR_EnemyHealth : MonoBehaviour
             curHealth -= attack.playerAttack.damageOnHit;
             enemyHealthBar.size -= (attack.playerAttack.damageOnHit * .01f);
             DeathCheck();
-            
         }
     }
     void DeathCheck()
@@ -76,11 +75,11 @@ public class SCR_EnemyHealth : MonoBehaviour
             {
                 float posX = transform.position.x + Random.Range(-2, 2);
                 float posZ = transform.position.z + Random.Range(-2, 2);
-                Instantiate(pickup, new Vector3(posX, transform.position.y, posZ), Quaternion.identity);
+                Instantiate(pickup, new Vector3(posX, transform.position.y + .5f, posZ), Quaternion.identity);
+                Instantiate(enemyDownedObject, new Vector3(posX, transform.position.y+1, posZ), Quaternion.identity);
+                Instantiate(enemyDeathEffects,transform.position,transform.rotation);
             }
-            enemyDeathEffects.SetActive(true);
-            enemyDownedObject.SetActive(true);
-            Instantiate(enemyDeathEffects,transform.position,transform.rotation);
+            //Instantiate(enemyDeathEffects,transform.position,transform.rotation);
             //Destroy(this.gameObject);
             //Debug.Log("I GOT HIT");
         }
