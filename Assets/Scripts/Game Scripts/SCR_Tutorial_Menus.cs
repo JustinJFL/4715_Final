@@ -54,24 +54,41 @@ public class SCR_Tutorial_Menus : MonoBehaviour
             || Input.GetAxis("Horizontal") <= -.8 
             || Input.GetAxis("Vertical") > .8 
             || Input.GetAxis("Vertical") <= -.8)
+            
             {
-
                 popUpIndex++;
-
+            
             }
         }
 
         if (popUpIndex == 1)
         {
-
-            if(Input.GetButton("LightAttack"))
+            if(Input.GetButtonDown("LightAttack"))
             {
-
-                popUpIndex++;
+                PopUpCounter();
             }
         }
 
+        if (popUpIndex == 2)
+        {
+            if(Input.GetButtonDown("HeavyAttack"))
+            {
+                PopUpCounter();
+            }
+        }
 
+        if(popUpIndex >2)
+        {
+            if(Input.GetKeyDown(KeyCode.JoystickButton3))
+            {
+                PopUpCounter();
+            }
+        }
+
+        if (popUpIndex >=8)
+        {
+            popUpIndex = 8;
+        }
 
     }
 

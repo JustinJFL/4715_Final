@@ -46,6 +46,7 @@ public class SCR_GameManager : MonoBehaviour
         Screen.SetResolution(1920, 1080, true);
         Debug.Log("ass");
         //scoreText = GetComponent<TextMeshProUGUI>();
+        scoreText = GameObject.FindWithTag("ScoreText").GetComponent<TextMeshProUGUI>();
         scoreText.SetText("Scrap: 0");
         scoreText.ForceMeshUpdate(true);
         GameObject player = GameObject.FindWithTag("Player");
