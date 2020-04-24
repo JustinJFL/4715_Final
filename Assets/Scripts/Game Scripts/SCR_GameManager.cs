@@ -20,9 +20,13 @@ public class SCR_GameManager : MonoBehaviour
 
     public AudioSource playerDeathSFX;
 
-    private SCR_PlayerHealth playerObject;
+    private SCR_PlayerHealth playerHealthScript;
     private bool playerDeath = false;
     public GameObject playerDeathFX;
+
+    private GameObject player;
+
+    private TextMeshProUGUI downedText;
 
     private void Awake()
     {
@@ -34,6 +38,7 @@ public class SCR_GameManager : MonoBehaviour
         else
             Destroy(gameObject);
 
+        
     }
 
     // Start is called before the first frame update
@@ -44,17 +49,21 @@ public class SCR_GameManager : MonoBehaviour
         Debug.Log("ass");
 
         //scoreText = GetComponent<TextMeshProUGUI>();
-        scoreText.SetText("Score: 0");
+        scoreText.SetText("Scrap: 0");
         scoreText.ForceMeshUpdate(true);
         upgradeScoreText.gameObject.SetActive(false);
         GameObject player = GameObject.FindWithTag("Player");
         if (player != null)
         {
-            playerObject = player.GetComponent<SCR_PlayerHealth>();
+            playerHealthScript = player.GetComponent<SCR_PlayerHealth>();
         }
         else
             Debug.Log("player object not found");
         
+        player = GameObject.FindWithTag("Player");
+
+        downedText = GameObject.FindWithTag("DownedText").GetComponent<TextMeshProUGUI>();
+        downedText.enabled = false;
     }
 
     // Update is called once per frame
@@ -79,7 +88,7 @@ public class SCR_GameManager : MonoBehaviour
     {
         totalPoints += points;
         Debug.Log("Score " + totalPoints);
-        scoreText.SetText("Score: " + totalPoints.ToString());
+        scoreText.SetText("Scrap: " + totalPoints.ToString());
     }
     //Call this went subtracting from store points. enter a negative number to subtract.
     public void UpdateStorePoints(float points)
