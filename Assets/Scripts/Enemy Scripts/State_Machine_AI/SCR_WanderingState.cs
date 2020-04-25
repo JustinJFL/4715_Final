@@ -54,7 +54,7 @@ public class SCR_WanderingState : StateMachineBehaviour
 
         if (Physics.Raycast(animator.transform.position, animator.transform.forward, out hit, maxSightDistance) || enemy.isPlayerSpotted)
         {
-            Debug.Log("Angle test");
+            //Debug.Log("Angle test");
             enemy.StartCoroutine(MovementPause(10f, animator));
             if(angle < FieldOfViewAngle * .5f)
             {

@@ -25,7 +25,7 @@ public class SCR_GameManager : MonoBehaviour
     public GameObject playerDeathFX;
 
     private GameObject player;
-    private float highScore = 0;
+    private float highScore;
 
     private TextMeshProUGUI downedText;
 
@@ -46,14 +46,15 @@ public class SCR_GameManager : MonoBehaviour
     void Start()
     {
         Debug.LogWarning("PRESSING Q WILL OPEN A TEST SCENE THIS IS A FOR DEBUGGING PURPOSES AND MUST BE CHANGED IN THE FINAL BUILD");
+        Debug.LogWarning("PRESSING RIGHT CTRL TO RESET HIGH SCORE. CHANGE FOR DEBUGGING PURPOSES");
         Screen.SetResolution(1920, 1080, true);
-        Debug.Log("ass");
+        Debug.Log("ASS");
 
         //scoreText = GetComponent<TextMeshProUGUI>();
         scoreText = GameObject.FindWithTag("ScoreText").GetComponent<TextMeshProUGUI>();
         scoreText.SetText("Scrap: 0");
-        highScore = PlayerPrefs.GetFloat("HighScore", 0);
-        highScoreText.SetText("High Score: " + highScore);
+        //highScore = PlayerPrefs.GetFloat("HighScore", 0);
+ 
         scoreText.ForceMeshUpdate(true);
         GameObject player = GameObject.FindWithTag("Player");
         if (player != null)
@@ -65,6 +66,7 @@ public class SCR_GameManager : MonoBehaviour
         {
             Debug.Log("player object not found");
         }
+
         downedText = GameObject.FindWithTag("DownedText").GetComponent<TextMeshProUGUI>();
         downedText.enabled = false;
     }
@@ -72,10 +74,17 @@ public class SCR_GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Q))
+       highScoreText.SetText("High Score: " + PlayerPrefs.GetFloat("HighScore", 0));
+
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             Debug.Log("Open New Scene");
             SceneManager.LoadScene("UpgradeShop");
+        }
+        else if(Input.GetKeyDown(KeyCode.RightControl))
+        {
+            PlayerPrefs.DeleteKey("HighScore");
+            Debug.Log("High Score Reset");
         }
 
         if(player != null)
@@ -97,10 +106,12 @@ public class SCR_GameManager : MonoBehaviour
         Debug.Log("Score " + totalPoints);
         scoreText.SetText("Scrap: " + totalPoints.ToString());
 
-        if(totalPoints > PlayerPrefs.GetInt("HighScore",0))
+        if(totalPoints > PlayerPrefs.GetFloat("HighScore",0))
         {
+            Debug.Log("New High Score");
             PlayerPrefs.SetFloat("HighScore", totalPoints);
-            highScoreText.SetText("HighScore: ", totalPoints); 
+            highScoreText.SetText("High Score: " + totalPoints); 
+
         }
     }
     //Call this went subtracting from store points. enter a negative number to subtract.
