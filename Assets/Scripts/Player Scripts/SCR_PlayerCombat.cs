@@ -1,4 +1,4 @@
-﻿ using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -75,7 +75,7 @@ public class SCR_PlayerCombat : MonoBehaviour
         
         //Ensures the hitboxes for attacking are disabled while the player is running or idle
         if(combatAnimator.GetCurrentAnimatorStateInfo(0).IsName("Run") 
-        || combatAnimator.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
+        && combatAnimator.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
         {
             LightAttackHitbox.gameObject.SetActive(false);
             HeavyAttackHitbox.gameObject.SetActive(false);
