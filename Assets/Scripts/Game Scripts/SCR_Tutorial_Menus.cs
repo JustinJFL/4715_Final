@@ -35,7 +35,7 @@ public class SCR_Tutorial_Menus : MonoBehaviour
     {
         if(SceneManager.GetActiveScene().name == "BlockMesh")
         {
-        Debug.Log("Pop up index is: " + popUpIndex);
+        //Debug.Log("Pop up index is: " + popUpIndex);
         for (int i = 0; i < popUps.Length; i++)
         {
 
@@ -96,7 +96,7 @@ public class SCR_Tutorial_Menus : MonoBehaviour
 
         else
         {
-            Debug.Log("Didn't load tutorial because it's not level 1");
+            //Debug.Log("Didn't load tutorial because it's not level 1");
         }
     }
 

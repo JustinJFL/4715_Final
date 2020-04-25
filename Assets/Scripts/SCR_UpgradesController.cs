@@ -71,6 +71,7 @@ public class SCR_UpgradesController : MonoBehaviour
             playerHealthScript.takenDamage = 5;
             upgrade1Purchased = true;
             gameController.GetComponent<SCR_GameManager>().totalPoints -= 3;
+            gameController.GetComponent<SCR_GameManager>().upgrade1 = true;
         }
         
     }
@@ -79,9 +80,11 @@ public class SCR_UpgradesController : MonoBehaviour
     {
         if(gameController.GetComponent<SCR_GameManager>().totalPoints >= 4)
         {
-            playerControllerScript.speed = 110;
+            playerControllerScript.speed = 11;
             upgrade2Purchased = true;
             gameController.GetComponent<SCR_GameManager>().totalPoints -= 4;
+            gameController.GetComponent<SCR_GameManager>().upgrade2 = true;
+
         }
     }
 
@@ -93,6 +96,7 @@ public class SCR_UpgradesController : MonoBehaviour
             playerCombatScript.playerAttack.HeavyAttackDamage = 65;
             upgrade3Purchased = true;
             gameController.GetComponent<SCR_GameManager>().totalPoints -= 5;
+            gameController.GetComponent<SCR_GameManager>().upgrade3 = true;
         }
     }
 

@@ -12,6 +12,13 @@ public class SCR_GameManager : MonoBehaviour
     public float storePoints;
 
     [SerializeField]
+    public bool upgrade1 = false;
+    [SerializeField]
+    public bool upgrade2 = false;
+    [SerializeField]
+    public bool upgrade3 = false;
+
+    [SerializeField]
     public float totalPoints = 0;
 
     [SerializeField]
@@ -92,7 +99,7 @@ public class SCR_GameManager : MonoBehaviour
             SceneManager.LoadScene("UpgradeShop");
         }
 
-        Debug.Log(lastLevel.ToString() + " is the last level.");
+        //Debug.Log(lastLevel.ToString() + " is the last level.");
     
 
         if(SceneManager.GetActiveScene().name == "Level 2" && level2Loaded < 2)

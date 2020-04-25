@@ -40209,6 +40209,7 @@ MonoBehaviour:
   jumpForce: 300
   flamingoAnimator: {fileID: 4215195387888908112}
   instance: {fileID: 0}
+  armor: {fileID: 973814060352262011}
 --- !u!114 &5847705798894617151
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40909,7 +40910,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 9149364fecd82bc46834328eac382b99, type: 2}
+      objectReference: {fileID: 2100000, guid: 92beb237e1d3a7b4d97979ca7db8e042, type: 2}
     - target: {fileID: -3556755321893592511, guid: 855fafd571b8e76478e2ba8e9f670e45,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -40953,7 +40954,7 @@ PrefabInstance:
     - target: {fileID: 6536011595229042661, guid: 855fafd571b8e76478e2ba8e9f670e45,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2927572511332919505, guid: 855fafd571b8e76478e2ba8e9f670e45,
         type: 3}
@@ -40980,8 +40981,19 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 92beb237e1d3a7b4d97979ca7db8e042, type: 2}
+    - target: {fileID: -5448743739165904381, guid: 855fafd571b8e76478e2ba8e9f670e45,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 855fafd571b8e76478e2ba8e9f670e45, type: 3}
+--- !u!1 &973814060352262011 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -5448743739165904381, guid: 855fafd571b8e76478e2ba8e9f670e45,
+    type: 3}
+  m_PrefabInstance: {fileID: 4170758535668448632}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8978829676724852322 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 855fafd571b8e76478e2ba8e9f670e45,
