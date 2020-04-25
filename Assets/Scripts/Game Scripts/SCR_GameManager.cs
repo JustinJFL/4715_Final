@@ -9,12 +9,27 @@ using TMPro;
 public class SCR_GameManager : MonoBehaviour
 {
     public static SCR_GameManager Instance;
-    private float storePoints;
-    private float totalPoints = 0;
+    public float storePoints;
+
+    [SerializeField]
+    public bool upgrade1 = false;
+    [SerializeField]
+    public bool upgrade2 = false;
+    [SerializeField]
+    public bool upgrade3 = false;
+
+    [SerializeField]
+    public float totalPoints = 0;
+
+    [SerializeField]
+    public float actualTotalPoints = 0;
+
     [SerializeField]
     public float pickupPoints;
     public bool groupAlert;
     public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI highScoreText;
+    //public Canvas gameHUD;
 
     public AudioSource playerDeathSFX;
 
@@ -23,6 +38,7 @@ public class SCR_GameManager : MonoBehaviour
     public GameObject playerDeathFX;
 
     private GameObject player;
+    private float highScore;
 
     private TextMeshProUGUI downedText;
 
@@ -49,19 +65,24 @@ public class SCR_GameManager : MonoBehaviour
     void Start()
     {
         Debug.LogWarning("PRESSING Q WILL OPEN A TEST SCENE THIS IS A FOR DEBUGGING PURPOSES AND MUST BE CHANGED IN THE FINAL BUILD");
+        Debug.LogWarning("PRESSING RIGHT CTRL TO RESET HIGH SCORE. CHANGE FOR DEBUGGING PURPOSES");
         Screen.SetResolution(1920, 1080, true);
-        Debug.Log("ass");
+        Debug.Log("ASS");
+
         //scoreText = GetComponent<TextMeshProUGUI>();
         scoreText = GameObject.FindWithTag("ScoreText").GetComponent<TextMeshProUGUI>();
-        scoreText.SetText("Scrap: 0");
+        scoreText.SetText("0 Scrap");
         scoreText.ForceMeshUpdate(true);
         GameObject player = GameObject.FindWithTag("Player");
-        if(player != null)
+        if (player != null)
         {
+            Debug.Log("player object found");
             playerHealthScript = player.GetComponent<SCR_PlayerHealth>();
         }
-        
-        player = GameObject.FindWithTag("Player");
+        else
+        {
+            Debug.Log("player object not found");
+        }
 
         downedText = GameObject.FindWithTag("DownedText").GetComponent<TextMeshProUGUI>();
         downedText.enabled = false;
@@ -70,14 +91,15 @@ public class SCR_GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(playerHealthScript.curHealth <=0 & playerDeath == false)
+       //highScoreText.SetText("High Score: " + PlayerPrefs.GetFloat("HighScore", 0));
+
+        if (Input.GetKeyDown(KeyCode.Q))
         {
-            playerDeathSFX.Play();
-            playerDeath = true;
-            playerDeathFX.SetActive(true);
+            Debug.Log("Open New Scene");
+            SceneManager.LoadScene("UpgradeShop");
         }
 
-        Debug.Log(lastLevel.ToString() + " is the last level.");
+        //Debug.Log(lastLevel.ToString() + " is the last level.");
     
 
         if(SceneManager.GetActiveScene().name == "Level 2" && level2Loaded < 2)
@@ -105,8 +127,9 @@ public class SCR_GameManager : MonoBehaviour
     public void UpdateTotalPoints(float points)
     {
         totalPoints += points;
+        actualTotalPoints += points;
         Debug.Log("Score " + totalPoints);
-        scoreText.SetText("Scrap: " + totalPoints.ToString());
+        scoreText.SetText(totalPoints.ToString() + " Scrap" );
     }
     //Call this went subtracting from store points. enter a negative number to subtract.
     public void UpdateStorePoints(float points)

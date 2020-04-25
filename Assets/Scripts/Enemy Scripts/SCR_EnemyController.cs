@@ -43,6 +43,7 @@ public class SCR_EnemyController : MonoBehaviour
     void Update()
     {
         enemyHealthBar.transform.LookAt(enemyHealthBarTarget.transform.position);
+        transform.LookAt(GameObject.FindWithTag("Player").transform.position);
 
         transform.position = new Vector3(
         Mathf.Clamp(transform.position.x, wanderLimit.xMin, wanderLimit.xMax),

@@ -11,6 +11,8 @@ public class SCR_WanderingState : StateMachineBehaviour
     public float wanderTime;
     public float MaxWanderTime;
 
+    private float wanderWait;
+
     private RaycastHit hit;
     private SCR_EnemyController enemy;
     private SCR_EnemyHealth enemyHealth;
@@ -42,8 +44,9 @@ public class SCR_WanderingState : StateMachineBehaviour
         else
         {
             wanderTime = Random.Range(1, MaxWanderTime);
-            enemy.StartCoroutine(MovementPause(10f, animator));
+            //enemy.StartCoroutine(MovementPause(10f, animator));
             animator.transform.eulerAngles = new Vector3(0, Random.Range(-360, 360), 0);
+            wanderWait = 0;
         }
 
         Vector3 direction = player.transform.position - animator.transform.position;
@@ -51,7 +54,7 @@ public class SCR_WanderingState : StateMachineBehaviour
 
         if (Physics.Raycast(animator.transform.position, animator.transform.forward, out hit, maxSightDistance) || enemy.isPlayerSpotted)
         {
-            Debug.Log("Angle test");
+            //Debug.Log("Angle test");
             enemy.StartCoroutine(MovementPause(10f, animator));
             if(angle < FieldOfViewAngle * .5f)
             {
@@ -70,10 +73,10 @@ public class SCR_WanderingState : StateMachineBehaviour
 
     public IEnumerator MovementPause(float pauseTime,Animator animator)
     {
-        Debug.Log("Enumerator Entered");
+        //Debug.Log("Enumerator Entered");
         animator.transform.Translate(Vector3.zero);
         yield return new WaitForSeconds(pauseTime);
-        Debug.Log("Enumerator Exiting");
+        //Debug.Log("Enumerator Exiting");
     }
 
 
