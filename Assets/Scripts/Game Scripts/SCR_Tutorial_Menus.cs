@@ -2,18 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class SCR_Tutorial_Menus : MonoBehaviour
 {
 
     public GameObject[] popUps;
-    private int popUpIndex;
+    public int popUpIndex;
 
     public GameObject movementTutorial;
     public GameObject attackTutorial;
     public GameObject currencyTutorial;
     public GameObject objectiveTutorial;
     public GameObject healthTutorial;
+
 
 
     // Start is called before the first frame update
@@ -26,13 +28,13 @@ public class SCR_Tutorial_Menus : MonoBehaviour
         //objectiveTutorial.SetActive(false);
         //healthTutorial.SetActive(false);
 
-
-
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(SceneManager.GetActiveScene().name == "BlockMesh")
+        {
         Debug.Log("Pop up index is: " + popUpIndex);
         for (int i = 0; i < popUps.Length; i++)
         {
@@ -55,26 +57,47 @@ public class SCR_Tutorial_Menus : MonoBehaviour
             || Input.GetAxis("Horizontal") <= -.8 
             || Input.GetAxis("Vertical") > .8 
             || Input.GetAxis("Vertical") <= -.8)
+            
             {
-
                 popUpIndex++;
-
+            
             }
         }
 
         if (popUpIndex == 1)
         {
-
-            if(Input.GetButton("Attack"))
+            if(Input.GetButtonDown("LightAttack"))
             {
-
-                popUpIndex++;
+                PopUpCounter();
             }
         }
 
+        if (popUpIndex == 2)
+        {
+            if(Input.GetButtonDown("HeavyAttack"))
+            {
+                PopUpCounter();
+            }
+        }
 
+        if(popUpIndex >2)
+        {
+            if(Input.GetKeyDown(KeyCode.JoystickButton3))
+            {
+                PopUpCounter();
+            }
+        }
 
+        if (popUpIndex >=8)
+        {
+            popUpIndex = 8;
+        }
+        }
 
+        else
+        {
+            Debug.Log("Didn't load tutorial because it's not level 1");
+        }
     }
 
     public void PopUpCounter()

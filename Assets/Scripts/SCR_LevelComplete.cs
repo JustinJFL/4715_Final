@@ -21,8 +21,7 @@ public class SCR_LevelComplete : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
-            SceneManager.LoadScene("ShopMenu",LoadSceneMode.Single);
+            SceneManager.LoadScene("UpgradeShop",LoadSceneMode.Single);
         }
-        
     }
 }

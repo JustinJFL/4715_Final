@@ -8,7 +8,7 @@ public class SCR_PlayerController : MonoBehaviour
 {
 
     [SerializeField]
-    float speed = 4f;
+    public float speed = 4f;
     Vector3 forward, right;
 
     private Rigidbody playerRigidBody;
@@ -21,6 +21,20 @@ public class SCR_PlayerController : MonoBehaviour
     private Vector3 lookTarget;
     
     public Animator flamingoAnimator;
+
+    public GameObject instance;
+
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            Destroy(GameObject.FindWithTag("Player"));
+            return;
+        }
+
+        instance = GameObject.FindWithTag("Player");
+        DontDestroyOnLoad(instance);
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -93,11 +107,11 @@ public class SCR_PlayerController : MonoBehaviour
     private void OnCollisionStay(Collision collision)
     {
         //ground check  to prevent infinite jumping
-        if(collision.gameObject.tag == "Ground")
+        /*if(collision.gameObject.tag == "Ground")
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 Jump();
-            }
+            }*/
     }
     private void OnCollisionEnter(Collision other)
     {
@@ -105,7 +119,7 @@ public class SCR_PlayerController : MonoBehaviour
         {
             Destroy(other.gameObject);
             gameManager.UpdateStorePoints(gameManager.pickupPoints);
-            gameManager.UpdateTotalPoints(100);
+            gameManager.UpdateTotalPoints(1);
         }
     }
 }

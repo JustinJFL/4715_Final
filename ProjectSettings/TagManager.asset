@@ -12,6 +12,13 @@ TagManager:
   - PlayerCollider
   - Wall
   - Downed
+  - Tutorial
+  - DownedText
+  - ScoreText
+  - EnergyImage
+  - HealthImage
+  - UpgradeWindow
+  - HUD
   layers:
   - Default
   - TransparentFX

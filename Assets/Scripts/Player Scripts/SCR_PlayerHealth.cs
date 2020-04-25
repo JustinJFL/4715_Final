@@ -27,6 +27,8 @@ public class SCR_PlayerHealth : MonoBehaviour
 
     void Start()
     {
+        healthRingImage = GameObject.FindWithTag("HealthImage").GetComponent<Image>();
+        energyRingImage = GameObject.FindWithTag("EnergyImage").GetComponent<Image>();
         //defining health and energy variables
         curHealth = startHealth;
         healthRingImage.sprite = healthSprites[10];
