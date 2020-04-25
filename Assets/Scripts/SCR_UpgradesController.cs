@@ -66,21 +66,34 @@ public class SCR_UpgradesController : MonoBehaviour
 
     public void upgrade1()
     {
-        playerHealthScript.takenDamage = 5;
-        upgrade1Purchased = true;
+        if (gameController.GetComponent<SCR_GameManager>().totalPoints >= 3)
+        {
+            playerHealthScript.takenDamage = 5;
+            upgrade1Purchased = true;
+            gameController.GetComponent<SCR_GameManager>().totalPoints -= 3;
+        }
+        
     }
 
     public void upgrade2()
     {
-        playerControllerScript.speed = 11;
-        upgrade2Purchased = true;
+        if(gameController.GetComponent<SCR_GameManager>().totalPoints >= 4)
+        {
+            playerControllerScript.speed = 110;
+            upgrade2Purchased = true;
+            gameController.GetComponent<SCR_GameManager>().totalPoints -= 4;
+        }
     }
 
     public void upgrade3()
     {
-        playerCombatScript.playerAttack.SwipeAttackDamage = 45;
-        playerCombatScript.playerAttack.HeavyAttackDamage = 65;
-        upgrade3Purchased = true;
+        if (gameController.GetComponent<SCR_GameManager>().totalPoints >= 5)
+        {
+            playerCombatScript.playerAttack.SwipeAttackDamage = 45;
+            playerCombatScript.playerAttack.HeavyAttackDamage = 65;
+            upgrade3Purchased = true;
+            gameController.GetComponent<SCR_GameManager>().totalPoints -= 5;
+        }
     }
 
     public void loadNextlevel()

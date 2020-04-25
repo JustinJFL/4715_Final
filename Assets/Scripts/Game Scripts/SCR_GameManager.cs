@@ -10,7 +10,13 @@ public class SCR_GameManager : MonoBehaviour
 {
     public static SCR_GameManager Instance;
     public float storePoints;
+
+    [SerializeField]
     public float totalPoints = 0;
+
+    [SerializeField]
+    public float actualTotalPoints = 0;
+
     [SerializeField]
     public float pickupPoints;
     public bool groupAlert;
@@ -58,9 +64,7 @@ public class SCR_GameManager : MonoBehaviour
 
         //scoreText = GetComponent<TextMeshProUGUI>();
         scoreText = GameObject.FindWithTag("ScoreText").GetComponent<TextMeshProUGUI>();
-        scoreText.SetText("Scrap: 0");
-        //highScore = PlayerPrefs.GetFloat("HighScore", 0);
- 
+        scoreText.SetText("0 Scrap");
         scoreText.ForceMeshUpdate(true);
         GameObject player = GameObject.FindWithTag("Player");
         if (player != null)
@@ -80,7 +84,7 @@ public class SCR_GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       highScoreText.SetText("High Score: " + PlayerPrefs.GetFloat("HighScore", 0));
+       //highScoreText.SetText("High Score: " + PlayerPrefs.GetFloat("HighScore", 0));
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
@@ -116,16 +120,9 @@ public class SCR_GameManager : MonoBehaviour
     public void UpdateTotalPoints(float points)
     {
         totalPoints += points;
+        actualTotalPoints += points;
         Debug.Log("Score " + totalPoints);
-        scoreText.SetText("Scrap: " + totalPoints.ToString());
-
-        if(totalPoints > PlayerPrefs.GetFloat("HighScore",0))
-        {
-            Debug.Log("New High Score");
-            PlayerPrefs.SetFloat("HighScore", totalPoints);
-            highScoreText.SetText("High Score: " + totalPoints); 
-
-        }
+        scoreText.SetText(totalPoints.ToString() + " Scrap" );
     }
     //Call this went subtracting from store points. enter a negative number to subtract.
     public void UpdateStorePoints(float points)
