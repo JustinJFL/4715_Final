@@ -25,6 +25,7 @@ public class SCR_GameManager : MonoBehaviour
     //public Canvas gameHUD;
 
     public AudioSource playerDeathSFX;
+    public Transform levelTwoPlayerSpawn;
 
     private SCR_PlayerHealth playerHealthScript;
     private bool playerDeath = false;
@@ -97,12 +98,12 @@ public class SCR_GameManager : MonoBehaviour
 
         if(SceneManager.GetActiveScene().name == "Level 2" && level2Loaded < 2)
         {
-            level2Loaded++;
-            if(level2Loaded == 1)
+            //level2Loaded++;
+            if(level2Loaded == 0)
             {
                 GameObject.FindWithTag("HUD").GetComponent<Canvas>().enabled = true;
-                playerHealthScript.curHealth = 100;
-                playerHealthScript.curEnergy = 100;
+                //playerHealthScript.curHealth = 100;
+                //playerHealthScript.curEnergy = 100;
                 UpdateTotalPoints(0);
             }
             else
