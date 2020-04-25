@@ -4,6 +4,18 @@ using UnityEngine;
 
 public class SCR_PlayerCombat : MonoBehaviour
 {
+
+    private Rigidbody playerRigidBody;
+    private Animator combatAnimator;
+    private SCR_PlayerHealth playerHealth;
+
+    public float knockbackForce;
+    public bool isAttacking = false;
+    public Attack playerAttack = new Attack(0, 30, 50);
+    public Knockback playerAttackKnockback = new Knockback(0f, 500f, 700f);
+    public GameObject LightAttackHitbox;
+    public GameObject HeavyAttackHitbox;
+
     [System.Serializable]
     public class Attack
     {
@@ -35,16 +47,7 @@ public class SCR_PlayerCombat : MonoBehaviour
         }
     }
 
-    private Rigidbody playerRigidBody;
-    private Animator combatAnimator;
-    private SCR_PlayerHealth playerHealth;
 
-    public float knockbackForce;
-    public bool isAttacking = false;
-    public Attack playerAttack = new Attack(0,30,50);
-    public Knockback playerAttackKnockback = new Knockback(0f, 500f, 700f);
-    public GameObject LightAttackHitbox;
-    public GameObject HeavyAttackHitbox;
 
     private Vector3 knockbackDirection;
     // Start is called before the first frame update
@@ -72,7 +75,7 @@ public class SCR_PlayerCombat : MonoBehaviour
         
         //Ensures the hitboxes for attacking are disabled while the player is running or idle
         if(combatAnimator.GetCurrentAnimatorStateInfo(0).IsName("Run") 
-        && combatAnimator.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
+        || combatAnimator.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
         {
             LightAttackHitbox.gameObject.SetActive(false);
             HeavyAttackHitbox.gameObject.SetActive(false);

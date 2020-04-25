@@ -23,6 +23,8 @@ public class SCR_PlayerController : MonoBehaviour
     public Animator flamingoAnimator;
 
     public GameObject instance;
+    public GameObject armor;
+
 
     private void Awake()
     {
@@ -54,6 +56,8 @@ public class SCR_PlayerController : MonoBehaviour
         }
         else
             Debug.Log("Could not find object with Game Manager");
+
+
     }
 
     // Update is called once per frame
@@ -79,6 +83,12 @@ public class SCR_PlayerController : MonoBehaviour
         else if (flamingoAnimator.GetBool("isRunning") == false)
         {
             this.GetComponent<SCR_PlayerLookControls>().enabled = true;
+        }
+
+
+        if (gameManager.upgrade1)
+        {
+            armor.SetActive(true);
         }
     }
 
