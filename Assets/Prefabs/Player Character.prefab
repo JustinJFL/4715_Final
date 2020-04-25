@@ -40206,41 +40206,41 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   feathers:
-  - {fileID: 840496334529542767}
-  - {fileID: 2352813348974921742}
-  - {fileID: 7665683941369438127}
-  - {fileID: 590849093449131194}
-  - {fileID: 961846597703055310}
-  - {fileID: 5693576213165919449}
-  - {fileID: 6015284943840748185}
-  - {fileID: 5548221516411014528}
-  - {fileID: 7484309746807062265}
-  - {fileID: 9046430783578628929}
-  - {fileID: 3498147508201265842}
-  - {fileID: 5677594798098628774}
-  - {fileID: 3848719756114690631}
-  - {fileID: 2645296094645436379}
-  - {fileID: 8179185852528826398}
-  - {fileID: 2297671018915100041}
-  - {fileID: 6038847946441418701}
-  - {fileID: 7398321306434841673}
-  - {fileID: 2403600438310867462}
-  - {fileID: 3965752178439008244}
-  - {fileID: 4357275475795472224}
-  - {fileID: 2643546768595009039}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   wingMaterial: {fileID: 2100000, guid: 92beb237e1d3a7b4d97979ca7db8e042, type: 2}
   legs:
-  - {fileID: 6230755194651205659}
-  - {fileID: 299176353341945862}
-  - {fileID: 6573062400314761382}
-  - {fileID: 6013048603584373708}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   legMaterial: {fileID: 2100000, guid: d0a21705ca6534c4eb717b5c5d93bbdc, type: 2}
   speed: 9
   isAttacking: 0
   jumpForce: 300
   flamingoAnimator: {fileID: 4215195387888908112}
   instance: {fileID: 0}
-  armor: {fileID: 973814060352262011}
+  armor: {fileID: 6038847946441418701}
 --- !u!114 &5847705798894617151
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40257,8 +40257,8 @@ MonoBehaviour:
   takenDamage: 10
   curHealth: 0
   curEnergy: 0
-  regenRate: 2
-  energyDecreaseRate: 1
+  regenRate: 1.5
+  energyDecreaseRate: 0.6
   healthSprites:
   - {fileID: -7506837466246649620, guid: 00ce2f50c4f33b44c809ddd959a232a3, type: 3}
   - {fileID: 5374940111801354307, guid: 00ce2f50c4f33b44c809ddd959a232a3, type: 3}
@@ -40870,15 +40870,20 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 855fafd571b8e76478e2ba8e9f670e45,
+    - target: {fileID: -5448743739165904381, guid: 855fafd571b8e76478e2ba8e9f670e45,
         type: 3}
-      propertyPath: m_Name
-      value: M2_Char_FlamingoAnim2
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -5448743739165904381, guid: 855fafd571b8e76478e2ba8e9f670e45,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 855fafd571b8e76478e2ba8e9f670e45,
+        type: 3}
+      propertyPath: m_Name
+      value: M2_Char_FlamingoAnim2
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 855fafd571b8e76478e2ba8e9f670e45,
         type: 3}
@@ -41100,22 +41105,17 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 92beb237e1d3a7b4d97979ca7db8e042, type: 2}
-    - target: {fileID: -5448743739165904381, guid: 855fafd571b8e76478e2ba8e9f670e45,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 855fafd571b8e76478e2ba8e9f670e45, type: 3}
---- !u!1 &973814060352262011 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -1571810162425013579, guid: 855fafd571b8e76478e2ba8e9f670e45,
-    type: 3}
-  m_PrefabInstance: {fileID: 4170758535668448632}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8978829676724852322 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 855fafd571b8e76478e2ba8e9f670e45,
+    type: 3}
+  m_PrefabInstance: {fileID: 4170758535668448632}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6038847946441418701 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -1571810162425013579, guid: 855fafd571b8e76478e2ba8e9f670e45,
     type: 3}
   m_PrefabInstance: {fileID: 4170758535668448632}
   m_PrefabAsset: {fileID: 0}
