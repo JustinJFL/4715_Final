@@ -10,7 +10,13 @@ public class SCR_GameManager : MonoBehaviour
 {
     public static SCR_GameManager Instance;
     private float storePoints;
-    private float totalPoints = 0;
+
+    [SerializeField]
+    public float totalPoints = 0;
+
+    [SerializeField]
+    public float actualTotalPoints = 0;
+
     [SerializeField]
     public float pickupPoints;
     public bool groupAlert;
@@ -53,7 +59,7 @@ public class SCR_GameManager : MonoBehaviour
         Debug.Log("ass");
         //scoreText = GetComponent<TextMeshProUGUI>();
         scoreText = GameObject.FindWithTag("ScoreText").GetComponent<TextMeshProUGUI>();
-        scoreText.SetText("Scrap: 0");
+        scoreText.SetText("0 Scrap");
         scoreText.ForceMeshUpdate(true);
         GameObject player = GameObject.FindWithTag("Player");
         if(player != null)
@@ -105,8 +111,9 @@ public class SCR_GameManager : MonoBehaviour
     public void UpdateTotalPoints(float points)
     {
         totalPoints += points;
+        actualTotalPoints += points;
         Debug.Log("Score " + totalPoints);
-        scoreText.SetText("Scrap: " + totalPoints.ToString());
+        scoreText.SetText(totalPoints.ToString() + " Scrap" );
     }
     //Call this went subtracting from store points. enter a negative number to subtract.
     public void UpdateStorePoints(float points)
