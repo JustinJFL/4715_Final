@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 
 public class SCR_EnemyHealth : MonoBehaviour
 {
-    public SCR_PlayerController playerReferance;
+    public SCR_PlayerController playerReference;
     public int totalHealth;
     //public int takenDamage; // Damage taken from touching player's weapon.
     public GameObject pickup;
