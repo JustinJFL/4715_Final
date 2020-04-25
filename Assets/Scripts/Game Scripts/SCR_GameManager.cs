@@ -21,6 +21,8 @@ public class SCR_GameManager : MonoBehaviour
     public float pickupPoints;
     public bool groupAlert;
     public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI highScoreText;
+    //public Canvas gameHUD;
 
     public AudioSource playerDeathSFX;
 
@@ -29,6 +31,7 @@ public class SCR_GameManager : MonoBehaviour
     public GameObject playerDeathFX;
 
     private GameObject player;
+    private float highScore;
 
     private TextMeshProUGUI downedText;
 
@@ -55,19 +58,24 @@ public class SCR_GameManager : MonoBehaviour
     void Start()
     {
         Debug.LogWarning("PRESSING Q WILL OPEN A TEST SCENE THIS IS A FOR DEBUGGING PURPOSES AND MUST BE CHANGED IN THE FINAL BUILD");
+        Debug.LogWarning("PRESSING RIGHT CTRL TO RESET HIGH SCORE. CHANGE FOR DEBUGGING PURPOSES");
         Screen.SetResolution(1920, 1080, true);
-        Debug.Log("ass");
+        Debug.Log("ASS");
+
         //scoreText = GetComponent<TextMeshProUGUI>();
         scoreText = GameObject.FindWithTag("ScoreText").GetComponent<TextMeshProUGUI>();
         scoreText.SetText("0 Scrap");
         scoreText.ForceMeshUpdate(true);
         GameObject player = GameObject.FindWithTag("Player");
-        if(player != null)
+        if (player != null)
         {
+            Debug.Log("player object found");
             playerHealthScript = player.GetComponent<SCR_PlayerHealth>();
         }
-        
-        player = GameObject.FindWithTag("Player");
+        else
+        {
+            Debug.Log("player object not found");
+        }
 
         downedText = GameObject.FindWithTag("DownedText").GetComponent<TextMeshProUGUI>();
         downedText.enabled = false;
@@ -76,11 +84,12 @@ public class SCR_GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(playerHealthScript.curHealth <=0 & playerDeath == false)
+       highScoreText.SetText("High Score: " + PlayerPrefs.GetFloat("HighScore", 0));
+
+        if (Input.GetKeyDown(KeyCode.Q))
         {
-            playerDeathSFX.Play();
-            playerDeath = true;
-            playerDeathFX.SetActive(true);
+            Debug.Log("Open New Scene");
+            SceneManager.LoadScene("UpgradeShop");
         }
 
         Debug.Log(lastLevel.ToString() + " is the last level.");
