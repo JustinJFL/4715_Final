@@ -49,10 +49,6 @@ public class SCR_GameManager : MonoBehaviour
         }
         else
             Destroy(gameObject);
-
-        DontDestroyOnLoad(GameObject.Find("CameraTarget"));
-        DontDestroyOnLoad(GameObject.FindWithTag("HUD"));
-        DontDestroyOnLoad(GameObject.Find("EventSystem"));
     }
 
     // Start is called before the first frame update
@@ -114,7 +110,7 @@ public class SCR_GameManager : MonoBehaviour
         }
         if(SceneManager.GetActiveScene().name == "GameOver")
         {
-            GameObject.FindWithTag("HUD").GetComponent<Canvas>().enabled = false;
+            //GameObject.FindWithTag("HUD").GetComponent<Canvas>().enabled = false;
         }
     }
 
