@@ -171,9 +171,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1796a3d272d514248805b10260a88d43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  storePoints: 0
+  totalPoints: 0
+  actualTotalPoints: 0
   pickupPoints: 1
+  groupAlert: 0
   scoreText: {fileID: 0}
+  highScoreText: {fileID: 0}
   playerDeathSFX: {fileID: 7359206590898777019}
+  levelTwoPlayerSpawn: {fileID: 351903289022045399, guid: 390bbfde5f0933041a4fe94f8b321718,
+    type: 3}
+  playerDeathFX: {fileID: 0}
+  lastLevel: 0
 --- !u!1 &8377353629866627446
 GameObject:
   m_ObjectHideFlags: 0
