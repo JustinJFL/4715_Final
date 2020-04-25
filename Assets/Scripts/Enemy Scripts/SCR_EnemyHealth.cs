@@ -76,7 +76,7 @@ public class SCR_EnemyHealth : MonoBehaviour
                 float posX = transform.position.x + Random.Range(-2, 2);
                 float posZ = transform.position.z + Random.Range(-2, 2);
                 Instantiate(pickup, new Vector3(posX, transform.position.y + .5f, posZ), Quaternion.identity);
-                Instantiate(enemyDownedObject, new Vector3(posX, transform.position.y+1, posZ), Quaternion.identity);
+                Instantiate(enemyDownedObject, new Vector3(posX, transform.position.y, posZ), Quaternion.identity);
                 Instantiate(enemyDeathEffects,transform.position,transform.rotation);
             }
             //Instantiate(enemyDeathEffects,transform.position,transform.rotation);
