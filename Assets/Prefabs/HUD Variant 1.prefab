@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 303388645094480451}
   m_Layer: 5
   m_Name: Energy Ring
-  m_TagString: Untagged
+  m_TagString: EnergyImage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 303388645824412839}
   m_Layer: 5
   m_Name: Health Ring
-  m_TagString: Untagged
+  m_TagString: HealthImage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -161,7 +161,7 @@ GameObject:
   - component: {fileID: 1676595358515952189}
   m_Layer: 5
   m_Name: HUD Variant 1
-  m_TagString: Untagged
+  m_TagString: HUD
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -281,7 +281,7 @@ GameObject:
   - component: {fileID: 303388646901716108}
   m_Layer: 5
   m_Name: Score
-  m_TagString: Untagged
+  m_TagString: ScoreText
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4559,8 +4559,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'When you crush robot heads they''ll drop scrapmetal. You can use this to
-    enhance your own body at the shop!
+  m_text: 'When you crush robot heads they''ll drop scrap metal. You can use this
+    to enhance your own body at the shop!
 
 '
   m_isRightToLeft: 0
@@ -4632,10 +4632,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: -263.47748, w: 0}
   m_textInfo:
     textComponent: {fileID: 3760486204463553863}
-    characterCount: 107
+    characterCount: 108
     spriteCount: 0
-    spaceCount: 20
-    wordCount: 20
+    spaceCount: 21
+    wordCount: 21
     linkCount: 0
     lineCount: 3
     pageCount: 1

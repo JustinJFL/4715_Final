@@ -29,6 +29,10 @@ public class SCR_GameManager : MonoBehaviour
 
     private TextMeshProUGUI downedText;
 
+    public int lastLevel;
+
+    private int level2Loaded = 0;
+
     private void Awake()
     {
         if (Instance == null)
@@ -39,7 +43,9 @@ public class SCR_GameManager : MonoBehaviour
         else
             Destroy(gameObject);
 
-        
+        DontDestroyOnLoad(GameObject.Find("CameraTarget"));
+        DontDestroyOnLoad(GameObject.FindWithTag("HUD"));
+        DontDestroyOnLoad(GameObject.Find("EventSystem"));
     }
 
     // Start is called before the first frame update
@@ -81,23 +87,30 @@ public class SCR_GameManager : MonoBehaviour
             Debug.Log("Open New Scene");
             SceneManager.LoadScene("UpgradeShop");
         }
-        else if(Input.GetKeyDown(KeyCode.RightControl))
-        {
-            PlayerPrefs.DeleteKey("HighScore");
-            Debug.Log("High Score Reset");
-        }
 
-        if(player != null)
+        Debug.Log(lastLevel.ToString() + " is the last level.");
+    
+
+        if(SceneManager.GetActiveScene().name == "Level 2" && level2Loaded < 2)
         {
-            if(playerHealthScript.curHealth <=0 && playerDeath == false)
+            level2Loaded++;
+            if(level2Loaded == 1)
             {
-                playerDeathSFX.Play();
-                playerDeath = true;
-                playerDeathFX.SetActive(true);
+                GameObject.FindWithTag("HUD").GetComponent<Canvas>().enabled = true;
+                playerHealthScript.curHealth = 100;
+                playerHealthScript.curEnergy = 100;
+                UpdateTotalPoints(0);
             }
+            else
+            {
+                Debug.Log("Level 2 is loaded" + level2Loaded);
+            }
+            
         }
-
-
+        if(SceneManager.GetActiveScene().name == "GameOver")
+        {
+            GameObject.FindWithTag("HUD").GetComponent<Canvas>().enabled = false;
+        }
     }
 
     public void UpdateTotalPoints(float points)

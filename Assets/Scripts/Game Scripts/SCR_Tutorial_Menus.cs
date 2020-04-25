@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class SCR_Tutorial_Menus : MonoBehaviour
 {
@@ -32,6 +33,8 @@ public class SCR_Tutorial_Menus : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(SceneManager.GetActiveScene().name == "BlockMesh")
+        {
         Debug.Log("Pop up index is: " + popUpIndex);
         for (int i = 0; i < popUps.Length; i++)
         {
@@ -89,7 +92,12 @@ public class SCR_Tutorial_Menus : MonoBehaviour
         {
             popUpIndex = 8;
         }
+        }
 
+        else
+        {
+            Debug.Log("Didn't load tutorial because it's not level 1");
+        }
     }
 
     public void PopUpCounter()

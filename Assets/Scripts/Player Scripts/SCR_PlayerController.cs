@@ -8,7 +8,7 @@ public class SCR_PlayerController : MonoBehaviour
 {
 
     [SerializeField]
-    float speed = 4f;
+    public float speed = 4f;
     Vector3 forward, right;
 
     private Rigidbody playerRigidBody;

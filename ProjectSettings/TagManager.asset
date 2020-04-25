@@ -17,6 +17,8 @@ TagManager:
   - ScoreText
   - EnergyImage
   - HealthImage
+  - UpgradeWindow
+  - HUD
   layers:
   - Default
   - TransparentFX

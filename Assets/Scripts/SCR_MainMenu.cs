@@ -28,7 +28,7 @@ public class SCR_MainMenu : MonoBehaviour
 
     public void Play()
     {
-        SceneManager.LoadScene("Vertical Slice",LoadSceneMode.Single);
+        SceneManager.LoadScene("BlockMesh",LoadSceneMode.Single);
     }
 
     public void Quit()

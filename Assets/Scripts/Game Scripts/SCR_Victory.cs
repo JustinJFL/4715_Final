@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class SCR_Victory : MonoBehaviour
 {
+
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +24,17 @@ public class SCR_Victory : MonoBehaviour
         Debug.Log("testing trigger for victory");
         if(other.gameObject.tag == "Player")
         {
-        SceneManager.LoadScene("ShopMenu", LoadSceneMode.Single);
+            if(SceneManager.GetActiveScene().name == "BlockMesh")
+            {
+                GameObject.FindWithTag("GameController").GetComponent<SCR_GameManager>().lastLevel++;
+                GameObject.FindWithTag("HUD").GetComponent<Canvas>().enabled = false;
+                SceneManager.LoadScene("UpgradeShop", LoadSceneMode.Single);
+            }
+            else if(SceneManager.GetActiveScene().name == "Level 2")
+            {
+                GameObject.FindWithTag("HUD").GetComponent<Canvas>().enabled = false;
+                SceneManager.LoadScene("UpgradeShop", LoadSceneMode.Single);
+            }
         }
     }
 }
