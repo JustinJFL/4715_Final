@@ -9,6 +9,7 @@ using TMPro;
 public class SCR_GameManager : MonoBehaviour
 {
     public static SCR_GameManager Instance;
+    public static GameObject HUD;
     public float storePoints;
 
     [SerializeField]
@@ -52,7 +53,6 @@ public class SCR_GameManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
         }
         else
             Destroy(gameObject);
@@ -113,7 +113,7 @@ public class SCR_GameManager : MonoBehaviour
         if(SceneManager.GetActiveScene().name == "GameOver" 
         || SceneManager.GetActiveScene().name == "MainMenu")
         {
-            //GameObject.FindWithTag("HUD").GetComponent<Canvas>().enabled = false;
+            GameObject.FindWithTag("HUD").GetComponent<Canvas>().enabled = false;
         }
     }
 
@@ -123,6 +123,11 @@ public class SCR_GameManager : MonoBehaviour
         actualTotalPoints += points;
         Debug.Log("Score " + totalPoints);
         scoreText.SetText(totalPoints.ToString() + " Scrap" );
+        if (actualTotalPoints >= PlayerPrefs.GetFloat("HighScore", 0))
+        {
+            PlayerPrefs.SetFloat("HighScore", actualTotalPoints);
+        }
+
     }
     //Call this went subtracting from store points. enter a negative number to subtract.
     public void UpdateStorePoints(float points)
