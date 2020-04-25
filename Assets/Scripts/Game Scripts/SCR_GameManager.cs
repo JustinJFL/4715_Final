@@ -9,7 +9,7 @@ using TMPro;
 public class SCR_GameManager : MonoBehaviour
 {
     public static SCR_GameManager Instance;
-    private float storePoints;
+    public float storePoints;
 
     [SerializeField]
     public float totalPoints = 0;
@@ -84,7 +84,7 @@ public class SCR_GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       highScoreText.SetText("High Score: " + PlayerPrefs.GetFloat("HighScore", 0));
+       //highScoreText.SetText("High Score: " + PlayerPrefs.GetFloat("HighScore", 0));
 
         if (Input.GetKeyDown(KeyCode.Q))
         {

@@ -22,7 +22,6 @@ public class ShopScrapCounter : MonoBehaviour
         CurrentPointsText.SetText("00000");
         CurrentPointsText.ForceMeshUpdate(true);
 
-
         GameObject TotalPoints = this.gameObject.transform.GetChild(3).gameObject;
         TotalPointsText = TotalPoints.GetComponent<TextMeshProUGUI>();
         TotalPointsText.SetText(gameController.GetComponent<SCR_GameManager>().actualTotalPoints.ToString());
@@ -33,6 +32,6 @@ public class ShopScrapCounter : MonoBehaviour
     void Update()
     {
         CurrentPointsText.SetText(gameController.GetComponent<SCR_GameManager>().totalPoints.ToString());
-
+        //
     }
 }
