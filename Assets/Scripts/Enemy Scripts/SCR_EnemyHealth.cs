@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 
 public class SCR_EnemyHealth : MonoBehaviour
 {
-    public SCR_PlayerController playerReferance;
+    public SCR_PlayerController playerReference;
     public int totalHealth;
     //public int takenDamage; // Damage taken from touching player's weapon.
     public GameObject pickup;
@@ -38,7 +38,7 @@ public class SCR_EnemyHealth : MonoBehaviour
             Debug.Log("Player Reference could not be found");
         }
         else
-            playerReferance = movement.GetComponent<SCR_PlayerController>();
+            playerReference = movement.GetComponent<SCR_PlayerController>();
 
         attack = FindObjectOfType<SCR_PlayerCombat>();
         spawner = FindObjectOfType<SCR_Spawner>();

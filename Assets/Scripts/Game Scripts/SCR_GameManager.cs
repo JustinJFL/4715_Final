@@ -12,6 +12,13 @@ public class SCR_GameManager : MonoBehaviour
     public float storePoints;
 
     [SerializeField]
+    public bool upgrade1 = false;
+    [SerializeField]
+    public bool upgrade2 = false;
+    [SerializeField]
+    public bool upgrade3 = false;
+
+    [SerializeField]
     public float totalPoints = 0;
 
     [SerializeField]
@@ -56,7 +63,7 @@ public class SCR_GameManager : MonoBehaviour
     {
         Debug.LogWarning("PRESSING Q WILL OPEN A TEST SCENE THIS IS A FOR DEBUGGING PURPOSES AND MUST BE CHANGED IN THE FINAL BUILD");
         Debug.LogWarning("PRESSING RIGHT CTRL TO RESET HIGH SCORE. CHANGE FOR DEBUGGING PURPOSES");
-        Screen.SetResolution(1920, 1080, true);
+        //Screen.SetResolution(1920, 1080, true);
         Debug.Log("ASS");
 
         //scoreText = GetComponent<TextMeshProUGUI>();
@@ -81,15 +88,10 @@ public class SCR_GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       //highScoreText.SetText("High Score: " + PlayerPrefs.GetFloat("HighScore", 0));
+        highScoreText.SetText("High Score: " + PlayerPrefs.GetFloat("HighScore", 0));
 
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            Debug.Log("Open New Scene");
-            SceneManager.LoadScene("UpgradeShop");
-        }
 
-        Debug.Log(lastLevel.ToString() + " is the last level.");
+        //Debug.Log(lastLevel.ToString() + " is the last level.");
     
 
         if(SceneManager.GetActiveScene().name == "Level 2" && level2Loaded < 2)
@@ -108,7 +110,8 @@ public class SCR_GameManager : MonoBehaviour
             }
             
         }
-        if(SceneManager.GetActiveScene().name == "GameOver")
+        if(SceneManager.GetActiveScene().name == "GameOver" 
+        || SceneManager.GetActiveScene().name == "MainMenu")
         {
             //GameObject.FindWithTag("HUD").GetComponent<Canvas>().enabled = false;
         }
