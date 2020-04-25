@@ -88,13 +88,8 @@ public class SCR_GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       //highScoreText.SetText("High Score: " + PlayerPrefs.GetFloat("HighScore", 0));
+        highScoreText.SetText("High Score: " + PlayerPrefs.GetFloat("HighScore", 0));
 
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            Debug.Log("Open New Scene");
-            SceneManager.LoadScene("UpgradeShop");
-        }
 
         //Debug.Log(lastLevel.ToString() + " is the last level.");
     
