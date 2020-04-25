@@ -38,7 +38,7 @@ public class SCR_EnemyHealth : MonoBehaviour
             Debug.Log("Player Reference could not be found");
         }
         else
-            playerReferance = movement.GetComponent<SCR_PlayerController>();
+            playerReference = movement.GetComponent<SCR_PlayerController>();
 
         attack = FindObjectOfType<SCR_PlayerCombat>();
         spawner = FindObjectOfType<SCR_Spawner>();
