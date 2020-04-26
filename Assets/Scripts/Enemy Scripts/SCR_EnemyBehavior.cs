@@ -14,7 +14,7 @@ public class SCR_EnemyBehavior : MonoBehaviour
     public WanderBoundry wanderLimit;
     public float FieldOfViewAngle = 110f;
     public bool isPlayerSpotted;
-    public Transform player;
+    public GameObject player;
     public float maxDistance;
     public float moveSpeed = 4;
     public float wanderTime;
