@@ -97,5 +97,15 @@ PrefabInstance:
       propertyPath: wanderLimit.zMax
       value: 41
       objectReference: {fileID: 0}
+    - target: {fileID: 6682212678505147993, guid: f7d436f1c76263c4ab1cb7b97592cf3c,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6682212678505147993, guid: f7d436f1c76263c4ab1cb7b97592cf3c,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7d436f1c76263c4ab1cb7b97592cf3c, type: 3}
