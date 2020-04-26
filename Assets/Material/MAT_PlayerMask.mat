@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: MAT_PlayerMask
-  m_Shader: {fileID: 4800000, guid: 20bd3254597e64090a8e8356f6d8a8a9, type: 3}
+  m_Shader: {fileID: 4800000, guid: c74ec0951887c4c3db99c7e29a43f89b, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
