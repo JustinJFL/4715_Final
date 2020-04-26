@@ -91,7 +91,7 @@ public class SCR_PlayerCombat : MonoBehaviour
             LightAttackHitboxCollider.enabled = false;
             HeavyAttackHitboxCollider.enabled = false;
         }
-        
+
         SetToIdle();
     }
 
@@ -112,6 +112,8 @@ public class SCR_PlayerCombat : MonoBehaviour
     }
     void HeavyAttack()
     {
+        if(playerHealth.curEnergy >0)
+        {
         Debug.Log("HEAVY ATTACK!!!");
         if(combatAnimator.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
         {
@@ -123,6 +125,7 @@ public class SCR_PlayerCombat : MonoBehaviour
             playerAttack.damageOnHit = playerAttack.HeavyAttackDamage;
             playerAttackKnockback.knockbackOnHit = playerAttackKnockback.heavyKnockback;
             playerHealth.timeSinceCombat = 0;
+        }
         }
     }
 
