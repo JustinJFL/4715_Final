@@ -105,7 +105,7 @@ public class SCR_GameManager : MonoBehaviour
         if(SceneManager.GetActiveScene().name == "GameOver" 
         || SceneManager.GetActiveScene().name == "MainMenu")
         {
-            GameObject.FindWithTag("HUD").GetComponent<Canvas>().enabled = false;
+            //GameObject.FindWithTag("HUD").GetComponent<Canvas>().enabled = false;
         }
     }
 
