@@ -91,7 +91,7 @@ public class SCR_PlayerCombat : MonoBehaviour
             LightAttackHitboxCollider.enabled = false;
             HeavyAttackHitboxCollider.enabled = false;
         }
-
+        
         SetToIdle();
     }
 

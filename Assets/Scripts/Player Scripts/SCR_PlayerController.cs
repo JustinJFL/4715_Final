@@ -102,7 +102,7 @@ public class SCR_PlayerController : MonoBehaviour
         else if (flamingoAnimator.GetBool("isRunning") == false)
         {
             this.GetComponent<SCR_PlayerLookControls>().enabled = true;
-        }
+        } 
 
     }
 
