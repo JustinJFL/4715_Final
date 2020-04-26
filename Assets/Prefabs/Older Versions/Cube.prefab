@@ -15,7 +15,7 @@ PrefabInstance:
     - target: {fileID: 6682212676993116393, guid: f7d436f1c76263c4ab1cb7b97592cf3c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 34.9
+      value: -8.4
       objectReference: {fileID: 0}
     - target: {fileID: 6682212676993116393, guid: f7d436f1c76263c4ab1cb7b97592cf3c,
         type: 3}
@@ -25,7 +25,7 @@ PrefabInstance:
     - target: {fileID: 6682212676993116393, guid: f7d436f1c76263c4ab1cb7b97592cf3c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -56.5
+      value: -41
       objectReference: {fileID: 0}
     - target: {fileID: 6682212676993116393, guid: f7d436f1c76263c4ab1cb7b97592cf3c,
         type: 3}
@@ -67,6 +67,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7967261405873581524, guid: f7d436f1c76263c4ab1cb7b97592cf3c,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6682212676993116397, guid: f7d436f1c76263c4ab1cb7b97592cf3c,
         type: 3}
       propertyPath: m_Mass
@@ -79,33 +84,56 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6682212676993116398, guid: f7d436f1c76263c4ab1cb7b97592cf3c,
         type: 3}
+      propertyPath: enemyAnimator
+      value: 
+      objectReference: {fileID: 216641101}
+    - target: {fileID: 2510984363799995302, guid: f7d436f1c76263c4ab1cb7b97592cf3c,
+        type: 3}
       propertyPath: wanderLimit.xMin
-      value: -115
+      value: -100
       objectReference: {fileID: 0}
-    - target: {fileID: 6682212676993116398, guid: f7d436f1c76263c4ab1cb7b97592cf3c,
+    - target: {fileID: 2510984363799995302, guid: f7d436f1c76263c4ab1cb7b97592cf3c,
         type: 3}
       propertyPath: wanderLimit.xMax
-      value: 95
+      value: 150
       objectReference: {fileID: 0}
-    - target: {fileID: 6682212676993116398, guid: f7d436f1c76263c4ab1cb7b97592cf3c,
+    - target: {fileID: 2510984363799995302, guid: f7d436f1c76263c4ab1cb7b97592cf3c,
         type: 3}
       propertyPath: wanderLimit.zMin
-      value: -71
+      value: -100
       objectReference: {fileID: 0}
-    - target: {fileID: 6682212676993116398, guid: f7d436f1c76263c4ab1cb7b97592cf3c,
+    - target: {fileID: 2510984363799995302, guid: f7d436f1c76263c4ab1cb7b97592cf3c,
         type: 3}
       propertyPath: wanderLimit.zMax
-      value: 41
+      value: 100
       objectReference: {fileID: 0}
-    - target: {fileID: 6682212678505147993, guid: f7d436f1c76263c4ab1cb7b97592cf3c,
+    - target: {fileID: 2510984363799995302, guid: f7d436f1c76263c4ab1cb7b97592cf3c,
         type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
+      propertyPath: maxDistance
+      value: 0.1
       objectReference: {fileID: 0}
-    - target: {fileID: 6682212678505147993, guid: f7d436f1c76263c4ab1cb7b97592cf3c,
+    - target: {fileID: 2510984363799995302, guid: f7d436f1c76263c4ab1cb7b97592cf3c,
         type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
+      propertyPath: moveSpeed
+      value: 0.01
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 2510984363799995302, guid: f7d436f1c76263c4ab1cb7b97592cf3c,
+        type: 3}
+      propertyPath: wanderTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2510984363799995302, guid: f7d436f1c76263c4ab1cb7b97592cf3c,
+        type: 3}
+      propertyPath: MaxWanderTime
+      value: 2.5
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7967261405536627979, guid: f7d436f1c76263c4ab1cb7b97592cf3c, type: 3}
+    - {fileID: -235499584241291246, guid: f7d436f1c76263c4ab1cb7b97592cf3c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f7d436f1c76263c4ab1cb7b97592cf3c, type: 3}
+--- !u!95 &216641101 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7967261405873581524, guid: f7d436f1c76263c4ab1cb7b97592cf3c,
+    type: 3}
+  m_PrefabInstance: {fileID: 7967261405796598681}
+  m_PrefabAsset: {fileID: 0}

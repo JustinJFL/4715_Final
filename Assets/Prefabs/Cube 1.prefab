@@ -29603,11 +29603,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 0.1
   knockbackForce: 800
-  wanderLimit:
-    xMin: -25
-    xMax: 25
-    zMin: -25
-    zMax: 25
   isPlayerSpotted: 0
   enemyHealthBar: {fileID: 6682212676744388821}
   enemyHealthBarTarget: {fileID: 0}
@@ -29704,14 +29699,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f582df9935644944952fee9fb4b2ad6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wanderLimit:
-    xMin: 0
-    xMax: 0
-    zMin: 0
-    zMax: 0
   FieldOfViewAngle: 110
   isPlayerSpotted: 0
-  player: {fileID: 0}
+  player: {fileID: 7110686583396362297, guid: ab8685ba7f6aacb4baa00e998fcb3b72, type: 3}
   maxDistance: 0
   moveSpeed: 4
   wanderTime: 0
