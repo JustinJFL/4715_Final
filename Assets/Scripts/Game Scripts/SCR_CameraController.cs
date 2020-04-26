@@ -4,18 +4,21 @@ using UnityEngine;
 
 public class SCR_CameraController : MonoBehaviour
 {
-    public Transform playerTrans;
+    private Transform playerTrans;
     public float smooth = .5f;
     private Vector3 playerCameraOffset;
+    public Transform Obstruction;
     float zoomSpeed = 2f;
 
     public bool screenshakeBool;
+
 
     // Start is called before the first frame update
     void Start()
     {
         playerTrans = GameObject.FindWithTag("Player").GetComponent<Transform>();
         screenshakeBool = this.gameObject.GetComponent<Animator>().GetBool("Screenshake");
+        Obstruction = playerTrans;
         playerCameraOffset = transform.position - playerTrans.position;
     }
 

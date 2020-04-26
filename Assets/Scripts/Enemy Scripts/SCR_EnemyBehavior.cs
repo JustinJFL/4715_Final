@@ -20,23 +20,23 @@ public class SCR_EnemyBehavior : MonoBehaviour
     public float wanderTime;
     public float MaxWanderTime;
 
-    public SCR_StateMachine<SCR_EnemyBehavior> stateMachine { get; set; }
+    //public SCR_StateMachine<SCR_EnemyBehavior> stateMachine { get; set; }
 
     private RaycastHit hit;
     // Start is called before the first frame update
     void Start()
     {
         isPlayerSpotted = false;
-        stateMachine = new SCR_StateMachine<SCR_EnemyBehavior>(this);
-        stateMachine.ChangeState(SCR_WanderState.Instance);
+        //stateMachine = new SCR_StateMachine<SCR_EnemyBehavior>(this);
+        //stateMachine.ChangeState(SCR_WanderState.Instance);
     }
 
     // Update is called once per frame
     void Update()
     {
         Chase();
-        //Wander();
-        stateMachine.Update();
+        Wander();
+        //stateMachine.Update();
     }
     public void Wander()
     {
@@ -62,6 +62,7 @@ public class SCR_EnemyBehavior : MonoBehaviour
     }
     void Chase()
     {
+        Debug.Log("Turning...");
         Vector3 direction = player.transform.position - transform.position;
         float angle = Vector3.Angle(direction, transform.forward);
 

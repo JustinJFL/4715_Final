@@ -16,6 +16,9 @@ public class SCR_PlayerCombat : MonoBehaviour
     public GameObject LightAttackHitbox;
     public GameObject HeavyAttackHitbox;
 
+    private Collider LightAttackHitboxCollider;
+    private Collider HeavyAttackHitboxCollider;
+
     [System.Serializable]
     public class Attack
     {
@@ -56,8 +59,14 @@ public class SCR_PlayerCombat : MonoBehaviour
         playerRigidBody = GetComponent<Rigidbody>();
         combatAnimator = GetComponent<Animator>();
         playerHealth = GetComponent<SCR_PlayerHealth>();
-        LightAttackHitbox.gameObject.SetActive(false);
-        HeavyAttackHitbox.gameObject.SetActive(false);
+        //LightAttackHitbox.gameObject.SetActive(false);
+        //HeavyAttackHitbox.gameObject.SetActive(false);
+
+        LightAttackHitboxCollider = LightAttackHitbox.GetComponent<Collider>();
+        HeavyAttackHitboxCollider = HeavyAttackHitbox.GetComponent<Collider>();
+        
+        LightAttackHitboxCollider.enabled = false;
+        HeavyAttackHitboxCollider.enabled = false;
     }
 
     // Update is called once per frame
@@ -77,8 +86,10 @@ public class SCR_PlayerCombat : MonoBehaviour
         if(combatAnimator.GetCurrentAnimatorStateInfo(0).IsName("Run") 
         && combatAnimator.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
         {
-            LightAttackHitbox.gameObject.SetActive(false);
-            HeavyAttackHitbox.gameObject.SetActive(false);
+            //LightAttackHitbox.gameObject.SetActive(false);
+            //HeavyAttackHitbox.gameObject.SetActive(false);
+            LightAttackHitboxCollider.enabled = false;
+            HeavyAttackHitboxCollider.enabled = false;
         }
 
         SetToIdle();
@@ -90,7 +101,8 @@ public class SCR_PlayerCombat : MonoBehaviour
         if (combatAnimator.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
         {
             combatAnimator.SetBool("LightAttack", true);
-            LightAttackHitbox.gameObject.SetActive(true);
+            //LightAttackHitbox.gameObject.SetActive(true);
+            LightAttackHitboxCollider.enabled = true;
             SetToIdle();
             isAttacking = true;
             playerAttack.damageOnHit = playerAttack.SwipeAttackDamage;
@@ -104,7 +116,8 @@ public class SCR_PlayerCombat : MonoBehaviour
         if(combatAnimator.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
         {
             combatAnimator.SetBool("HeavyAttack", true);
-            HeavyAttackHitbox.gameObject.SetActive(true);
+            //HeavyAttackHitbox.gameObject.SetActive(true);
+            HeavyAttackHitboxCollider.enabled = true;
             SetToIdle();
             //isAttacking = true;
             playerAttack.damageOnHit = playerAttack.HeavyAttackDamage;
@@ -120,14 +133,16 @@ public class SCR_PlayerCombat : MonoBehaviour
         {
             combatAnimator.SetBool("LightAttack", false);
             //isAttacking = false;
-            LightAttackHitbox.gameObject.SetActive(false);
+            //LightAttackHitbox.gameObject.SetActive(false);
+            LightAttackHitboxCollider.enabled = false;
             //combatAnimator.SetBool("didRightWingAttack", true);
         }
         else if (combatAnimator.GetCurrentAnimatorStateInfo(0).IsName("PeckAttack"))
         {
             combatAnimator.SetBool("HeavyAttack", false);
             //isAttacking = false;
-            HeavyAttackHitbox.gameObject.SetActive(false);
+            //HeavyAttackHitbox.gameObject.SetActive(false);
+            HeavyAttackHitboxCollider.enabled = false;
             //combatAnimator.SetBool("didRightWingAttack", false);
         }
         /*else if (combatAnimator.GetCurrentAnimatorStateInfo(0).IsName("ANIM_Heavy_Attack"))

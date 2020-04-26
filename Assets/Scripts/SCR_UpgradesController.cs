@@ -103,6 +103,7 @@ public class SCR_UpgradesController : MonoBehaviour
         {
             //GameObject.FindWithTag("HUD").GetComponent<Canvas>().enabled = true;
             SceneManager.LoadScene("Level 2", LoadSceneMode.Single);
+            player.transform.position = gameController.GetComponent<SCR_GameManager>().levelTwoPlayerSpawn.transform.position;
         }
 
         else if(lastLevel == 2)
