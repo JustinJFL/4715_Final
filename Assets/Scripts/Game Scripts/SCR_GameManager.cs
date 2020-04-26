@@ -70,16 +70,6 @@ public class SCR_GameManager : MonoBehaviour
         scoreText = GameObject.FindWithTag("ScoreText").GetComponent<TextMeshProUGUI>();
         scoreText.SetText("0 Scrap");
         scoreText.ForceMeshUpdate(true);
-        GameObject player = GameObject.FindWithTag("Player");
-        if (player != null)
-        {
-            Debug.Log("player object found");
-            playerHealthScript = player.GetComponent<SCR_PlayerHealth>();
-        }
-        else
-        {
-            Debug.Log("player object not found");
-        }
 
         downedText = GameObject.FindWithTag("DownedText").GetComponent<TextMeshProUGUI>();
         downedText.enabled = false;

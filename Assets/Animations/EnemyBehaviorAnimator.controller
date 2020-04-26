@@ -20,7 +20,7 @@ AnimatorStateMachine:
     m_Position: {x: 280, y: 270, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -1318379804723960106}
-    m_Position: {x: 315, y: 335, z: 0}
+    m_Position: {x: 570, y: 330, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 4
+  player: {fileID: 7110686583396362297, guid: ab8685ba7f6aacb4baa00e998fcb3b72, type: 3}
 --- !u!114 &-2941000786498839084
 MonoBehaviour:
   m_ObjectHideFlags: 1

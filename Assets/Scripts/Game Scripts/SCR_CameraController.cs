@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SCR_CameraController : MonoBehaviour
 {
-    public Transform playerTrans;
+    private Transform playerTrans;
     public float smooth = .5f;
     private Vector3 playerCameraOffset;
     public Transform Obstruction;

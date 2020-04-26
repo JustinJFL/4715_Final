@@ -66,9 +66,7 @@ public class SCR_EnemyHealth : MonoBehaviour
         }
     }
     void DeathCheck()
-
     {
-
         if (curHealth <= 0)
         {
             for (int i = 0; i < dropAmount; i++)
