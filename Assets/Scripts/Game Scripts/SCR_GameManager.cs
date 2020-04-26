@@ -88,10 +88,12 @@ public class SCR_GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        highScoreText.SetText("High Score: " + PlayerPrefs.GetFloat("HighScore", 0));
-
-
         //Debug.Log(lastLevel.ToString() + " is the last level.");
+        if(Input.GetKeyDown(KeyCode.RightControl))
+        {
+            Debug.Log("High Score Reset");
+            PlayerPrefs.DeleteKey("HighScore");
+        }
     
 
         if(SceneManager.GetActiveScene().name == "Level 2" && level2Loaded < 2)
