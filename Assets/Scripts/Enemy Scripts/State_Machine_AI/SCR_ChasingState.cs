@@ -7,6 +7,7 @@ public class SCR_ChasingState : StateMachineBehaviour
 {
     public float moveSpeed = 4;
     private NavMeshAgent agent;
+    public GameObject player;
 
     private SCR_EnemyHealth health;
      //OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
@@ -14,13 +15,14 @@ public class SCR_ChasingState : StateMachineBehaviour
     {
         health = animator.GetComponent<SCR_EnemyHealth>();
         agent = animator.GetComponent<NavMeshAgent>();
+        animator.transform.LookAt(player.transform);
     }
 
     //OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        animator.transform.LookAt(GameObject.FindWithTag("Player").transform.position);
-        agent.SetDestination(GameObject.FindGameObjectWithTag("Player").transform.position);
+
+        agent.SetDestination(player.transform.position);
 
         if(health.curHealth <= 0)
         {

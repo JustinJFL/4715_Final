@@ -27,16 +27,17 @@ public class SCR_EnemyBehavior : MonoBehaviour
     void Start()
     {
         isPlayerSpotted = false;
-        stateMachine = new SCR_StateMachine<SCR_EnemyBehavior>(this);
-        stateMachine.ChangeState(SCR_WanderState.Instance);
+        transform.rotation = new Quaternion(0, -90, 0,0);
+        //stateMachine = new SCR_StateMachine<SCR_EnemyBehavior>(this);
+        //stateMachine.ChangeState(SCR_WanderState.Instance);
     }
 
     // Update is called once per frame
     void Update()
     {
-        Chase();
+        //Chase();
         //Wander();
-        stateMachine.Update();
+        //stateMachine.Update();
     }
     public void Wander()
     {

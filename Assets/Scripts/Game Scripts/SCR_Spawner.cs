@@ -12,9 +12,4 @@ public class SCR_Spawner : MonoBehaviour
     public int enemyCount; // Count of the number of enemies spawned
 
     // Start is called before the first frame update
-    void Start()
-    {
-        InvokeRepeating("Spawn", spawnTime, spawnTime);
-    }
-
 }
