@@ -54,6 +54,8 @@ public class SCR_Victory : MonoBehaviour
 
                 DontDestroyOnLoad(GameObject.Find("EventSystem"));
 
+                DontDestroyOnLoad(GameObject.FindWithTag("Player"));
+
                 GameObject.FindWithTag("Tutorial").GetComponent<SCR_Tutorial_Menus>().PopUpCounter();
             }
             else if(SceneManager.GetActiveScene().name == "Level 2")
