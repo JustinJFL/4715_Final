@@ -14,7 +14,7 @@ public class SCR_EnemyBehavior : MonoBehaviour
     public WanderBoundry wanderLimit;
     public float FieldOfViewAngle = 110f;
     public bool isPlayerSpotted;
-    public GameObject player;
+    public Transform player;
     public float maxDistance;
     public float moveSpeed = 4;
     public float wanderTime;
@@ -37,7 +37,8 @@ public class SCR_EnemyBehavior : MonoBehaviour
         Wander();
         if(isPlayerSpotted == true)
         {
-            Chase();
+            transform.LookAt(player.transform.position);
+            transform.position += transform.forward * moveSpeed;
         }
 
     }

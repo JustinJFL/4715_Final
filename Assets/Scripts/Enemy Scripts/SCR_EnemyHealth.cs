@@ -23,7 +23,7 @@ public class SCR_EnemyHealth : MonoBehaviour
 
     public AudioSource playerAttackSFX;
 
-
+    private SCR_EnemyBehavior behavior;
 
     //private SCR_PlayerCombat playerReferance;
 
@@ -42,6 +42,7 @@ public class SCR_EnemyHealth : MonoBehaviour
 
         attack = FindObjectOfType<SCR_PlayerCombat>();
         spawner = FindObjectOfType<SCR_Spawner>();
+        behavior = GetComponent<SCR_EnemyBehavior>();
     }
 
     // Update is called once per frame
@@ -62,6 +63,7 @@ public class SCR_EnemyHealth : MonoBehaviour
             playerAttackSFX.Play();
             curHealth -= attack.playerAttack.damageOnHit;
             enemyHealthBar.size -= (attack.playerAttack.damageOnHit * .01f);
+            behavior.isPlayerSpotted = true;
             DeathCheck();
         }
     }

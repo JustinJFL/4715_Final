@@ -110,12 +110,12 @@ PrefabInstance:
     - target: {fileID: 2510984363799995302, guid: f7d436f1c76263c4ab1cb7b97592cf3c,
         type: 3}
       propertyPath: maxDistance
-      value: 0.1
+      value: 0.07
       objectReference: {fileID: 0}
     - target: {fileID: 2510984363799995302, guid: f7d436f1c76263c4ab1cb7b97592cf3c,
         type: 3}
       propertyPath: moveSpeed
-      value: 0.01
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 2510984363799995302, guid: f7d436f1c76263c4ab1cb7b97592cf3c,
         type: 3}
@@ -127,9 +127,7 @@ PrefabInstance:
       propertyPath: MaxWanderTime
       value: 2.5
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 7967261405536627979, guid: f7d436f1c76263c4ab1cb7b97592cf3c, type: 3}
-    - {fileID: -235499584241291246, guid: f7d436f1c76263c4ab1cb7b97592cf3c, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7d436f1c76263c4ab1cb7b97592cf3c, type: 3}
 --- !u!95 &216641101 stripped
 Animator:
