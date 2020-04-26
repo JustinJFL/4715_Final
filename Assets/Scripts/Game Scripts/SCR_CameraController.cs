@@ -16,6 +16,7 @@ public class SCR_CameraController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        playerTrans = GameObject.FindWithTag("Player").GetComponent<Transform>();
         screenshakeBool = this.gameObject.GetComponent<Animator>().GetBool("Screenshake");
         Obstruction = playerTrans;
         playerCameraOffset = transform.position - playerTrans.position;

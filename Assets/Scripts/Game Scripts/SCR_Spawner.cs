@@ -17,17 +17,4 @@ public class SCR_Spawner : MonoBehaviour
         InvokeRepeating("Spawn", spawnTime, spawnTime);
     }
 
-    void Spawn()
-    {
-        if (playerHealth.curHealth <= 0 || enemyCount >= spawnLimit) // Is there a condition for when the area is "cleared"?
-        {
-            return;
-        }
-
-        int spawnPointIndex = Random.Range(0, spawnPoints.Length);
-        Instantiate(enemy, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
-        enemyCount += 1;
-
-        Debug.Log("Enemies Spawned: " + enemyCount);
-    }
 }

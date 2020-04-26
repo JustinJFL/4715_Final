@@ -497,7 +497,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTrans: {fileID: 684205663}
   smooth: 0.5
-  Obstruction: {fileID: 672119672}
+  Obstruction: {fileID: 0}
   screenshakeBool: 0
 --- !u!95 &355972766
 Animator:
@@ -622,6 +622,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player (1) Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 7864304676576156262, guid: 99a06990e5d2b9644a7e105ce60e8710,
+        type: 3}
+      propertyPath: m_TagString
+      value: Attack
+      objectReference: {fileID: 0}
     - target: {fileID: 419498251888031539, guid: 99a06990e5d2b9644a7e105ce60e8710,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -697,16 +702,6 @@ PrefabInstance:
       propertyPath: curHealth
       value: 100
       objectReference: {fileID: 0}
-    - target: {fileID: 2553847993882560582, guid: 99a06990e5d2b9644a7e105ce60e8710,
-        type: 3}
-      propertyPath: m_TagString
-      value: Attack
-      objectReference: {fileID: 0}
-    - target: {fileID: 7864304676576156262, guid: 99a06990e5d2b9644a7e105ce60e8710,
-        type: 3}
-      propertyPath: m_TagString
-      value: Attack
-      objectReference: {fileID: 0}
     - target: {fileID: 8248092470467225764, guid: 99a06990e5d2b9644a7e105ce60e8710,
         type: 3}
       propertyPath: m_IsTrigger
@@ -716,6 +711,11 @@ PrefabInstance:
       propertyPath: LightAttackHitbox
       value: 
       objectReference: {fileID: 809176573}
+    - target: {fileID: 2553847993882560582, guid: 99a06990e5d2b9644a7e105ce60e8710,
+        type: 3}
+      propertyPath: m_TagString
+      value: Attack
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99a06990e5d2b9644a7e105ce60e8710, type: 3}
 --- !u!1 &661427177
@@ -931,7 +931,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 0, y: 2.24e-43, z: 4.7564e-41, w: 6e-44}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -1035,7 +1035,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!81 &963194226
 AudioListener:
   m_ObjectHideFlags: 0
@@ -1128,46 +1128,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: HUD
-      objectReference: {fileID: 0}
-    - target: {fileID: 1401090925465129967, guid: 26e6434ade791f841871be56bbfb8c27,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 1401090925465129967, guid: 26e6434ade791f841871be56bbfb8c27,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1401090925465129967, guid: 26e6434ade791f841871be56bbfb8c27,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1401090925465129967, guid: 26e6434ade791f841871be56bbfb8c27,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1401090925465129967, guid: 26e6434ade791f841871be56bbfb8c27,
-        type: 3}
-      propertyPath: m_text
-      value: 'Score: '
-      objectReference: {fileID: 0}
-    - target: {fileID: 1401090925465129967, guid: 26e6434ade791f841871be56bbfb8c27,
-        type: 3}
-      propertyPath: m_textInfo.spaceCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1401090925465129967, guid: 26e6434ade791f841871be56bbfb8c27,
-        type: 3}
-      propertyPath: m_fontSize
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 1401090925465129967, guid: 26e6434ade791f841871be56bbfb8c27,
-        type: 3}
-      propertyPath: m_fontSizeBase
-      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 1401090924464097473, guid: 26e6434ade791f841871be56bbfb8c27,
         type: 3}
@@ -1274,6 +1234,46 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1401090925465129967, guid: 26e6434ade791f841871be56bbfb8c27,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401090925465129967, guid: 26e6434ade791f841871be56bbfb8c27,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401090925465129967, guid: 26e6434ade791f841871be56bbfb8c27,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401090925465129967, guid: 26e6434ade791f841871be56bbfb8c27,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401090925465129967, guid: 26e6434ade791f841871be56bbfb8c27,
+        type: 3}
+      propertyPath: m_text
+      value: 'Score: '
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401090925465129967, guid: 26e6434ade791f841871be56bbfb8c27,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401090925465129967, guid: 26e6434ade791f841871be56bbfb8c27,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401090925465129967, guid: 26e6434ade791f841871be56bbfb8c27,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 1401090925465129964, guid: 26e6434ade791f841871be56bbfb8c27,
         type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1345,11 +1345,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cube (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 3614872143284071287, guid: 8886a270b42f13143bd1253cb1ca981f,
-        type: 3}
-      propertyPath: enemyHealthBarTarget
-      value: 
-      objectReference: {fileID: 672119671}
     - target: {fileID: 3614872143284071280, guid: 8886a270b42f13143bd1253cb1ca981f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1405,6 +1400,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3614872143284071287, guid: 8886a270b42f13143bd1253cb1ca981f,
+        type: 3}
+      propertyPath: enemyHealthBarTarget
+      value: 
+      objectReference: {fileID: 672119671}
     - target: {fileID: 3614872143284071281, guid: 8886a270b42f13143bd1253cb1ca981f,
         type: 3}
       propertyPath: playerReferance
