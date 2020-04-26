@@ -31,7 +31,7 @@ public class SCR_Victory : MonoBehaviour
                 SceneManager.LoadScene("UpgradeShop", LoadSceneMode.Single);
                 DontDestroyOnLoad(GameObject.FindWithTag("GameController"));
                 DontDestroyOnLoad(GameObject.Find("CameraTarget"));
-                //DontDestroyOnLoad(GameObject.FindWithTag("HUD"));
+                DontDestroyOnLoad(GameObject.FindWithTag("HUD"));
                 DontDestroyOnLoad(GameObject.Find("EventSystem"));
             }
             else if(SceneManager.GetActiveScene().name == "Level 2")
