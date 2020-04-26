@@ -9,7 +9,7 @@ public class SCR_EnemyController : MonoBehaviour
 {   
     public float moveSpeed = 4;
     public float knockbackForce;
-    public WanderBoundry wanderLimit;
+    //public WanderBoundry wanderLimit;
 
     public bool isPlayerSpotted;
 
@@ -54,11 +54,6 @@ public class SCR_EnemyController : MonoBehaviour
     {
         enemyHealthBar.transform.LookAt(enemyHealthBarTarget.transform.position);
         //transform.LookAt(GameObject.FindWithTag("Player").transform.position);
-
-        transform.position = new Vector3(
-        Mathf.Clamp(transform.position.x, wanderLimit.xMin, wanderLimit.xMax),
-        2.2f,
-        Mathf.Clamp(transform.position.z, wanderLimit.zMin, wanderLimit.zMax));
 
         SetToIdle();
     
