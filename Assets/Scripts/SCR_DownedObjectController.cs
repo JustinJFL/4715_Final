@@ -12,8 +12,9 @@ public class SCR_DownedObjectController : MonoBehaviour
     void Start()
     {
         Destroy(this.gameObject,timeToDestroy);
+
         downedText = GameObject.FindWithTag("DownedText").GetComponent<TextMeshProUGUI>();
-        StartCoroutine(disableText());
+
     }
 
     // Update is called once per frame
@@ -36,11 +37,5 @@ public class SCR_DownedObjectController : MonoBehaviour
         {
             downedText.enabled = false;
         }
-    }
-
-    private IEnumerator disableText()
-    {
-        yield return new WaitForSeconds(timeToDestroy - .1f);
-        downedText.enabled = false;
     }
 }

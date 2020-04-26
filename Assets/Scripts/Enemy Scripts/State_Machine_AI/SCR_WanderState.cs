@@ -44,7 +44,7 @@ public class SCR_WanderState : State<SCR_EnemyBehavior>
     {
         if(owner.isPlayerSpotted)
         {
-            //owner.stateMachine.ChangeState(SCR_ChaseState.Instance);
+            owner.stateMachine.ChangeState(SCR_ChaseState.Instance);
         }
             owner.Wander();
     }

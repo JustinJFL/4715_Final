@@ -6,14 +6,6 @@ using UnityEngine.Animations;
 
 public class SCR_PlayerController : MonoBehaviour
 {
-    public GameObject[] feathers = new GameObject[22];
-    public Material wingMaterial;
-    private Renderer tempFeather;
-
-    public GameObject[] legs = new GameObject[4];
-    public Material legMaterial;
-    private Renderer tempLeg;
-
 
     [SerializeField]
     public float speed = 4f;
@@ -32,8 +24,6 @@ public class SCR_PlayerController : MonoBehaviour
 
     public GameObject instance;
     public GameObject armor;
-
-    
 
 
     private void Awake()
@@ -67,16 +57,7 @@ public class SCR_PlayerController : MonoBehaviour
         else
             Debug.Log("Could not find object with Game Manager");
 
-        //upgrade1
-        putOnBackpack();
 
-        //upgrade2
-        paintLegs();
-
-        //upgrade3
-        paintWings();
-
-     
     }
 
     // Update is called once per frame
@@ -102,39 +83,12 @@ public class SCR_PlayerController : MonoBehaviour
         else if (flamingoAnimator.GetBool("isRunning") == false)
         {
             this.GetComponent<SCR_PlayerLookControls>().enabled = true;
-        } 
+        }
 
-    }
 
-    public void putOnBackpack()
-    {
         if (gameManager.upgrade1)
         {
             armor.SetActive(true);
-        }
-    }
-
-    public void paintWings()
-    {
-        if (gameManager.upgrade3)
-        {
-            foreach (GameObject element in feathers)
-            {
-                tempFeather = element.GetComponent<Renderer>();
-                tempFeather.material = wingMaterial;
-            }
-        }
-    }
-
-    public void paintLegs()
-    {
-        if (gameManager.upgrade2)
-        {
-            foreach (GameObject element in legs)
-            {
-                tempLeg = element.GetComponent<Renderer>();
-                tempLeg.material = legMaterial;
-            }
         }
     }
 

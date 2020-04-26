@@ -20,27 +20,23 @@ public class SCR_EnemyBehavior : MonoBehaviour
     public float wanderTime;
     public float MaxWanderTime;
 
-    //public SCR_StateMachine<SCR_EnemyBehavior> stateMachine { get; set; }
+    public SCR_StateMachine<SCR_EnemyBehavior> stateMachine { get; set; }
 
     private RaycastHit hit;
     // Start is called before the first frame update
     void Start()
     {
         isPlayerSpotted = false;
-
+        stateMachine = new SCR_StateMachine<SCR_EnemyBehavior>(this);
+        stateMachine.ChangeState(SCR_WanderState.Instance);
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        Wander();
-        if(isPlayerSpotted == true)
-        {
-            transform.LookAt(player.transform.position);
-            transform.position += transform.forward * moveSpeed;
-        }
-
+        Chase();
+        //Wander();
+        stateMachine.Update();
     }
     public void Wander()
     {
@@ -55,13 +51,17 @@ public class SCR_EnemyBehavior : MonoBehaviour
             wanderTime = Random.Range(1, MaxWanderTime);
             transform.eulerAngles = new Vector3(0, Random.Range(-360, 360), 0);
         }
-
         transform.position = new Vector3(
             Mathf.Clamp(transform.position.x, wanderLimit.xMin, wanderLimit.xMax),
             4.0f,
             Mathf.Clamp(transform.position.z, wanderLimit.zMin, wanderLimit.zMax));
-
-        Debug.Log("Turning...");
+    }
+    IEnumerator MovementPause()
+    {
+        yield return new WaitForSeconds(1f);
+    }
+    void Chase()
+    {
         Vector3 direction = player.transform.position - transform.position;
         float angle = Vector3.Angle(direction, transform.forward);
 
@@ -70,19 +70,11 @@ public class SCR_EnemyBehavior : MonoBehaviour
             //Debug.Log("Angle test");
             if(Physics.Raycast(transform.position, direction, out hit, maxDistance))
             {
-                Debug.Log("SPOOOOOOTTED");
+                //Debug.Log("SPOOOOOOTTED");
                 isPlayerSpotted = true;
             }
         }
-    }
-    IEnumerator MovementPause()
-    {
-        yield return new WaitForSeconds(1f);
-    }
-    void Chase()
-    {
-        transform.LookAt(player.transform.position);
-        transform.position += transform.forward * moveSpeed;
+        //Debug.DrawLine(transform.position, transform.forward);
     }
 }
 

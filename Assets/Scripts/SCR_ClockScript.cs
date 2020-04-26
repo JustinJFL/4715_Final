@@ -22,17 +22,8 @@ public class SCR_ClockScript : MonoBehaviour
         if (time.Hour >= 12 && time.Minute >=00)
         {
         hour = time.Hour - 12;
-            if(minute<10)
-            {
-                minute = time.Minute;
-                clockText.text = hour + ":0" + minute + " PM";
-            }
-            else
-            {
-                minute = time.Minute;
-                clockText.text = hour + ":" + minute + " PM";
-            }
-
+        minute = time.Minute;
+        clockText.text = hour + ":" + minute + " PM";
 
         }
         else if (time.Hour < 12)
@@ -41,21 +32,13 @@ public class SCR_ClockScript : MonoBehaviour
             {
                 hour = time.Hour + 12;
             }
-            else
-            {
-                hour = time.Hour;        
-            }
-            if(minute <10)
-            {
-                minute = time.Minute;
-                clockText.text = hour + ":0" + minute + " AM";
-            }
-            else
-            {
-                minute = time.Minute;
-                clockText.text = hour + ":" + minute + " AM";
-            }
+        else
+        {
+            hour = time.Hour;        
+        }
+        minute = time.Minute;
 
+        clockText.text = hour + ":" + minute + " AM";
         }
         
     }
