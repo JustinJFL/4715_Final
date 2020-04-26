@@ -17,11 +17,6 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7967261405873581524, guid: f7d436f1c76263c4ab1cb7b97592cf3c,
-        type: 3}
-      propertyPath: m_Avatar
-      value: 
-      objectReference: {fileID: 9000000, guid: 9bbc0e2dd69f9fc408f29a46e2e31b8f, type: 3}
     - target: {fileID: 6682212676993116393, guid: f7d436f1c76263c4ab1cb7b97592cf3c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -77,21 +72,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6682212676993116397, guid: f7d436f1c76263c4ab1cb7b97592cf3c,
-        type: 3}
-      propertyPath: m_Mass
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 6682212676993116397, guid: f7d436f1c76263c4ab1cb7b97592cf3c,
-        type: 3}
-      propertyPath: m_Constraints
-      value: 80
-      objectReference: {fileID: 0}
-    - target: {fileID: 6682212676993116398, guid: f7d436f1c76263c4ab1cb7b97592cf3c,
-        type: 3}
-      propertyPath: enemyAnimator
-      value: 
-      objectReference: {fileID: 216641101}
     - target: {fileID: 2510984363799995302, guid: f7d436f1c76263c4ab1cb7b97592cf3c,
         type: 3}
       propertyPath: wanderLimit.xMin
@@ -132,16 +112,45 @@ PrefabInstance:
       propertyPath: MaxWanderTime
       value: 2.5
       objectReference: {fileID: 0}
-    - target: {fileID: 2510984363799995302, guid: f7d436f1c76263c4ab1cb7b97592cf3c,
+    - target: {fileID: 6181489687706261211, guid: f7d436f1c76263c4ab1cb7b97592cf3c,
         type: 3}
-      propertyPath: player
-      value: 
+      propertyPath: m_LocalPosition.y
+      value: -0.3599999
+      objectReference: {fileID: 0}
+    - target: {fileID: 3783577649760324848, guid: f7d436f1c76263c4ab1cb7b97592cf3c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.4629998
+      objectReference: {fileID: 0}
+    - target: {fileID: 1764243735793472377, guid: f7d436f1c76263c4ab1cb7b97592cf3c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 6682212678505147993, guid: f7d436f1c76263c4ab1cb7b97592cf3c,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6682212678505147993, guid: f7d436f1c76263c4ab1cb7b97592cf3c,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6682212676744388822, guid: f7d436f1c76263c4ab1cb7b97592cf3c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 4270278720518650785, guid: f7d436f1c76263c4ab1cb7b97592cf3c,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5126092613025834691, guid: f7d436f1c76263c4ab1cb7b97592cf3c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.163
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7d436f1c76263c4ab1cb7b97592cf3c, type: 3}
---- !u!95 &216641101 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 7967261405873581524, guid: f7d436f1c76263c4ab1cb7b97592cf3c,
-    type: 3}
-  m_PrefabInstance: {fileID: 7967261405796598681}
-  m_PrefabAsset: {fileID: 0}

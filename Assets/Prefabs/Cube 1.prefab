@@ -29579,13 +29579,13 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6682212676993116399}
   serializedVersion: 2
-  m_Mass: 250
+  m_Mass: 20
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!114 &6682212676993116398
 MonoBehaviour:
@@ -29604,7 +29604,7 @@ MonoBehaviour:
   isPlayerSpotted: 0
   enemyHealthBar: {fileID: 6682212676744388821}
   enemyHealthBarTarget: {fileID: 0}
-  enemyAnimator: {fileID: 4270278720518650785}
+  enemyAnimator: {fileID: 7967261405873581524}
   setToIdle: 0
 --- !u!114 &6682212676993116392
 MonoBehaviour:

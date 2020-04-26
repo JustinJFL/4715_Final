@@ -10,23 +10,22 @@ public class SCR_PlayerMask : MonoBehaviour
 
     void Update()
     {
-        //RaycastHit hit;
+        RaycastHit hit;
 
         //Does the raycast intersect Sphere?
-        //if (Physics.Raycast(camera.transform.position,
-            //(target.transform.position - camera.transform.position).normalized,
-            //out hit, Mathf.Infinity, PlayerMask))
+        if (Physics.Raycast(camera.transform.position,
+            (target.transform.position - camera.transform.position).normalized,
+            out hit, Mathf.Infinity, PlayerMask))
 
             //if it collides with the sphere, scale it to 0
-            //if (hit.collider.gameObject.tag == "spheremask")
-            //{
-                //target.transform.Scale(0, 2);
-            //}
-            //if it does not collide, scale it to 5
-           // else
-            //{
-            //    target.transform.Scale(5, 2);
-            //}
+            if (hit.collider.gameObject.tag == "spheremask")
+            {
+                target.transform.localScale = new Vector3(0f, 0f, 0f);
+            }
+            //if it does not collide, scale it to 10
+            else
+            {
+                target.transform.localScale = new Vector3(10f, 10f, 10f);
+            }
     }
-
-}
+    }

@@ -63,10 +63,10 @@ public class SCR_UpgradesController : MonoBehaviour
 
     public void upgrade1()
     {
-        if (gameController.GetComponent<SCR_GameManager>().totalPoints >= 3 && !gameController.GetComponent<SCR_GameManager>().upgrade1)
+        if (gameController.GetComponent<SCR_GameManager>().totalPoints >= 15 && !gameController.GetComponent<SCR_GameManager>().upgrade1)
         {
             playerHealthScript.takenDamage = 5;
-            gameController.GetComponent<SCR_GameManager>().totalPoints -= 3;
+            gameController.GetComponent<SCR_GameManager>().totalPoints -= 15;
             gameController.GetComponent<SCR_GameManager>().upgrade1 = true;
             playerControllerScript.putOnBackpack();
         }
@@ -75,10 +75,10 @@ public class SCR_UpgradesController : MonoBehaviour
 
     public void upgrade2()
     {
-        if(gameController.GetComponent<SCR_GameManager>().totalPoints >= 4 && !gameController.GetComponent<SCR_GameManager>().upgrade2)
+        if(gameController.GetComponent<SCR_GameManager>().totalPoints >= 20 && !gameController.GetComponent<SCR_GameManager>().upgrade2)
         {
             playerControllerScript.speed = 11;
-            gameController.GetComponent<SCR_GameManager>().totalPoints -= 4;
+            gameController.GetComponent<SCR_GameManager>().totalPoints -= 20;
             gameController.GetComponent<SCR_GameManager>().upgrade2 = true;
             playerControllerScript.paintLegs();
 
@@ -87,11 +87,11 @@ public class SCR_UpgradesController : MonoBehaviour
 
     public void upgrade3()
     {
-        if (gameController.GetComponent<SCR_GameManager>().totalPoints >= 5 && !gameController.GetComponent<SCR_GameManager>().upgrade3)
+        if (gameController.GetComponent<SCR_GameManager>().totalPoints >= 30 && !gameController.GetComponent<SCR_GameManager>().upgrade3)
         {
             playerCombatScript.playerAttack.SwipeAttackDamage = 45;
             playerCombatScript.playerAttack.HeavyAttackDamage = 65;
-            gameController.GetComponent<SCR_GameManager>().totalPoints -= 5;
+            gameController.GetComponent<SCR_GameManager>().totalPoints -= 30;
             gameController.GetComponent<SCR_GameManager>().upgrade3 = true;
             playerControllerScript.paintWings();
         }
