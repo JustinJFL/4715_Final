@@ -11007,7 +11007,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Tip: You can press Y on the controller to skip dialogue.'
+  m_text: 'Tip: You can press Y on the controller or click the X on the window to
+    skip dialogue.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5156c0f37fbc0b047a74dc8c4348f1e1, type: 2}
   m_sharedMaterial: {fileID: 5531412075697339679, guid: 5156c0f37fbc0b047a74dc8c4348f1e1,
@@ -11077,12 +11078,12 @@ MonoBehaviour:
   m_margin: {x: -155.25352, y: 0, z: -86.074135, w: 0}
   m_textInfo:
     textComponent: {fileID: 5564362013485216360}
-    characterCount: 56
+    characterCount: 85
     spriteCount: 0
-    spaceCount: 10
-    wordCount: 11
+    spaceCount: 17
+    wordCount: 18
     linkCount: 0
-    lineCount: 1
+    lineCount: 2
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
