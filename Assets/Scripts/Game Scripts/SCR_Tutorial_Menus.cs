@@ -27,7 +27,7 @@ public class SCR_Tutorial_Menus : MonoBehaviour
         //currencyTutorial.SetActive(false);
         //objectiveTutorial.SetActive(false);
         //healthTutorial.SetActive(false);
-
+        this.gameObject.SetActive(true);
     }
 
     // Update is called once per frame

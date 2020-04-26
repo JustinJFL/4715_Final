@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class SCR_ChasingState : StateMachineBehaviour
 {
     public float moveSpeed = 4;
+    //public SCR_PlayerController player = FindObjectOfType<SCR_PlayerController>();
     private NavMeshAgent agent;
     public GameObject player;
 

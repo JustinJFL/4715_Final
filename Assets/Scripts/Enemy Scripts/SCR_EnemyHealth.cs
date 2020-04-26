@@ -49,7 +49,7 @@ public class SCR_EnemyHealth : MonoBehaviour
     {
         if (curHealth <= 0)
         {
-            //Destroy(gameObject);
+            Destroy(gameObject);
             //spawner.enemyCount -= 1;
             //Spawn an item on enemy's death?
         }
