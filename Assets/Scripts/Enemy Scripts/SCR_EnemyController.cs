@@ -53,14 +53,15 @@ public class SCR_EnemyController : MonoBehaviour
     void Update()
     {
         enemyHealthBar.transform.LookAt(enemyHealthBarTarget.transform.position);
-        transform.LookAt(GameObject.FindWithTag("Player").transform.position);
+        //transform.LookAt(GameObject.FindWithTag("Player").transform.position);
 
         transform.position = new Vector3(
         Mathf.Clamp(transform.position.x, wanderLimit.xMin, wanderLimit.xMax),
         2.2f,
         Mathf.Clamp(transform.position.z, wanderLimit.zMin, wanderLimit.zMax));
+
+        SetToIdle();
     
-        if(setToIdle) SetToIdle();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -85,26 +86,23 @@ public class SCR_EnemyController : MonoBehaviour
         if(collision.gameObject.tag == "Player")
         {
             attackNum = Random.Range(1,4);
-            //enemyAnimator.SetInteger("AttackNum",attackNum);
+            enemyAnimator.SetInteger("AttackNum",attackNum);
             //enemyAnimator.SetInteger("AttackNum",0);
             //setToIdle = true;
 
             if (attackNum == 1)
             {
-                enemyAnimator.SetBool("Attack1",true);
-                SetToIdle();
+                enemyAnimator.SetInteger("AttackNum",1);
             }
 
             else if (attackNum == 2)
             {
-                enemyAnimator.SetBool("Attack2",true);
-                SetToIdle();
+                enemyAnimator.SetInteger("AttackNum",2);
             }
 
             else if (attackNum == 3)
             {
-                enemyAnimator.SetBool("Attack3",true);
-                SetToIdle();
+                enemyAnimator.SetInteger("AttackNum",3);
             }
         }
 
@@ -119,19 +117,19 @@ public class SCR_EnemyController : MonoBehaviour
         {
            // attackNum = 0;
             //enemyAnimator.SetInteger("AttackNum",0);
-            if(enemyAnimator.GetCurrentAnimatorStateInfo(0).IsName("Tail_Attack"))
+            if(enemyAnimator.GetCurrentAnimatorStateInfo(1).IsName("Tail_Attack"))
             {
-                enemyAnimator.SetBool("Attack1",false);
+                enemyAnimator.SetInteger("AttackNum", 0); 
             }
 
-            else if(enemyAnimator.GetCurrentAnimatorStateInfo(0).IsName("Wind_Up"))
+            else if(enemyAnimator.GetCurrentAnimatorStateInfo(1).IsName("Wind_Up"))
             {
-                enemyAnimator.SetBool("Attack2",false);
+                enemyAnimator.SetInteger("AttackNum", 0);
             }
 
-            else if(enemyAnimator.GetCurrentAnimatorStateInfo(0).IsName("Claw_attack"))
+            else if(enemyAnimator.GetCurrentAnimatorStateInfo(1).IsName("Claw_attack"))
             {
-                enemyAnimator.SetBool("Attack3",false);
+                enemyAnimator.SetInteger("AttackNum", 0);
             }
         }
 }
