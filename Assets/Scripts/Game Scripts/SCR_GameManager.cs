@@ -9,6 +9,7 @@ using TMPro;
 public class SCR_GameManager : MonoBehaviour
 {
     public static SCR_GameManager Instance;
+    public static GameObject HUD;
     public float storePoints;
 
     [SerializeField]
@@ -32,6 +33,7 @@ public class SCR_GameManager : MonoBehaviour
     //public Canvas gameHUD;
 
     public AudioSource playerDeathSFX;
+    public Transform levelTwoPlayerSpawn;
 
     private SCR_PlayerHealth playerHealthScript;
     private bool playerDeath = false;
@@ -51,14 +53,9 @@ public class SCR_GameManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
         }
         else
             Destroy(gameObject);
-
-        DontDestroyOnLoad(GameObject.Find("CameraTarget"));
-        DontDestroyOnLoad(GameObject.FindWithTag("HUD"));
-        DontDestroyOnLoad(GameObject.Find("EventSystem"));
     }
 
     // Start is called before the first frame update
@@ -66,23 +63,13 @@ public class SCR_GameManager : MonoBehaviour
     {
         Debug.LogWarning("PRESSING Q WILL OPEN A TEST SCENE THIS IS A FOR DEBUGGING PURPOSES AND MUST BE CHANGED IN THE FINAL BUILD");
         Debug.LogWarning("PRESSING RIGHT CTRL TO RESET HIGH SCORE. CHANGE FOR DEBUGGING PURPOSES");
-        Screen.SetResolution(1920, 1080, true);
+        //Screen.SetResolution(1920, 1080, true);
         Debug.Log("ASS");
 
         //scoreText = GetComponent<TextMeshProUGUI>();
         scoreText = GameObject.FindWithTag("ScoreText").GetComponent<TextMeshProUGUI>();
         scoreText.SetText("0 Scrap");
         scoreText.ForceMeshUpdate(true);
-        GameObject player = GameObject.FindWithTag("Player");
-        if (player != null)
-        {
-            Debug.Log("player object found");
-            playerHealthScript = player.GetComponent<SCR_PlayerHealth>();
-        }
-        else
-        {
-            Debug.Log("player object not found");
-        }
 
         downedText = GameObject.FindWithTag("DownedText").GetComponent<TextMeshProUGUI>();
         downedText.enabled = false;
@@ -91,25 +78,22 @@ public class SCR_GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       //highScoreText.SetText("High Score: " + PlayerPrefs.GetFloat("HighScore", 0));
-
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            Debug.Log("Open New Scene");
-            SceneManager.LoadScene("UpgradeShop");
-        }
-
         //Debug.Log(lastLevel.ToString() + " is the last level.");
+        if(Input.GetKeyDown(KeyCode.RightControl))
+        {
+            Debug.Log("High Score Reset");
+            PlayerPrefs.DeleteKey("HighScore");
+        }
     
 
         if(SceneManager.GetActiveScene().name == "Level 2" && level2Loaded < 2)
         {
-            level2Loaded++;
-            if(level2Loaded == 1)
+            //level2Loaded++;
+            if(level2Loaded == 0)
             {
                 GameObject.FindWithTag("HUD").GetComponent<Canvas>().enabled = true;
-                playerHealthScript.curHealth = 100;
-                playerHealthScript.curEnergy = 100;
+                //playerHealthScript.curHealth = 100;
+                //playerHealthScript.curEnergy = 100;
                 UpdateTotalPoints(0);
             }
             else
@@ -118,9 +102,10 @@ public class SCR_GameManager : MonoBehaviour
             }
             
         }
-        if(SceneManager.GetActiveScene().name == "GameOver")
+        if(SceneManager.GetActiveScene().name == "GameOver" 
+        || SceneManager.GetActiveScene().name == "MainMenu")
         {
-            GameObject.FindWithTag("HUD").GetComponent<Canvas>().enabled = false;
+            //GameObject.FindWithTag("HUD").GetComponent<Canvas>().enabled = false;
         }
     }
 
@@ -130,6 +115,11 @@ public class SCR_GameManager : MonoBehaviour
         actualTotalPoints += points;
         Debug.Log("Score " + totalPoints);
         scoreText.SetText(totalPoints.ToString() + " Scrap" );
+        if (actualTotalPoints >= PlayerPrefs.GetFloat("HighScore", 0))
+        {
+            PlayerPrefs.SetFloat("HighScore", actualTotalPoints);
+        }
+
     }
     //Call this went subtracting from store points. enter a negative number to subtract.
     public void UpdateStorePoints(float points)

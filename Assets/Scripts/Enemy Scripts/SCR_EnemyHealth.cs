@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 
 public class SCR_EnemyHealth : MonoBehaviour
 {
-    public SCR_PlayerController playerReferance;
+    public SCR_PlayerController playerReference;
     public int totalHealth;
     //public int takenDamage; // Damage taken from touching player's weapon.
     public GameObject pickup;
@@ -23,7 +23,7 @@ public class SCR_EnemyHealth : MonoBehaviour
 
     public AudioSource playerAttackSFX;
 
-
+    private SCR_EnemyBehavior behavior;
 
     //private SCR_PlayerCombat playerReferance;
 
@@ -38,10 +38,11 @@ public class SCR_EnemyHealth : MonoBehaviour
             Debug.Log("Player Reference could not be found");
         }
         else
-            playerReferance = movement.GetComponent<SCR_PlayerController>();
+            playerReference = movement.GetComponent<SCR_PlayerController>();
 
         attack = FindObjectOfType<SCR_PlayerCombat>();
         spawner = FindObjectOfType<SCR_Spawner>();
+        behavior = GetComponent<SCR_EnemyBehavior>();
     }
 
     // Update is called once per frame
@@ -49,7 +50,7 @@ public class SCR_EnemyHealth : MonoBehaviour
     {
         if (curHealth <= 0)
         {
-            //Destroy(gameObject);
+            Destroy(gameObject);
             //spawner.enemyCount -= 1;
             //Spawn an item on enemy's death?
         }
@@ -62,13 +63,12 @@ public class SCR_EnemyHealth : MonoBehaviour
             playerAttackSFX.Play();
             curHealth -= attack.playerAttack.damageOnHit;
             enemyHealthBar.size -= (attack.playerAttack.damageOnHit * .01f);
+            behavior.isPlayerSpotted = true;
             DeathCheck();
         }
     }
     void DeathCheck()
-
     {
-
         if (curHealth <= 0)
         {
             for (int i = 0; i < dropAmount; i++)

@@ -17,9 +17,6 @@ public class SCR_UpgradesController : MonoBehaviour
         private SCR_PlayerCombat playerCombatScript;
         private SCR_PlayerController playerControllerScript;
 
-        private bool upgrade1Purchased = false;
-        private bool upgrade2Purchased = false;
-        private bool upgrade3Purchased = false;
 
         public int lastLevel;
 
@@ -66,37 +63,37 @@ public class SCR_UpgradesController : MonoBehaviour
 
     public void upgrade1()
     {
-        if (gameController.GetComponent<SCR_GameManager>().totalPoints >= 3)
+        if (gameController.GetComponent<SCR_GameManager>().totalPoints >= 15 && !gameController.GetComponent<SCR_GameManager>().upgrade1)
         {
             playerHealthScript.takenDamage = 5;
-            upgrade1Purchased = true;
-            gameController.GetComponent<SCR_GameManager>().totalPoints -= 3;
+            gameController.GetComponent<SCR_GameManager>().totalPoints -= 15;
             gameController.GetComponent<SCR_GameManager>().upgrade1 = true;
+            playerControllerScript.putOnBackpack();
         }
         
     }
 
     public void upgrade2()
     {
-        if(gameController.GetComponent<SCR_GameManager>().totalPoints >= 4)
+        if(gameController.GetComponent<SCR_GameManager>().totalPoints >= 20 && !gameController.GetComponent<SCR_GameManager>().upgrade2)
         {
             playerControllerScript.speed = 11;
-            upgrade2Purchased = true;
-            gameController.GetComponent<SCR_GameManager>().totalPoints -= 4;
+            gameController.GetComponent<SCR_GameManager>().totalPoints -= 20;
             gameController.GetComponent<SCR_GameManager>().upgrade2 = true;
+            playerControllerScript.paintLegs();
 
         }
     }
 
     public void upgrade3()
     {
-        if (gameController.GetComponent<SCR_GameManager>().totalPoints >= 5)
+        if (gameController.GetComponent<SCR_GameManager>().totalPoints >= 30 && !gameController.GetComponent<SCR_GameManager>().upgrade3)
         {
             playerCombatScript.playerAttack.SwipeAttackDamage = 45;
             playerCombatScript.playerAttack.HeavyAttackDamage = 65;
-            upgrade3Purchased = true;
-            gameController.GetComponent<SCR_GameManager>().totalPoints -= 5;
+            gameController.GetComponent<SCR_GameManager>().totalPoints -= 30;
             gameController.GetComponent<SCR_GameManager>().upgrade3 = true;
+            playerControllerScript.paintWings();
         }
     }
 
@@ -106,6 +103,7 @@ public class SCR_UpgradesController : MonoBehaviour
         {
             //GameObject.FindWithTag("HUD").GetComponent<Canvas>().enabled = true;
             SceneManager.LoadScene("Level 2", LoadSceneMode.Single);
+            player.transform.position = gameController.GetComponent<SCR_GameManager>().levelTwoPlayerSpawn.transform.position;
         }
 
         else if(lastLevel == 2)

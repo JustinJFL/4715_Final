@@ -11,6 +11,7 @@ public class SCR_PlayerHealth : MonoBehaviour
     public int curHealth;
     public float curEnergy;
     public float regenRate;
+    public float invisibilityTime;
 
     public float energyDecreaseRate = 2;
 
@@ -24,6 +25,8 @@ public class SCR_PlayerHealth : MonoBehaviour
     public AudioSource enemyAttackSFX;
     public AudioSource playerDeathSFX;
     public float timeSinceCombat;
+
+    private bool isRunning = false;
 
     void Start()
     {
@@ -48,7 +51,7 @@ public class SCR_PlayerHealth : MonoBehaviour
 
         if(curHealth <= 0)
         {
-            gameObject.SetActive(false); // Player Dies, made inactive for now. Scene Manager is set for future use.
+            Destroy(this.gameObject); // Player Dies, made inactive for now. Scene Manager is set for future use.
             healthRingImage.sprite = healthSprites[0];
             SceneManager.LoadScene("GameOver",LoadSceneMode.Single);
         }
@@ -93,7 +96,10 @@ public class SCR_PlayerHealth : MonoBehaviour
             //setting the size of the health bar to reflect players current health.
             UpdateHealthSprite();
             timeSinceCombat = 0;
+            if(!isRunning)
+                StartCoroutine(IFrames());
         }
+
     }
 
 //function that slowly degrades energy over time at a rate called in InvokeRepeating in Start function.
@@ -105,5 +111,17 @@ public class SCR_PlayerHealth : MonoBehaviour
     {
         curHealthSprite = (curHealth * 0.1f);
         healthRingImage.sprite = healthSprites[Mathf.RoundToInt(curHealthSprite)];
+    }
+    IEnumerator IFrames()
+    {
+        int temp = 1;
+        temp = takenDamage;
+        takenDamage = 0;
+        isRunning = true;
+        Debug.Log("IFrames On");
+        yield return new WaitForSeconds(invisibilityTime);
+        Debug.Log("IFrames Off");
+        takenDamage = temp;
+        isRunning = false;
     }
 }
