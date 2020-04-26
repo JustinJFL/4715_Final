@@ -98,6 +98,7 @@ public class SCR_Tutorial_Menus : MonoBehaviour
         {
             //Debug.Log("Didn't load tutorial because it's not level 1");
         }
+
     }
 
     public void PopUpCounter()

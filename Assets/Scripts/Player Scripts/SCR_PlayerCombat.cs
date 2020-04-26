@@ -82,16 +82,15 @@ public class SCR_PlayerCombat : MonoBehaviour
             HeavyAttack();
         }
         
-        //Ensures the hitboxes for attacking are disabled while the player is running or idle
-        if(combatAnimator.GetCurrentAnimatorStateInfo(0).IsName("Run") 
-        && combatAnimator.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
+        //Ensures the hitboxes for attacking are disabled while the player is running
+        if(combatAnimator.GetCurrentAnimatorStateInfo(0).IsName("Run"))
         {
             //LightAttackHitbox.gameObject.SetActive(false);
             //HeavyAttackHitbox.gameObject.SetActive(false);
             LightAttackHitboxCollider.enabled = false;
             HeavyAttackHitboxCollider.enabled = false;
         }
-        
+
         SetToIdle();
     }
 
@@ -112,6 +111,8 @@ public class SCR_PlayerCombat : MonoBehaviour
     }
     void HeavyAttack()
     {
+        if(playerHealth.curEnergy >0)
+        {
         Debug.Log("HEAVY ATTACK!!!");
         if(combatAnimator.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
         {
@@ -123,6 +124,7 @@ public class SCR_PlayerCombat : MonoBehaviour
             playerAttack.damageOnHit = playerAttack.HeavyAttackDamage;
             playerAttackKnockback.knockbackOnHit = playerAttackKnockback.heavyKnockback;
             playerHealth.timeSinceCombat = 0;
+        }
         }
     }
 

@@ -37,7 +37,8 @@ public class SCR_EnemyBehavior : MonoBehaviour
         Wander();
         if(isPlayerSpotted == true)
         {
-            Chase();
+            transform.LookAt(player.transform.position);
+            transform.position += transform.forward * moveSpeed;
         }
 
     }
