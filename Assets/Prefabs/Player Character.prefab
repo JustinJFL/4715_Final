@@ -40258,7 +40258,7 @@ MonoBehaviour:
   curHealth: 0
   curEnergy: 0
   regenRate: 1.5
-  energyDecreaseRate: 0.6
+  energyDecreaseRate: 0.4
   healthSprites:
   - {fileID: -7506837466246649620, guid: 00ce2f50c4f33b44c809ddd959a232a3, type: 3}
   - {fileID: 5374940111801354307, guid: 00ce2f50c4f33b44c809ddd959a232a3, type: 3}
@@ -41104,7 +41104,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 92beb237e1d3a7b4d97979ca7db8e042, type: 2}
+      objectReference: {fileID: 2100000, guid: ade0b97f997018a41a64a8e01530e039, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 855fafd571b8e76478e2ba8e9f670e45, type: 3}
 --- !u!4 &8978829676724852322 stripped
