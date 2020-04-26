@@ -16,7 +16,7 @@ public class SCR_Victory : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Q))
+        /*if(Input.GetKeyDown(KeyCode.Q))
         {
                     GameObject.FindWithTag("GameController").GetComponent<SCR_GameManager>().lastLevel++;
                 GameObject.FindWithTag("HUD").GetComponent<Canvas>().enabled = false;
@@ -32,7 +32,7 @@ public class SCR_Victory : MonoBehaviour
 
                 GameObject.FindWithTag("Tutorial").GetComponent<SCR_Tutorial_Menus>().PopUpCounter();
             
-        }
+        }*/
     }
 
     void OnTriggerEnter(Collider other) 
