@@ -67,11 +67,15 @@ public class SCR_EnemyBehavior : MonoBehaviour
 
         if (angle < FieldOfViewAngle * .5f)
         {
-            //Debug.Log("Angle test");
+            Debug.Log("Angle test");
             if(Physics.Raycast(transform.position, direction, out hit, maxDistance))
             {
-                Debug.Log("SPOOOOOOTTED");
-                isPlayerSpotted = true;
+                if(hit.collider.gameObject.tag == "Player")
+                {
+                    Debug.Log("SPOOOOOOTTED");
+                    isPlayerSpotted = true;
+                }
+
             }
         }
     }
