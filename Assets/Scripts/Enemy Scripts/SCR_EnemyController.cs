@@ -9,6 +9,8 @@ public class SCR_EnemyController : MonoBehaviour
 {   
     public float moveSpeed = 4;
     public float knockbackForce;
+    public int AttackMin;
+    public int AttackMax;
     //public WanderBoundry wanderLimit;
 
     public bool isPlayerSpotted;
@@ -80,7 +82,7 @@ public class SCR_EnemyController : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
-            attackNum = Random.Range(1,4);
+            attackNum = Random.Range(AttackMin,AttackMax);
             enemyAnimator.SetInteger("AttackNum",attackNum);
             //enemyAnimator.SetInteger("AttackNum",0);
             //setToIdle = true;

@@ -65,7 +65,7 @@ public class SCR_PowerSap : MonoBehaviour
         Debug.Log("Target drained.");
         isCharging = false;
         player.GetComponent<SCR_PlayerController>().enabled = true;
-        player.GetComponent<SCR_PlayerHealth>().energyDecreaseRate = 2;
+        player.GetComponent<SCR_PlayerHealth>().energyDecreaseRate = 0.6f;
         onEnemy = false;
     }
 
