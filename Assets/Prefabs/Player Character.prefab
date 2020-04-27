@@ -39052,7 +39052,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7988873613952409244}
-  - component: {fileID: 2544574573542901181}
+  - component: {fileID: 4102305338765973582}
   m_Layer: 0
   m_Name: LightAttackHitbox
   m_TagString: Attack
@@ -39074,8 +39074,8 @@ Transform:
   m_Father: {fileID: 6121907153359804970}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &2544574573542901181
-BoxCollider:
+--- !u!136 &4102305338765973582
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -39084,9 +39084,10 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.867667, y: 2.774522, z: 1.7698933}
-  m_Center: {x: 0.053143527, y: 0.8872611, z: 0.0096230665}
+  m_Radius: 1.4432771
+  m_Height: 1.8373812
+  m_Direction: 2
+  m_Center: {x: 0.045246877, y: 0, z: 0.07228807}
 --- !u!1 &4498758209712661286
 GameObject:
   m_ObjectHideFlags: 0
@@ -40369,7 +40370,8 @@ MonoBehaviour:
   curHealth: 0
   curEnergy: 0
   regenRate: 1.5
-  energyDecreaseRate: 0.4
+  invisibilityTime: 1
+  energyDecreaseRate: 0.2
   healthSprites:
   - {fileID: -7506837466246649620, guid: 00ce2f50c4f33b44c809ddd959a232a3, type: 3}
   - {fileID: 5374940111801354307, guid: 00ce2f50c4f33b44c809ddd959a232a3, type: 3}
@@ -40404,8 +40406,8 @@ MonoBehaviour:
   isAttacking: 0
   playerAttack:
     damageOnHit: 100
-    SwipeAttackDamage: 30
-    HeavyAttackDamage: 50
+    SwipeAttackDamage: 25
+    HeavyAttackDamage: 45
   playerAttackKnockback:
     knockbackOnHit: 0
     lightKnockback: 500
@@ -41059,6 +41061,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: M2_Char_FlamingoAnim2
       objectReference: {fileID: 0}
+    - target: {fileID: -5448743739165904381, guid: 855fafd571b8e76478e2ba8e9f670e45,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -5448743739165904381, guid: 855fafd571b8e76478e2ba8e9f670e45,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -5448743739165904381, guid: 855fafd571b8e76478e2ba8e9f670e45,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 855fafd571b8e76478e2ba8e9f670e45,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -41129,26 +41146,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.015
       objectReference: {fileID: 0}
-    - target: {fileID: -5448743739165904381, guid: 855fafd571b8e76478e2ba8e9f670e45,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -5448743739165904381, guid: 855fafd571b8e76478e2ba8e9f670e45,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -5448743739165904381, guid: 855fafd571b8e76478e2ba8e9f670e45,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -6057140222963153312, guid: 855fafd571b8e76478e2ba8e9f670e45,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 7443e02ab3ac42f4c9fda31189e7aa08, type: 2}
     - target: {fileID: 2927572511332919505, guid: 855fafd571b8e76478e2ba8e9f670e45,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -41224,11 +41221,6 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: ade0b97f997018a41a64a8e01530e039, type: 2}
-    - target: {fileID: 6536011595229042661, guid: 855fafd571b8e76478e2ba8e9f670e45,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6499106479403829001, guid: 855fafd571b8e76478e2ba8e9f670e45,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -41274,6 +41266,16 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 37e09fa2f8b41024a93f9e891184606c, type: 2}
+    - target: {fileID: -6057140222963153312, guid: 855fafd571b8e76478e2ba8e9f670e45,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 7443e02ab3ac42f4c9fda31189e7aa08, type: 2}
+    - target: {fileID: 6536011595229042661, guid: 855fafd571b8e76478e2ba8e9f670e45,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1651062367082650294, guid: 855fafd571b8e76478e2ba8e9f670e45,
         type: 3}
       propertyPath: m_Materials.Array.data[0]

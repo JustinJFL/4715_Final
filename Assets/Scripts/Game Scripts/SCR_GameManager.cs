@@ -34,6 +34,7 @@ public class SCR_GameManager : MonoBehaviour
 
     public AudioSource playerDeathSFX;
     public Transform levelTwoPlayerSpawn;
+    public Transform levelThreePlayerSpawn;
 
     private SCR_PlayerHealth playerHealthScript;
     private bool playerDeath = false;
@@ -95,6 +96,7 @@ public class SCR_GameManager : MonoBehaviour
                 //playerHealthScript.curHealth = 100;
                 //playerHealthScript.curEnergy = 100;
                 UpdateTotalPoints(0);
+                level2Loaded++;
             }
             else
             {

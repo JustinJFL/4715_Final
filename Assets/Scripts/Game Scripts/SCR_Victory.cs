@@ -16,7 +16,8 @@ public class SCR_Victory : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*if(Input.GetKeyDown(KeyCode.Q))
+        Debug.Log("PRESSING Q TAKES YOU TO LEVEL 2 PLEASE REMOVE BEFORE BUILD");
+        if(Input.GetKeyDown(KeyCode.Q))
         {
                     GameObject.FindWithTag("GameController").GetComponent<SCR_GameManager>().lastLevel++;
                 GameObject.FindWithTag("HUD").GetComponent<Canvas>().enabled = false;
@@ -32,7 +33,7 @@ public class SCR_Victory : MonoBehaviour
 
                 GameObject.FindWithTag("Tutorial").GetComponent<SCR_Tutorial_Menus>().PopUpCounter();
             
-        }*/
+        }
     }
 
     void OnTriggerEnter(Collider other) 
@@ -58,8 +59,16 @@ public class SCR_Victory : MonoBehaviour
             }
             else if(SceneManager.GetActiveScene().name == "Level 2")
             {
+                GameObject.FindWithTag("GameController").GetComponent<SCR_GameManager>().lastLevel++;
                 GameObject.FindWithTag("HUD").GetComponent<Canvas>().enabled = false;
                 SceneManager.LoadScene("UpgradeShop", LoadSceneMode.Single);
+
+                GameObject.FindWithTag("Tutorial").GetComponent<SCR_Tutorial_Menus>().PopUpCounter();
+            }
+
+            else if(SceneManager.GetActiveScene().name == "Level 3")
+            {
+                SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
             }
         }
     }
