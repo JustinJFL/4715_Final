@@ -95,6 +95,7 @@ public class SCR_GameManager : MonoBehaviour
                 //playerHealthScript.curHealth = 100;
                 //playerHealthScript.curEnergy = 100;
                 UpdateTotalPoints(0);
+                level2Loaded++;
             }
             else
             {
