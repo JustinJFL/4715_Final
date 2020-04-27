@@ -29601,6 +29601,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 0.1
   knockbackForce: 800
+  AttackMin: 1
+  AttackMax: 2
   isPlayerSpotted: 0
   enemyHealthBar: {fileID: 6682212676744388821}
   enemyHealthBarTarget: {fileID: 0}

@@ -29601,6 +29601,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 0.1
   knockbackForce: 800
+  AttackMin: 0
+  AttackMax: 0
   isPlayerSpotted: 0
   enemyHealthBar: {fileID: 6682212676744388821}
   enemyHealthBarTarget: {fileID: 0}
@@ -29638,7 +29640,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6682212676993116399}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 9bbc0e2dd69f9fc408f29a46e2e31b8f, type: 3}
   m_Controller: {fileID: 9100000, guid: 3fa0fc9ddb95fac46aef75bb25590a8a, type: 2}
   m_CullingMode: 0
