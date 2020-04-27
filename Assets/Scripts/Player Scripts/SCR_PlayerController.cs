@@ -30,7 +30,7 @@ public class SCR_PlayerController : MonoBehaviour
     
     public Animator flamingoAnimator;
 
-    public GameObject instance;
+    public static SCR_PlayerController instance;
     public GameObject armor;
 
     
@@ -40,12 +40,13 @@ public class SCR_PlayerController : MonoBehaviour
     {
         if (instance != null)
         {
-            Destroy(GameObject.FindWithTag("Player"));
+            Destroy(gameObject);
             return;
         }
-
-        instance = GameObject.FindWithTag("Player");
-        DontDestroyOnLoad(instance);
+        else
+        {
+            instance = this;
+        }
     }
 
     // Start is called before the first frame update

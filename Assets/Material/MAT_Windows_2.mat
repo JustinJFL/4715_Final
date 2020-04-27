@@ -8,7 +8,11 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: MAT_Windows_2
+<<<<<<< HEAD
+  m_Shader: {fileID: 4800000, guid: 20bd3254597e64090a8e8356f6d8a8a9, type: 3}
+=======
   m_Shader: {fileID: 4800000, guid: f6b77690f8edf9c4094eb72720ed5471, type: 3}
+>>>>>>> 4715_Final_Justin
   m_ShaderKeywords: _EMISSION
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
