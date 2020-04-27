@@ -24036,7 +24036,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3823821594354438296}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.012971163, y: -0.26677907, z: 0.5895}
+  m_LocalPosition: {x: 0.012971163, y: 0.175, z: 0.5895}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8269632520353881217}
@@ -29585,7 +29585,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 84
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!114 &6682212676993116398
 MonoBehaviour:
@@ -29601,7 +29601,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 0.1
   knockbackForce: 800
-  AttackMin: 1
+  AttackMin: 2
   AttackMax: 2
   isPlayerSpotted: 0
   enemyHealthBar: {fileID: 6682212676744388821}
@@ -29669,9 +29669,8 @@ MonoBehaviour:
     zMin: -100
     zMax: 100
   FieldOfViewAngle: 110
-  isPlayerSpotted: 0
-  player: {fileID: 7110686583396362297, guid: ab8685ba7f6aacb4baa00e998fcb3b72, type: 3}
-  maxDistance: 0.3
+  isPlayerSpotted: 1
+  maxDistance: 5
   moveSpeed: 0.05
   wanderTime: 1
   MaxWanderTime: 4
