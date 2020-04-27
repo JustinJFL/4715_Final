@@ -4,10 +4,10 @@ using UnityEngine;
 using StateStuff;
 
 [System.Serializable]
- public class WanderBoundry
- {
-     public float xMin, xMax, zMin, zMax;
- }
+    public class WanderBoundry
+    {
+        public float xMin, xMax, zMin, zMax;
+    }
 
 public class SCR_EnemyBehavior : MonoBehaviour
 {
