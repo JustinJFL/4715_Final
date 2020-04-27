@@ -29638,8 +29638,8 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6682212676993116399}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 9bbc0e2dd69f9fc408f29a46e2e31b8f, type: 3}
   m_Controller: {fileID: 9100000, guid: 3fa0fc9ddb95fac46aef75bb25590a8a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
@@ -29662,17 +29662,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wanderLimit:
-    xMin: 0
-    xMax: 0
-    zMin: 0
-    zMax: 0
+    xMin: -100
+    xMax: 150
+    zMin: -100
+    zMax: 100
   FieldOfViewAngle: 110
   isPlayerSpotted: 0
   player: {fileID: 7110686583396362297, guid: ab8685ba7f6aacb4baa00e998fcb3b72, type: 3}
-  maxDistance: 0
-  moveSpeed: 4
-  wanderTime: 0
-  MaxWanderTime: 0
+  maxDistance: 2
+  moveSpeed: 0.05
+  wanderTime: 5
+  MaxWanderTime: 4
 --- !u!1 &6682212677159789209
 GameObject:
   m_ObjectHideFlags: 0
