@@ -23,10 +23,18 @@ public class SCR_EnemyBehavior : MonoBehaviour
     //public SCR_StateMachine<SCR_EnemyBehavior> stateMachine { get; set; }
 
     private RaycastHit hit;
+    private SCR_PlayerController playerController;
     // Start is called before the first frame update
     void Start()
     {
         isPlayerSpotted = false;
+        GameObject game = GameObject.FindWithTag("Player");
+        if (game != null)
+        {
+            playerController = game.GetComponent<SCR_PlayerController>();
+        }
+        else
+            Debug.LogWarning("PLAYER REFERANCE NOT FOUND");
 
     }
 
@@ -37,7 +45,7 @@ public class SCR_EnemyBehavior : MonoBehaviour
         Wander();
         if(isPlayerSpotted == true)
         {
-            transform.LookAt(player.transform.position);
+            transform.LookAt(playerController.transform.position);
             transform.position += transform.forward * moveSpeed;
         }
 
