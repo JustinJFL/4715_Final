@@ -14,7 +14,7 @@ public class SCR_EnemyBehavior : MonoBehaviour
     public WanderBoundry wanderLimit;
     public float FieldOfViewAngle = 110f;
     public bool isPlayerSpotted;
-    public GameObject player;
+    //public GameObject player;
     public float maxDistance;
     public float moveSpeed = 4;
     public float wanderTime;
@@ -23,10 +23,18 @@ public class SCR_EnemyBehavior : MonoBehaviour
     //public SCR_StateMachine<SCR_EnemyBehavior> stateMachine { get; set; }
 
     private RaycastHit hit;
+    private SCR_PlayerController playerController;
     // Start is called before the first frame update
     void Start()
     {
         isPlayerSpotted = false;
+        GameObject game = GameObject.FindWithTag("Player");
+        if (game != null)
+        {
+            playerController = game.GetComponent<SCR_PlayerController>();
+        }
+        else
+            Debug.LogWarning("PLAYER REFERANCE NOT FOUND");
 
     }
 
@@ -37,7 +45,7 @@ public class SCR_EnemyBehavior : MonoBehaviour
         Wander();
         if(isPlayerSpotted == true)
         {
-            transform.LookAt(player.transform.position);
+            transform.LookAt(playerController.transform.position);
             transform.position += transform.forward * moveSpeed;
         }
 
@@ -62,16 +70,20 @@ public class SCR_EnemyBehavior : MonoBehaviour
             Mathf.Clamp(transform.position.z, wanderLimit.zMin, wanderLimit.zMax));
 
         Debug.Log("Turning...");
-        Vector3 direction = player.transform.position - transform.position;
+        Vector3 direction = playerController.transform.position - transform.position;
         float angle = Vector3.Angle(direction, transform.forward);
 
         if (angle < FieldOfViewAngle * .5f)
         {
-            //Debug.Log("Angle test");
+            Debug.Log("Angle test");
             if(Physics.Raycast(transform.position, direction, out hit, maxDistance))
             {
-                Debug.Log("SPOOOOOOTTED");
-                isPlayerSpotted = true;
+                if(hit.collider.gameObject.tag == "Player")
+                {
+                    Debug.Log("SPOOOOOOTTED");
+                    isPlayerSpotted = true;
+                }
+
             }
         }
     }
@@ -81,7 +93,7 @@ public class SCR_EnemyBehavior : MonoBehaviour
     }
     void Chase()
     {
-        transform.LookAt(player.transform.position);
+        transform.LookAt(playerController.transform.position);
         transform.position += transform.forward * moveSpeed;
     }
 }

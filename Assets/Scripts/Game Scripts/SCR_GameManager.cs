@@ -93,8 +93,8 @@ public class SCR_GameManager : MonoBehaviour
             if(level2Loaded == 0)
             {
                 GameObject.FindWithTag("HUD").GetComponent<Canvas>().enabled = true;
-                //playerHealthScript.curHealth = 100;
-                //playerHealthScript.curEnergy = 100;
+                playerHealthScript.curHealth = 100;
+                playerHealthScript.curEnergy = 100;
                 UpdateTotalPoints(0);
                 level2Loaded++;
             }

@@ -19,7 +19,7 @@ public class SCR_Victory : MonoBehaviour
         Debug.Log("PRESSING Q TAKES YOU TO LEVEL 2 PLEASE REMOVE BEFORE BUILD");
         if(Input.GetKeyDown(KeyCode.Q))
         {
-                    GameObject.FindWithTag("GameController").GetComponent<SCR_GameManager>().lastLevel++;
+                    GameObject.FindWithTag("GameController").GetComponent<SCR_GameManager>().lastLevel+= 2;
                 GameObject.FindWithTag("HUD").GetComponent<Canvas>().enabled = false;
                 SceneManager.LoadScene("UpgradeShop", LoadSceneMode.Single);
 
@@ -68,6 +68,11 @@ public class SCR_Victory : MonoBehaviour
 
             else if(SceneManager.GetActiveScene().name == "Level 3")
             {
+                Destroy(GameObject.FindWithTag("GameController"));
+                Destroy(GameObject.Find("CameraTarget"));
+                Destroy(GameObject.FindWithTag("HUD"));
+                Destroy(GameObject.Find("EventSystem"));
+                Destroy(GameObject.FindWithTag("Player"));
                 SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
             }
         }

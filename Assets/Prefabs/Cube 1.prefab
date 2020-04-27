@@ -29664,7 +29664,7 @@ MonoBehaviour:
   wanderLimit:
     xMin: -100
     xMax: 150
-    zMin: -11
+    zMin: -100
     zMax: 100
   FieldOfViewAngle: 110
   isPlayerSpotted: 0
