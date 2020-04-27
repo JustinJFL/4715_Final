@@ -35,64 +35,78 @@ public class SCR_Tutorial_Menus : MonoBehaviour
     {
         if(SceneManager.GetActiveScene().name == "BlockMesh")
         {
-        //Debug.Log("Pop up index is: " + popUpIndex);
-        for (int i = 0; i < popUps.Length; i++)
-        {
-
-
-            if(i == popUpIndex)
+            //Debug.Log("Pop up index is: " + popUpIndex);
+            for (int i = 0; i < popUps.Length; i++)
             {
-                popUps[i].SetActive(true);
-            }
 
-            else
-            {
-                popUps[i].SetActive(false);
+
+                if(i == popUpIndex)
+                {
+                    popUps[i].SetActive(true);
+                }
+
+                else
+                {
+                    popUps[i].SetActive(false);
+                }
             }
-        }
-        
-        if (popUpIndex == 0)
-        {
-            if (Input.GetAxis("Horizontal") > .8 
-            || Input.GetAxis("Horizontal") <= -.8 
-            || Input.GetAxis("Vertical") > .8 
-            || Input.GetAxis("Vertical") <= -.8)
             
+            if (popUpIndex == 0)
             {
-                popUpIndex++;
+                if (Input.GetAxis("Horizontal") > .8 
+                || Input.GetAxis("Horizontal") <= -.8 
+                || Input.GetAxis("Vertical") > .8 
+                || Input.GetAxis("Vertical") <= -.8)
+                
+                {
+                    popUpIndex++;
+                
+                }
+            }
+
+            if (popUpIndex == 1)
+            {
+                if(Input.GetButtonDown("LightAttack"))
+                {
+                    PopUpCounter();
+                }
+            }
+
+            if (popUpIndex == 2)
+            {
+                if(Input.GetButtonDown("HeavyAttack"))
+                {
+                    PopUpCounter();
+                }
+            }
+
+            if(popUpIndex >2)
+            {
+                if(Input.GetKeyDown(KeyCode.JoystickButton3))
+                {
+                    PopUpCounter();
+                }
+            }
             
-            }
-        }
-
-        if (popUpIndex == 1)
-        {
-            if(Input.GetButtonDown("LightAttack"))
+            if (popUpIndex >8)
             {
-                PopUpCounter();
+                if (SceneManager.GetActiveScene().name == "BlockMesh")
+                {
+                    popUpIndex = 9;
+                }
+
+                else if (SceneManager.GetActiveScene().name == "Level 2")
+                {
+                    popUpIndex = 10;
+                }
+                else if (SceneManager.GetActiveScene().name == "Level 3")
+                {
+                    popUpIndex = 11;
+                }
             }
+            
         }
 
-        if (popUpIndex == 2)
-        {
-            if(Input.GetButtonDown("HeavyAttack"))
-            {
-                PopUpCounter();
-            }
-        }
-
-        if(popUpIndex >2)
-        {
-            if(Input.GetKeyDown(KeyCode.JoystickButton3))
-            {
-                PopUpCounter();
-            }
-        }
-
-        if (popUpIndex >=8)
-        {
-            popUpIndex = 8;
-        }
-        }
 
         else
         {
@@ -100,7 +114,7 @@ public class SCR_Tutorial_Menus : MonoBehaviour
         }
 
     }
-
+    
     public void PopUpCounter()
     {
         popUpIndex++;
@@ -108,7 +122,6 @@ public class SCR_Tutorial_Menus : MonoBehaviour
 
 
     }
-    
 
 
 

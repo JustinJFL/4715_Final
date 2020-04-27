@@ -108,6 +108,18 @@ public class SCR_GameManager : MonoBehaviour
         {
             //GameObject.FindWithTag("HUD").GetComponent<Canvas>().enabled = false;
         }
+
+    }
+
+
+    void FixedUpdate()
+    {
+        if(SceneManager.GetActiveScene().name == "Level 3")
+        {
+            //Destroy(GameObject.Find("Mission lvl 2"));
+            GameObject.Find("Mission lvl 2").GetComponent<TextMeshProUGUI>().SetText("Mission: Defeat the boss and escape!");
+            GameObject.FindWithTag("Tutorial").GetComponent<SCR_Tutorial_Menus>().popUpIndex = 11;
+        }
     }
 
     public void UpdateTotalPoints(float points)

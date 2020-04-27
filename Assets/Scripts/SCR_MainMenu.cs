@@ -16,6 +16,11 @@ public class SCR_MainMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Destroy(GameObject.FindWithTag("GameController"));
+        Destroy(GameObject.Find("CameraTarget"));
+        Destroy(GameObject.FindWithTag("HUD"));
+        //Destroy(GameObject.Find("EventSystem"));
+        Destroy(GameObject.FindWithTag("Player"));
         if(play == true)
         {
             Play();

@@ -48,8 +48,8 @@ public class SCR_Victory : MonoBehaviour
                 GameObject.FindWithTag("GameController").GetComponent<SCR_GameManager>().lastLevel++;
                 GameObject.FindWithTag("HUD").GetComponent<Canvas>().enabled = false;
                 SceneManager.LoadScene("UpgradeShop", LoadSceneMode.Single);
-
-                GameObject.FindWithTag("Tutorial").GetComponent<SCR_Tutorial_Menus>().PopUpCounter();
+                GameObject.FindWithTag("Tutorial").GetComponent<SCR_Tutorial_Menus>().popUpIndex = 11;
+                //GameObject.FindWithTag("Tutorial").GetComponent<SCR_Tutorial_Menus>().PopUpCounter();
             }
 
             else if(SceneManager.GetActiveScene().name == "Level 3")

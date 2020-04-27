@@ -111,6 +111,7 @@ public class SCR_UpgradesController : MonoBehaviour
             player.transform.position = gameController.GetComponent<SCR_GameManager>().levelTwoPlayerSpawn.transform.position;
             playerHealthScript.curEnergy = 100;
             playerHealthScript.curHealth = 100;
+            gameController.GetComponent<SCR_GameManager>().UpdateTotalPoints(0);
         }
 
         else if(lastLevel == 2)
@@ -120,6 +121,8 @@ public class SCR_UpgradesController : MonoBehaviour
             player.transform.position = gameController.GetComponent<SCR_GameManager>().levelThreePlayerSpawn.transform.position;
             playerHealthScript.curEnergy = 100;
             playerHealthScript.curHealth = 100;
+            gameController.GetComponent<SCR_GameManager>().UpdateTotalPoints(0);
+            GameObject.FindWithTag("Tutorial").GetComponent<SCR_Tutorial_Menus>().popUpIndex = 11;
         }
     }
 
