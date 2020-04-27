@@ -14,7 +14,7 @@ public class SCR_EnemyBehavior : MonoBehaviour
     public WanderBoundry wanderLimit;
     public float FieldOfViewAngle = 110f;
     public bool isPlayerSpotted;
-    public GameObject player;
+    //public GameObject player;
     public float maxDistance;
     public float moveSpeed = 4;
     public float wanderTime;
@@ -70,7 +70,7 @@ public class SCR_EnemyBehavior : MonoBehaviour
             Mathf.Clamp(transform.position.z, wanderLimit.zMin, wanderLimit.zMax));
 
         Debug.Log("Turning...");
-        Vector3 direction = player.transform.position - transform.position;
+        Vector3 direction = playerController.transform.position - transform.position;
         float angle = Vector3.Angle(direction, transform.forward);
 
         if (angle < FieldOfViewAngle * .5f)
@@ -93,7 +93,7 @@ public class SCR_EnemyBehavior : MonoBehaviour
     }
     void Chase()
     {
-        transform.LookAt(player.transform.position);
+        transform.LookAt(playerController.transform.position);
         transform.position += transform.forward * moveSpeed;
     }
 }
