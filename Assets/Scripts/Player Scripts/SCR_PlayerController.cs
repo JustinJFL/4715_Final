@@ -76,7 +76,6 @@ public class SCR_PlayerController : MonoBehaviour
         //upgrade3
         paintWings();
 
-     
     }
 
     // Update is called once per frame
@@ -108,6 +107,7 @@ public class SCR_PlayerController : MonoBehaviour
 
     public void putOnBackpack()
     {
+        Debug.Log("PutOnBackpack Called");
         if (gameManager.upgrade1)
         {
             armor.SetActive(true);
