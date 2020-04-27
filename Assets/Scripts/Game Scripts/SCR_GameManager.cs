@@ -66,6 +66,7 @@ public class SCR_GameManager : MonoBehaviour
         Debug.LogWarning("PRESSING RIGHT CTRL TO RESET HIGH SCORE. CHANGE FOR DEBUGGING PURPOSES");
         //Screen.SetResolution(1920, 1080, true);
         Debug.Log("ASS");
+        Time.timeScale = 1;
 
         //scoreText = GetComponent<TextMeshProUGUI>();
         scoreText = GameObject.FindWithTag("ScoreText").GetComponent<TextMeshProUGUI>();
@@ -89,7 +90,7 @@ public class SCR_GameManager : MonoBehaviour
 
         if(SceneManager.GetActiveScene().name == "Level 2" && level2Loaded < 2)
         {
-            //level2Loaded++;
+
             if(level2Loaded == 0)
             {
                 GameObject.FindWithTag("HUD").GetComponent<Canvas>().enabled = true;

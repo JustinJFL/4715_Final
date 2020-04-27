@@ -54,6 +54,7 @@ public class SCR_PlayerController : MonoBehaviour
     {
         //Declaring forward variables to be based off of cameras position
         forward = Camera.main.transform.forward;
+        Time.timeScale = 1;
         forward.y = 0;
         forward = Vector3.Normalize(forward);
         right = Quaternion.Euler(new Vector3(0,90,0))*forward;

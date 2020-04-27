@@ -112,17 +112,17 @@ public class SCR_EnemyController : MonoBehaviour
         {
            // attackNum = 0;
             //enemyAnimator.SetInteger("AttackNum",0);
-            if(enemyAnimator.GetCurrentAnimatorStateInfo(0).IsName("Tail_Attack"))
+            if(enemyAnimator.GetCurrentAnimatorStateInfo(1).IsName("Tail_Attack"))
             {
                 enemyAnimator.SetInteger("AttackNum", 0); 
             }
 
-            else if(enemyAnimator.GetCurrentAnimatorStateInfo(0).IsName("Wind_Up"))
+            else if(enemyAnimator.GetCurrentAnimatorStateInfo(1).IsName("Wind_Up"))
             {
                 enemyAnimator.SetInteger("AttackNum", 0);
             }
 
-            else if(enemyAnimator.GetCurrentAnimatorStateInfo(0).IsName("Claw_attack"))
+            else if(enemyAnimator.GetCurrentAnimatorStateInfo(1).IsName("Claw_attack"))
             {
                 enemyAnimator.SetInteger("AttackNum", 0);
             }

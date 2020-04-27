@@ -29,6 +29,7 @@ public class SCR_MainMenu : MonoBehaviour
     public void Play()
     {
         SceneManager.LoadScene("BlockMesh",LoadSceneMode.Single);
+        Time.timeScale = 1;
     }
 
     public void Quit()
