@@ -34,6 +34,7 @@ public class SCR_GameManager : MonoBehaviour
 
     public AudioSource playerDeathSFX;
     public Transform levelTwoPlayerSpawn;
+    public Transform levelThreePlayerSpawn;
 
     private SCR_PlayerHealth playerHealthScript;
     private bool playerDeath = false;
