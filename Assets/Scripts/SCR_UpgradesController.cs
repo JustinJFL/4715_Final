@@ -34,6 +34,11 @@ public class SCR_UpgradesController : MonoBehaviour
         lastLevel = gameController.GetComponent<SCR_GameManager>().lastLevel;
     }
 
+    private void Update() 
+    {
+        GameObject.FindWithTag("HUD").GetComponent<Canvas>().enabled = false;
+    }
+
     public void upgrade1Variables(bool upgrade1)
     {
         if(upgrade1)
@@ -63,10 +68,10 @@ public class SCR_UpgradesController : MonoBehaviour
 
     public void upgrade1()
     {
-        if (gameController.GetComponent<SCR_GameManager>().totalPoints >= 15 && !gameController.GetComponent<SCR_GameManager>().upgrade1)
+        if (gameController.GetComponent<SCR_GameManager>().totalPoints >= 10 && !gameController.GetComponent<SCR_GameManager>().upgrade1)
         {
             playerHealthScript.takenDamage = 5;
-            gameController.GetComponent<SCR_GameManager>().totalPoints -= 15;
+            gameController.GetComponent<SCR_GameManager>().totalPoints -= 10;
             gameController.GetComponent<SCR_GameManager>().upgrade1 = true;
             playerControllerScript.putOnBackpack();
         }
@@ -75,10 +80,10 @@ public class SCR_UpgradesController : MonoBehaviour
 
     public void upgrade2()
     {
-        if(gameController.GetComponent<SCR_GameManager>().totalPoints >= 20 && !gameController.GetComponent<SCR_GameManager>().upgrade2)
+        if(gameController.GetComponent<SCR_GameManager>().totalPoints >= 15 && !gameController.GetComponent<SCR_GameManager>().upgrade2)
         {
             playerControllerScript.speed = 11;
-            gameController.GetComponent<SCR_GameManager>().totalPoints -= 20;
+            gameController.GetComponent<SCR_GameManager>().totalPoints -= 15;
             gameController.GetComponent<SCR_GameManager>().upgrade2 = true;
             playerControllerScript.paintLegs();
 
@@ -104,6 +109,8 @@ public class SCR_UpgradesController : MonoBehaviour
             //GameObject.FindWithTag("HUD").GetComponent<Canvas>().enabled = true;
             SceneManager.LoadScene("Level 2", LoadSceneMode.Single);
             player.transform.position = gameController.GetComponent<SCR_GameManager>().levelTwoPlayerSpawn.transform.position;
+            playerHealthScript.curEnergy = 100;
+            playerHealthScript.curHealth = 100;
         }
 
         else if(lastLevel == 2)
@@ -111,7 +118,8 @@ public class SCR_UpgradesController : MonoBehaviour
             //GameObject.FindWithTag("HUD").GetComponent<Canvas>().enabled = true;
             SceneManager.LoadScene("Level 3", LoadSceneMode.Single);
             player.transform.position = gameController.GetComponent<SCR_GameManager>().levelThreePlayerSpawn.transform.position;
-
+            playerHealthScript.curEnergy = 100;
+            playerHealthScript.curHealth = 100;
         }
     }
 

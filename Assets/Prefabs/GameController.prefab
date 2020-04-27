@@ -172,6 +172,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   storePoints: 0
+  upgrade1: 0
+  upgrade2: 0
+  upgrade3: 0
   totalPoints: 0
   actualTotalPoints: 0
   pickupPoints: 1
@@ -180,6 +183,8 @@ MonoBehaviour:
   highScoreText: {fileID: 0}
   playerDeathSFX: {fileID: 7359206590898777019}
   levelTwoPlayerSpawn: {fileID: 351903289022045399, guid: 390bbfde5f0933041a4fe94f8b321718,
+    type: 3}
+  levelThreePlayerSpawn: {fileID: 9031920415771947772, guid: ed278ac7d9736554d82f18a06cbe67e3,
     type: 3}
   playerDeathFX: {fileID: 0}
   lastLevel: 0

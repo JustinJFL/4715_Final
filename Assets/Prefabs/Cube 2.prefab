@@ -29621,7 +29621,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerReference: {fileID: 0}
-  totalHealth: 100
+  totalHealth: 150
   pickup: {fileID: 3114822982699482712, guid: ce0e3598b7edbee4fa8dd6f67982099a, type: 3}
   dropAmount: 1
   spawner: {fileID: 0}

@@ -4279,7 +4279,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Upgrade 2 (20 Scrap)
+  m_text: 'Upgrade 2 (15 Scrap)
 
 '
   m_isRightToLeft: 0
@@ -5528,7 +5528,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Upgrade 1 (15 Scrap)
+  m_text: 'Upgrade 1 (10 Scrap)
 
 '
   m_isRightToLeft: 0
