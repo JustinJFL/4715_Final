@@ -26,6 +26,7 @@ public class SCR_UpgradesController : MonoBehaviour
 
     private void Start() 
     {
+        
         player = GameObject.FindWithTag("Player");
         playerHealthScript = player.GetComponent<SCR_PlayerHealth>();
         playerCombatScript = player.GetComponent<SCR_PlayerCombat>();
@@ -38,6 +39,7 @@ public class SCR_UpgradesController : MonoBehaviour
     {
         if(upgrade1)
         {
+            
             upgrade1Description.SetActive(true);
             upgrade1Video.SetActive(true);
         }
@@ -63,6 +65,7 @@ public class SCR_UpgradesController : MonoBehaviour
 
     public void upgrade1()
     {
+        Debug.Log("Upgrade 1 has been pressed");
         if (gameController.GetComponent<SCR_GameManager>().totalPoints >= 15 && !gameController.GetComponent<SCR_GameManager>().upgrade1)
         {
             playerHealthScript.takenDamage = 5;
